@@ -87,6 +87,7 @@ notepad latest-coupons.txt
 
 - 查詢公開頁**不需登入**；真正領券／買 1 元仍要符合新客資格。
 - 1 元活動剩餘庫存公開頁多半查不到；有期間就顯示期間與活動連結。
+- **舊的 `[新客限定1元體驗品]` 商品網址**（如 `giftshop-tw.line.me/products/322419346`、`322498511`、`322528801`）多半是**過去活動留下的頁面**，常顯示「無法購買」，**不是**目前進行中的活動。請以 `landpress` 活動頁＋活動期間為準，不要把舊 product 連結當成現貨。
 - 未知的新 slug 不會自動發明路徑，需手動加入 `slugs.txt`。
 - GitHub 免費帳號的 `schedule` 可能有數分鐘延遲，屬正常現象。
 - 推送 `.github/workflows/*.yml` 需要 `gh` token 含 `workflow` scope。

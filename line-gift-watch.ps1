@@ -195,17 +195,7 @@ function Read-Catalog {
             Write-Log ("讀取 catalog.json 失敗，改用空白目錄: {0}" -f $_.Exception.Message)
         }
     }
-    $seeds = @(
-        [pscustomobject]@{ slug = '7-11_coffee'; productId = '322419346'; title = '[新客限定1元體驗品] 【7-ELEVEN】CITY CAFE熱拿鐵(中)好禮即享券'; campaign = ''; productUrl = 'https://giftshop-tw.line.me/products/322419346'; firstSeen = ''; lastSeen = '' },
-        [pscustomobject]@{ slug = 'family_icecream'; productId = '322498511'; title = '[新客限定1元體驗品] 【全家】 Fami霜淇淋 (口味不限)'; campaign = ''; productUrl = 'https://giftshop-tw.line.me/products/322498511'; firstSeen = ''; lastSeen = '' }
-    )
-    foreach ($seed in $seeds) {
-        $exists = $false
-        foreach ($row in $list) {
-            if ([string]$row.productId -eq $seed.productId) { $exists = $true; break }
-        }
-        if (-not $exists) { $list.Add($seed) }
-    }
+    # 不預置舊的 [新客限定1元體驗品] productId：商品頁常永久存在但顯示「無法購買」
     return ,$list
 }
 
