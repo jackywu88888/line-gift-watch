@@ -405,6 +405,20 @@ def fetch_product(product_id: str) -> ProductInfo:
         )
 
 
+def product_should_display(p: ProductInfo) -> bool:
+    """活動期限內：SALE／售完(OUTOFSTOCK／庫存0)都顯示；CLOSE 等舊檔略過。"""
+    if not p.ok:
+        return False
+    st = (p.sale_status or "").upper()
+    if st in ("CLOSE", "CLOSED", "END", "ENDED", "EXPIRED"):
+        return False
+    if st in ("SALE", "OUTOFSTOCK"):
+        return True
+    if isinstance(p.stock, int) and p.stock == 0:
+        return True
+    return False
+
+
 def fetch_campaign(month: str, slug: str) -> CampaignInfo:
     url = f"{LANDPRESS}/{month}_{slug}/"
     try:
@@ -420,14 +434,19 @@ def fetch_campaign(month: str, slug: str) -> CampaignInfo:
             pid = purl.rstrip("/").split("/")[-1]
             pinfo = fetch_product(pid)
             products.append(pinfo)
-            tag = "BUYABLE" if pinfo.buyable else f"skip/{pinfo.sale_status}"
+            if pinfo.buyable:
+                tag = "BUYABLE"
+            elif product_should_display(pinfo):
+                tag = f"SHOW/{pinfo.sale_status}"
+            else:
+                tag = f"skip/{pinfo.sale_status}"
             safe_print(
                 f"  [product] {tag} stock={pinfo.stock} {pinfo.name} {pinfo.url}"
             )
             time.sleep(0.3)
 
-        # Prefer buyable product links in message; keep all IDs for debugging in state
-        buyable_urls = [p.url for p in products if p.buyable]
+        # 活動期限內：可買與售完(庫存0)都列入推播
+        shown_urls = [p.url for p in products if product_should_display(p)]
         blob = f"{title} {period}"
         if not CAMPAIGN_KEYWORDS.search(blob):
             plain = re.sub(r"<[^>]+>", " ", html)[:4000]
@@ -439,7 +458,7 @@ def fetch_campaign(month: str, slug: str) -> CampaignInfo:
         return CampaignInfo(
             url=url, slug=slug, month=month, title=title or f"{month}_{slug}",
             period=period,
-            product_urls=buyable_urls,
+            product_urls=shown_urls,
             products=products,
             status=status,
             ok=True,
@@ -619,7 +638,7 @@ def format_message(
             if c.period:
                 lines.append(f"⏳ 期間：{c.period}")
             lines.append(f"活動連結：{c.url}")
-            buyable = [p for p in (c.products or []) if p.buyable]
+            buyable = [p for p in (c.products or []) if product_should_display(p)]
             if buyable:
                 lines.append("商品連結：")
                 for p in buyable[:5]:
@@ -633,6 +652,8 @@ def format_message(
                     if price:
                         bit += f" {price}"
                     bit += f" 剩餘庫存 {stock}"
+                    if (p.sale_status or "").upper() == "OUTOFSTOCK" or p.stock == 0:
+                        bit += "（已售完）"
                     lines.append(bit)
                     lines.append(f"  {p.url}")
             lines.append("")
