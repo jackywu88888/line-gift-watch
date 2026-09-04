@@ -459,7 +459,6 @@ def format_message(
             total = "—" if info.total is None else str(info.total)
             claimed = "—" if info.claimed is None else str(info.claimed)
             lines.append(f"🎁 {info.title}")
-            lines.append(f"狀態：{info.status}")
             if info.discount_text:
                 lines.append(f"💰 優惠：{info.discount_text}")
             lines.append(f"發行/已領/剩餘：{total} / {claimed} / {rem}")
