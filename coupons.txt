@@ -5,3 +5,6 @@
 # https://giftshop-tw.line.me/collection/coupon/2548259
 
 2548259
+
+# auto-discovered 2026-09-04T17:21:42.371966+08:00
+2548260
