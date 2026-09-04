@@ -33,6 +33,8 @@ jobs:
           PROBE_AHEAD: ${{ vars.PROBE_AHEAD || '15' }}
           ALWAYS_NOTIFY: ${{ vars.ALWAYS_NOTIFY || '1' }}
           CAMPAIGN_DELAY: ${{ vars.CAMPAIGN_DELAY || '1' }}
+          SCAN_HOME: ${{ vars.SCAN_HOME || '1' }}
+          HOME_DELAY: ${{ vars.HOME_DELAY || '0.25' }}
         run: python watch_coupons.py
 
       - name: Commit updated state

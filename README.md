@@ -2,12 +2,15 @@
 
 台北時間自動檢查 LINE 禮物公開活動，並推播到 Discord（或 LINE）。
 
+來源包含：`coupons.txt` 優惠券、`slugs.txt` landpress 活動頁、以及 **`giftshop-tw.line.me/home` 首頁掃描**。
+
 ## 會抓什麼
 
 | 類型 | 來源 | 剩餘數量 | 推播內容 |
 |------|------|----------|----------|
 | 優惠券 | `giftshop-tw.line.me/collection/coupon/{id}` | ✅ 發行／已領／剩餘 | 名稱、滿額折抵、張數、領取／使用期限、連結 |
-| 1 元／新客活動頁 | `gift-shop.landpress.line.me/{YYYYMM}_{slug}/` | 活動頁本身通常無庫存；**商品頁**可查 `stockQuantity` | 標題、期間、活動連結；並附 **可購買** 商品連結（名稱／價格／剩餘庫存） |
+| 1 元／新客活動頁 | `gift-shop.landpress.line.me/{YYYYMM}_{slug}/` | 活動頁本身通常無庫存；**商品頁**可查 `stockQuantity` | 標題、期間、活動連結；商品名稱／價格／剩餘庫存（售完也顯示 0） |
+| 首頁發現 | `giftshop-tw.line.me/home` | 商品可查庫存；券可查剩餘 | 標題含新客／1元等關鍵字的商品；發現的券 ID／landpress 路徑會寫回清單 |
 
 ### 推播過濾（重要）
 
@@ -29,6 +32,7 @@
   - `7-11_1dollarcafe` → `…/202609_7-11_1dollarcafe/`（9 月初 $1 冰美式）
   - `7-11_breakfast`、`7-11_coffee`、`family_icecream`、`wootea_drinks`、`KFC_Eggtart`、`1point`、`1dollar`
 - 腳本也會從最大券 ID 往後探測 `PROBE_AHEAD` 個新 ID，命中新客／優惠券關鍵字會寫回 `coupons.txt`
+- **首頁掃描**（`SCAN_HOME=1`，預設開啟）：抓 home 上的商品／券／landpress 連結；符合關鍵字的商品進「首頁發現」區塊；新券 ID、新 slug 會自動 append 到清單
 
 ## 排程
 
@@ -59,6 +63,8 @@ Repo：https://github.com/jackywu88888/line-gift-watch
 | `ALWAYS_NOTIFY` | `1` | `1`=每天都推；`0`=有變化才推 |
 | `COUPON_IDS` | （空） | 額外券 ID，逗號分隔 |
 | `CAMPAIGN_DELAY` | `1` | 活動頁請求間隔秒數 |
+| `SCAN_HOME` | `1` | `1`=掃描 giftshop 首頁；`0`=關閉 |
+| `HOME_DELAY` | `0.25` | 首頁商品逐筆查詢間隔秒數 |
 
 2. 依需要編輯 `coupons.txt`、`slugs.txt`（新活動路徑要加進 `slugs.txt`，否則抓不到，例如曾漏的 `7-11_1dollarcafe`）
 3. Actions → **LINE Gift Coupon Watch** → **Run workflow** 測一次
@@ -92,7 +98,8 @@ notepad latest-coupons.txt
 
 - 查詢公開頁**不需登入**；真正領券／買 1 元仍要符合新客資格。
 - 1 元活動剩餘庫存公開頁多半查不到；有期間就顯示期間與活動連結。
-- **舊的 `[新客限定1元體驗品]` 商品網址**（如 `products/322419346`）多半 `saleStatusType=CLOSE`，頁面還在但已結束；腳本會略過，只推 `SALE` 商品。
-- 未知的新 slug 不會自動發明路徑，需手動加入 `slugs.txt`。
+- **舊的 `[新客限定1元體驗品]` 商品網址**（如 `products/322419346`）多半 `saleStatusType=CLOSE`，頁面還在但已結束；腳本會略過，只推 `SALE`／活動期限內的 `OUTOFSTOCK`。
+- 首頁掃描可提高發現率，但仍**無法保證**抓到所有未曝光在 home／已知 slug 的全新 landpress 路徑。
+- 未知的新 slug 若 home 也沒出現，仍需手動加入 `slugs.txt`。
 - GitHub 免費帳號的 `schedule` 可能有數分鐘延遲，屬正常現象。
 - 推送 `.github/workflows/*.yml` 需要 `gh` token 含 `workflow` scope。

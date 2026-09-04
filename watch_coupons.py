@@ -3,8 +3,9 @@
 LINE 禮物優惠券／1元新客活動監控（GitHub Actions 可用）
 
 1) coupons.txt → giftshop-tw collection/coupon/{id}（可查剩餘張數）
-2) slugs.txt → landpress 活動頁（通常無庫存數，至少附活動／商品連結）
-3) 推播 Discord Webhook 與／或 LINE Messaging API
+2) slugs.txt → landpress 活動頁（附活動／可顯示商品連結與庫存）
+3) giftshop-tw /home → 掃描首頁上的新客／1元商品與券連結
+4) 推播 Discord Webhook 與／或 LINE Messaging API
 """
 from __future__ import annotations
 
@@ -28,8 +29,9 @@ SLUG_FILE = ROOT / "slugs.txt"
 STATE_FILE = ROOT / "coupon-state.json"
 REPORT_FILE = ROOT / "latest-coupons.txt"
 LANDPRESS = "https://gift-shop.landpress.line.me"
+HOME_URL = "https://giftshop-tw.line.me/home"
 UA = "Mozilla/5.0 LineGiftCouponWatch/1.0 (+GitHubActions)"
-CAMPAIGN_KEYWORDS = re.compile(r"新朋友|新客|1元|1點|心意禮")
+CAMPAIGN_KEYWORDS = re.compile(r"新朋友|新客|1元|1點|心意禮|體驗品|請客禮")
 
 
 @dataclass
@@ -485,6 +487,88 @@ def fetch_live_campaigns(delay: float = 1.0) -> list[CampaignInfo]:
     return results
 
 
+def scan_home(delay: float = 0.25) -> tuple[list[ProductInfo], list[str], list[str]]:
+    """
+    掃描 giftshop-tw /home：
+    - 回傳符合新客／1元關鍵字且應顯示的商品
+    - 發現的優惠券 collection id
+    - 發現的 landpress 活動路徑（若有）
+    """
+    safe_print(f"[home] fetch {HOME_URL}")
+    code, html = http_get(HOME_URL)
+    if code != 200:
+        safe_print(f"[home] HTTP {code}")
+        return [], [], []
+
+    product_ids = sorted(set(re.findall(r"/products/(\d+)", html)))
+    coupon_ids = sorted(set(
+        re.findall(r"/collection/coupon/(\d+)", html)
+        + re.findall(r"(?<![/\w])coupon/(\d+)", html)
+        + re.findall(r"/coupon/(\d+)", html)
+    ))
+    landpress_paths = sorted(set(re.findall(
+        r"https://gift-shop\.landpress\.line\.me/([0-9]{6}_[A-Za-z0-9_\-]+)/?",
+        html,
+    )))
+    # also bare path fragments
+    landpress_paths += sorted(set(re.findall(r"/([0-9]{6}_[A-Za-z0-9_\-]+)/", html)))
+    landpress_paths = sorted(set(landpress_paths))
+
+    safe_print(
+        f"[home] products={len(product_ids)} coupons={coupon_ids} landpress={landpress_paths}"
+    )
+
+    matched_products: list[ProductInfo] = []
+    for pid in product_ids:
+        p = fetch_product(pid)
+        name = p.name or ""
+        if not CAMPAIGN_KEYWORDS.search(name):
+            safe_print(f"  [home-product] skip-keyword {pid} {name}")
+            time.sleep(delay)
+            continue
+        if not product_should_display(p):
+            safe_print(f"  [home-product] skip/{p.sale_status} {pid} {name}")
+            time.sleep(delay)
+            continue
+        tag = "BUYABLE" if p.buyable else f"SHOW/{p.sale_status}"
+        safe_print(f"  [home-product] {tag} stock={p.stock} {name} {p.url}")
+        matched_products.append(p)
+        time.sleep(delay)
+
+    return matched_products, coupon_ids, landpress_paths
+
+
+def maybe_append_coupon_ids(new_ids: list[str]) -> None:
+    if not new_ids:
+        return
+    existing = set(load_coupon_ids())
+    for cid in new_ids:
+        if cid in existing:
+            continue
+        with COUPON_FILE.open("a", encoding="utf-8") as f:
+            f.write(f"\n# home-discovered {now_tw().isoformat()}\n{cid}\n")
+        safe_print(f"[home] append coupon id {cid}")
+        existing.add(cid)
+
+
+def maybe_append_slugs_from_landpress(paths: list[str]) -> None:
+    """從 home 發現的 202609_xxx 路徑抽出 slug 寫入 slugs.txt。"""
+    if not paths:
+        return
+    known = set(load_slugs())
+    for path in paths:
+        m = re.match(r"(\d{6})_(.+)$", path.strip("/"))
+        if not m:
+            continue
+        slug = m.group(2)
+        if slug in known:
+            continue
+        with SLUG_FILE.open("a", encoding="utf-8") as f:
+            f.write(f"\n# home-discovered {now_tw().isoformat()}\n{slug}\n")
+        safe_print(f"[home] append slug {slug}")
+        known.add(slug)
+
+
 def load_state() -> dict:
     if STATE_FILE.exists():
         try:
@@ -596,6 +680,7 @@ def format_message(
     coupons: list[CouponInfo],
     campaigns: list[CampaignInfo],
     updated_at: str,
+    home_products: Optional[list[ProductInfo]] = None,
 ) -> str:
     lines = ["🎁 LINE禮物追蹤", f"數據更新於：{updated_at}", ""]
 
@@ -638,30 +723,54 @@ def format_message(
             if c.period:
                 lines.append(f"⏳ 期間：{c.period}")
             lines.append(f"活動連結：{c.url}")
-            buyable = [p for p in (c.products or []) if product_should_display(p)]
-            if buyable:
+            shown = [p for p in (c.products or []) if product_should_display(p)]
+            if shown:
                 lines.append("商品連結：")
-                for p in buyable[:5]:
-                    stock = "—" if p.stock is None else str(p.stock)
-                    price = ""
-                    if p.discounted_price is not None:
-                        price = f"${int(p.discounted_price)}"
-                        if p.price is not None and p.price != p.discounted_price:
-                            price += f"（原價${int(p.price)}）"
-                    bit = f"  {p.name}"
-                    if price:
-                        bit += f" {price}"
-                    bit += f" 剩餘庫存 {stock}"
-                    if (p.sale_status or "").upper() == "OUTOFSTOCK" or p.stock == 0:
-                        bit += "（已售完）"
-                    lines.append(bit)
-                    lines.append(f"  {p.url}")
+                for p in shown[:5]:
+                    lines.extend(_format_product_lines(p))
             lines.append("")
     else:
         lines.append("目前沒有偵測到已上線的 1 元／新客活動頁。")
         lines.append("")
 
+    # --- home 發現：排除已在活動頁出現過的商品 ---
+    home_products = home_products or []
+    seen_ids = {
+        p.product_id
+        for c in live
+        for p in (c.products or [])
+        if product_should_display(p)
+    }
+    home_extra = [
+        p for p in home_products
+        if product_should_display(p) and p.product_id not in seen_ids
+    ]
+    lines.append("=== 首頁發現（新客／1元） ===")
+    if home_extra:
+        for p in home_extra[:10]:
+            lines.extend(_format_product_lines(p))
+            lines.append("")
+    else:
+        lines.append("首頁目前沒有額外的新客／1元商品（或已出現在上方活動）。")
+        lines.append("")
+
     return "\n".join(lines).strip() + "\n"
+
+
+def _format_product_lines(p: ProductInfo) -> list[str]:
+    stock = "—" if p.stock is None else str(p.stock)
+    price = ""
+    if p.discounted_price is not None:
+        price = f"${int(p.discounted_price)}"
+        if p.price is not None and p.price != p.discounted_price:
+            price += f"（原價${int(p.price)}）"
+    bit = f"  {p.name}"
+    if price:
+        bit += f" {price}"
+    bit += f" 剩餘庫存 {stock}"
+    if (p.sale_status or "").upper() == "OUTOFSTOCK" or p.stock == 0:
+        bit += "（已售完）"
+    return [bit, f"  {p.url}"]
 
 
 def notify_discord(text: str) -> bool:
@@ -696,9 +805,20 @@ def main() -> int:
     probe_ahead = int(os.environ.get("PROBE_AHEAD", "10"))
     always_notify = os.environ.get("ALWAYS_NOTIFY", "1") == "1"
     campaign_delay = float(os.environ.get("CAMPAIGN_DELAY", "1"))
+    home_delay = float(os.environ.get("HOME_DELAY", "0.25"))
+    scan_home_enabled = os.environ.get("SCAN_HOME", "1") == "1"
 
     ids = load_coupon_ids()
     print(f"configured ids: {ids}", flush=True)
+
+    home_products: list[ProductInfo] = []
+    if scan_home_enabled:
+        home_products, home_coupon_ids, home_landpress = scan_home(delay=home_delay)
+        maybe_append_coupon_ids(home_coupon_ids)
+        maybe_append_slugs_from_landpress(home_landpress)
+        for cid in home_coupon_ids:
+            if cid not in ids:
+                ids.append(cid)
 
     probed = probe_newer_ids(ids, ahead=probe_ahead)
     for p in probed:
@@ -718,7 +838,7 @@ def main() -> int:
     campaigns = fetch_live_campaigns(delay=campaign_delay)
 
     updated_at = now_tw().strftime("%Y年%m月%d日 %H:%M")
-    message = format_message(coupons, campaigns, updated_at)
+    message = format_message(coupons, campaigns, updated_at, home_products=home_products)
     print("--- message ---", flush=True)
     print(message, flush=True)
 
@@ -751,6 +871,17 @@ def main() -> int:
             }
             for c in campaigns if c.ok and c.status == "LIVE"
         },
+        "homeProducts": [
+            {
+                "id": p.product_id,
+                "buyable": p.buyable,
+                "saleStatus": p.sale_status,
+                "stock": p.stock,
+                "name": p.name,
+                "url": p.url,
+            }
+            for p in home_products
+        ],
     }
     changed = snapshot != state.get("last")
     state["last"] = snapshot
