@@ -476,11 +476,10 @@ def format_message(
         c for c in campaigns
         if c.ok and c.status == "LIVE" and not campaign_period_ended(c.period)
     ]
-    lines.append("=== 1元／新客活動頁（通常無法查剩餘數量） ===")
+    lines.append("=== 1元／新客活動頁 ===")
     if live:
         for c in live:
             lines.append(f"🎁 {c.title}")
-            lines.append("剩餘數量：無法查詢（公開頁未提供）")
             if c.period:
                 lines.append(f"⏳ 期間：{c.period}")
             lines.append(f"活動連結：{c.url}")
@@ -488,12 +487,9 @@ def format_message(
                 lines.append("商品連結：")
                 for pu in c.product_urls[:5]:
                     lines.append(f"  {pu}")
-            else:
-                lines.append("商品連結：尚無法從活動頁解析，請從活動連結進入")
             lines.append("")
     else:
         lines.append("目前沒有偵測到已上線的 1 元／新客活動頁。")
-        lines.append("（仍會依 slugs.txt 持續探測）")
         lines.append("")
 
     return "\n".join(lines).strip() + "\n"
