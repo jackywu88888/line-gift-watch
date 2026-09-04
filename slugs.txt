@@ -8,6 +8,3 @@ wootea_drinks
 KFC_Eggtart
 1point
 1dollar
-
-# home-discovered 2026-09-04T22:00:05.269133+08:00
-MannersGift

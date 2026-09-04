@@ -538,30 +538,54 @@ def scan_home(delay: float = 0.25) -> tuple[list[ProductInfo], list[str], list[s
     return matched_products, coupon_ids, landpress_paths
 
 
-def maybe_append_coupon_ids(new_ids: list[str]) -> None:
+def maybe_append_coupon_ids(new_ids: list[str]) -> list[str]:
+    """只留下標題符合新客／1元等關鍵字的券；回傳應納入本輪檢查的 id。"""
+    kept: list[str] = []
     if not new_ids:
-        return
+        return kept
     existing = set(load_coupon_ids())
     for cid in new_ids:
+        info = fetch_coupon(cid)
+        title = info.title or ""
+        if not info.ok or not CAMPAIGN_KEYWORDS.search(title):
+            safe_print(f"[home] skip coupon {cid} title={title}")
+            continue
+        kept.append(cid)
         if cid in existing:
             continue
         with COUPON_FILE.open("a", encoding="utf-8") as f:
             f.write(f"\n# home-discovered {now_tw().isoformat()}\n{cid}\n")
-        safe_print(f"[home] append coupon id {cid}")
+        safe_print(f"[home] append coupon id {cid} title={title}")
         existing.add(cid)
+    return kept
 
 
 def maybe_append_slugs_from_landpress(paths: list[str]) -> None:
-    """從 home 發現的 202609_xxx 路徑抽出 slug 寫入 slugs.txt。"""
+    """從 home 發現的 202609_xxx 路徑抽出 slug；僅在活動標題符合關鍵字時寫入。"""
     if not paths:
         return
     known = set(load_slugs())
+    months = watch_months()
     for path in paths:
         m = re.match(r"(\d{6})_(.+)$", path.strip("/"))
         if not m:
             continue
-        slug = m.group(2)
+        ym, slug = m.group(1), m.group(2)
         if slug in known:
+            continue
+        # prefer current/next month path; else try discovered month
+        check_months = [ym] + [x for x in months if x != ym]
+        matched = False
+        for month in check_months:
+            info = fetch_campaign(month, slug)
+            blob = f"{info.title} {info.period}"
+            if info.ok and info.status in ("LIVE", "OTHER") and CAMPAIGN_KEYWORDS.search(blob):
+                matched = True
+                break
+            if info.status == "DOWN":
+                continue
+        if not matched:
+            safe_print(f"[home] skip slug {slug} (no keyword match)")
             continue
         with SLUG_FILE.open("a", encoding="utf-8") as f:
             f.write(f"\n# home-discovered {now_tw().isoformat()}\n{slug}\n")
@@ -814,9 +838,9 @@ def main() -> int:
     home_products: list[ProductInfo] = []
     if scan_home_enabled:
         home_products, home_coupon_ids, home_landpress = scan_home(delay=home_delay)
-        maybe_append_coupon_ids(home_coupon_ids)
+        kept_home_coupons = maybe_append_coupon_ids(home_coupon_ids)
         maybe_append_slugs_from_landpress(home_landpress)
-        for cid in home_coupon_ids:
+        for cid in kept_home_coupons:
             if cid not in ids:
                 ids.append(cid)
 
