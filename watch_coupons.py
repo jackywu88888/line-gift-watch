@@ -51,6 +51,22 @@ class CouponInfo:
 
 
 @dataclass
+class ProductInfo:
+    product_id: str
+    url: str
+    name: str
+    sale_status: str
+    stock: Optional[int]
+    price: Optional[float]
+    discounted_price: Optional[float]
+    sale_start: str
+    sale_end: str
+    buyable: bool
+    ok: bool
+    error: str = ""
+
+
+@dataclass
 class CampaignInfo:
     url: str
     slug: str
@@ -58,6 +74,7 @@ class CampaignInfo:
     title: str
     period: str
     product_urls: list[str]
+    products: list[ProductInfo]
     status: str  # LIVE / DOWN / OTHER
     ok: bool
     error: str = ""
@@ -269,6 +286,28 @@ def watch_months() -> list[str]:
     return [now.strftime("%Y%m"), nxt.strftime("%Y%m")]
 
 
+def extract_product_ids(html: str) -> list[str]:
+    """From landpress HTML: giftshop products + LIFF voucher links."""
+    ids: list[str] = []
+
+    def add(pid: str) -> None:
+        if pid and pid.isdigit() and pid not in ids:
+            ids.append(pid)
+
+    for mid in re.finditer(
+        r"https?://(?:giftshop-tw\.line\.me|liff\.line\.me/[^/\s\"'\\]+)/products/(\d+)",
+        html,
+    ):
+        add(mid.group(1))
+    for mid in re.finditer(r"/products/(\d+)", html):
+        add(mid.group(1))
+    for mid in re.finditer(r"https?://liff\.line\.me/[^/\s\"'\\]+/voucher/(\d+)", html):
+        add(mid.group(1))
+    for mid in re.finditer(r"voucher/(\d{6,})", html):
+        add(mid.group(1))
+    return ids
+
+
 def extract_campaign_meta(html: str) -> tuple[str, str, list[str]]:
     title = ""
     m = re.search(r'property="og:title"\s+content="([^"]+)"', html)
@@ -290,22 +329,80 @@ def extract_campaign_meta(html: str) -> tuple[str, str, list[str]]:
     if pm:
         period = pm.group(1).strip()
 
-    product_urls: list[str] = []
-    for mid in re.finditer(
-        r"https?://(?:giftshop-tw\.line\.me|liff\.line\.me/[^/\s\"']+)/products/(\d+)",
-        html,
-    ):
-        pid = mid.group(1)
-        purl = f"https://giftshop-tw.line.me/products/{pid}"
-        if purl not in product_urls:
-            product_urls.append(purl)
-    # also bare /products/123
-    for mid in re.finditer(r"/products/(\d+)", html):
-        purl = f"https://giftshop-tw.line.me/products/{mid.group(1)}"
-        if purl not in product_urls:
-            product_urls.append(purl)
-
+    product_ids = extract_product_ids(html)
+    product_urls = [f"https://giftshop-tw.line.me/products/{pid}" for pid in product_ids]
     return title, period, product_urls
+
+
+def fetch_product(product_id: str) -> ProductInfo:
+    """giftshop-tw product page — use saleStatusType (SALE vs CLOSE), not UI「無法購買」."""
+    url = f"https://giftshop-tw.line.me/products/{product_id}"
+    try:
+        code, html = http_get(url)
+        if code != 200:
+            return ProductInfo(
+                product_id=product_id, url=url, name="", sale_status=f"HTTP_{code}",
+                stock=None, price=None, discounted_price=None, sale_start="", sale_end="",
+                buyable=False, ok=False, error=f"HTTP {code}",
+            )
+        m = re.search(r'id="__NUXT_DATA__">(.*?)</script>', html, re.S)
+        if not m:
+            return ProductInfo(
+                product_id=product_id, url=url, name="", sale_status="UNKNOWN",
+                stock=None, price=None, discounted_price=None, sale_start="", sale_end="",
+                buyable=False, ok=False, error="no nuxt",
+            )
+        data = json.loads(m.group(1))
+        root = deref(data, 1)
+        dmap = (root or {}).get("data") or {}
+        payload = None
+        for k, v in dmap.items():
+            if str(product_id) in str(k):
+                payload = v
+                break
+        if payload is None and dmap:
+            payload = next(iter(dmap.values()))
+
+        pe = payload
+        if isinstance(payload, dict) and "productEnd" in payload:
+            pe = payload.get("productEnd")
+        dp = ((pe or {}).get("result") or {}).get("detailProduct") or {}
+        status = str(dp.get("saleStatusType") or "")
+        stock = dp.get("stockQuantity")
+        if not isinstance(stock, int):
+            stock = None
+        name = clean_text(str(dp.get("name") or ""))
+        price = dp.get("price")
+        disc = dp.get("discountedPrice")
+        start = fmt_ts(dp.get("saleStartTimestamp"))
+        end = fmt_ts(dp.get("saleEndTimestamp"))
+
+        now = now_tw()
+        in_window = True
+        st = dp.get("saleStartTimestamp")
+        en = dp.get("saleEndTimestamp")
+        if isinstance(st, (int, float)) and now < datetime.fromtimestamp(st / 1000, TZ):
+            in_window = False
+        if isinstance(en, (int, float)) and now > datetime.fromtimestamp(en / 1000, TZ):
+            in_window = False
+
+        buyable = (
+            status.upper() == "SALE"
+            and in_window
+            and (stock is None or stock > 0)
+        )
+        return ProductInfo(
+            product_id=product_id, url=url, name=name or f"products/{product_id}",
+            sale_status=status or "UNKNOWN", stock=stock, price=price if isinstance(price, (int, float)) else None,
+            discounted_price=disc if isinstance(disc, (int, float)) else None,
+            sale_start=start, sale_end=end, buyable=buyable, ok=True,
+        )
+    except Exception as e:
+        return ProductInfo(
+            product_id=product_id, url=url, name="", sale_status="ERROR",
+            stock=None, price=None, discounted_price=None, sale_start="", sale_end="",
+            buyable=False, ok=False, error=str(e),
+        )
 
 
 def fetch_campaign(month: str, slug: str) -> CampaignInfo:
@@ -315,11 +412,23 @@ def fetch_campaign(month: str, slug: str) -> CampaignInfo:
         if code != 200:
             return CampaignInfo(
                 url=url, slug=slug, month=month, title="", period="",
-                product_urls=[], status="DOWN", ok=True, error=f"HTTP {code}",
+                product_urls=[], products=[], status="DOWN", ok=True, error=f"HTTP {code}",
             )
-        title, period, products = extract_campaign_meta(html)
+        title, period, product_urls = extract_campaign_meta(html)
+        products: list[ProductInfo] = []
+        for purl in product_urls:
+            pid = purl.rstrip("/").split("/")[-1]
+            pinfo = fetch_product(pid)
+            products.append(pinfo)
+            tag = "BUYABLE" if pinfo.buyable else f"skip/{pinfo.sale_status}"
+            safe_print(
+                f"  [product] {tag} stock={pinfo.stock} {pinfo.name} {pinfo.url}"
+            )
+            time.sleep(0.3)
+
+        # Prefer buyable product links in message; keep all IDs for debugging in state
+        buyable_urls = [p.url for p in products if p.buyable]
         blob = f"{title} {period}"
-        # also scan a bit of body text for keywords
         if not CAMPAIGN_KEYWORDS.search(blob):
             plain = re.sub(r"<[^>]+>", " ", html)[:4000]
             blob = f"{blob} {plain}"
@@ -329,12 +438,16 @@ def fetch_campaign(month: str, slug: str) -> CampaignInfo:
             status = "OTHER"
         return CampaignInfo(
             url=url, slug=slug, month=month, title=title or f"{month}_{slug}",
-            period=period, product_urls=products, status=status, ok=True,
+            period=period,
+            product_urls=buyable_urls,
+            products=products,
+            status=status,
+            ok=True,
         )
     except Exception as e:
         return CampaignInfo(
             url=url, slug=slug, month=month, title="", period="",
-            product_urls=[], status="ERROR", ok=False, error=str(e),
+            product_urls=[], products=[], status="ERROR", ok=False, error=str(e),
         )
 
 
@@ -506,10 +619,22 @@ def format_message(
             if c.period:
                 lines.append(f"⏳ 期間：{c.period}")
             lines.append(f"活動連結：{c.url}")
-            if c.product_urls:
+            buyable = [p for p in (c.products or []) if p.buyable]
+            if buyable:
                 lines.append("商品連結：")
-                for pu in c.product_urls[:5]:
-                    lines.append(f"  {pu}")
+                for p in buyable[:5]:
+                    stock = "—" if p.stock is None else str(p.stock)
+                    price = ""
+                    if p.discounted_price is not None:
+                        price = f"${int(p.discounted_price)}"
+                        if p.price is not None and p.price != p.discounted_price:
+                            price += f"（原價${int(p.price)}）"
+                    bit = f"  {p.name}"
+                    if price:
+                        bit += f" {price}"
+                    bit += f" 剩餘庫存 {stock}"
+                    lines.append(bit)
+                    lines.append(f"  {p.url}")
             lines.append("")
     else:
         lines.append("目前沒有偵測到已上線的 1 元／新客活動頁。")
@@ -588,7 +713,21 @@ def main() -> int:
             for i in coupons if i.ok
         },
         "campaigns": {
-            c.url: {"status": c.status, "title": c.title, "products": c.product_urls}
+            c.url: {
+                "status": c.status,
+                "title": c.title,
+                "products": [
+                    {
+                        "id": p.product_id,
+                        "buyable": p.buyable,
+                        "saleStatus": p.sale_status,
+                        "stock": p.stock,
+                        "name": p.name,
+                        "url": p.url,
+                    }
+                    for p in (c.products or [])
+                ],
+            }
             for c in campaigns if c.ok and c.status == "LIVE"
         },
     }
