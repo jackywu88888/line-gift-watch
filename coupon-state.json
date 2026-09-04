@@ -9,8 +9,8 @@
       },
       "2548260": {
         "status": "ISSUING",
-        "remaining": 8711,
-        "claimed": 1289,
+        "remaining": 8631,
+        "claimed": 1369,
         "title": "新客專屬：$90元限量優惠券"
       }
     },
@@ -18,14 +18,46 @@
       "https://gift-shop.landpress.line.me/202609_7-11_breakfast/": {
         "status": "LIVE",
         "title": "LINE禮物｜9月新客$1元 購買/送禮7-11早餐購物金！",
-        "products": []
+        "products": [
+          {
+            "id": "322562444",
+            "buyable": true,
+            "saleStatus": "SALE",
+            "stock": 8000,
+            "name": "[新客限定1元體驗禮]【7-ELEVEN】 超值組合45元超值餐購物金(一次抵用型)",
+            "url": "https://giftshop-tw.line.me/products/322562444"
+          }
+        ]
+      },
+      "https://gift-shop.landpress.line.me/202609_7-11_1dollarcafe/": {
+        "status": "LIVE",
+        "title": "LINE禮物｜9月新客送好友大冰美式咖啡，$1塊請客1+1！",
+        "products": [
+          {
+            "id": "322562441",
+            "buyable": true,
+            "saleStatus": "SALE",
+            "stock": 98,
+            "name": "[新客限定1元請客禮]【7-ELEVEN】 CITY CAFE冰美式(大)",
+            "url": "https://giftshop-tw.line.me/products/322562441"
+          }
+        ]
       },
       "https://gift-shop.landpress.line.me/202609_1point/": {
         "status": "LIVE",
         "title": "LINE禮物｜1點有禮，轉出好運氣",
-        "products": []
+        "products": [
+          {
+            "id": "322558885",
+            "buyable": true,
+            "saleStatus": "SALE",
+            "stock": 157432,
+            "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌6666點！",
+            "url": "https://giftshop-tw.line.me/products/322558885"
+          }
+        ]
       }
     }
   },
-  "updatedAt": "2026-09-04T17:22:02.403228+08:00"
+  "updatedAt": "2026-09-04T17:52:32.127170+08:00"
 }
