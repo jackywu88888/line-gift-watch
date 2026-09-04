@@ -1,6 +1,6 @@
-# LINE Gift Watch — GitHub Actions 每日 00:05（台北）監控
+# LINE Gift Watch — GitHub Actions 每小時監控（台北）
 
-每天台北時間 **00:05** 自動檢查 LINE 禮物公開活動，並推播到 Discord（或 LINE）。
+台北時間自動檢查 LINE 禮物公開活動，並推播到 Discord（或 LINE）。
 
 ## 會抓什麼
 
@@ -33,7 +33,8 @@
 
 `.github/workflows/watch.yml`
 
-- 每天 **台北 00:05**（cron UTC `5 16 * * *`）
+- 台北時間：**00:05**，以及 **01:00～23:00** 每整點（約每小時一次）
+- cron（UTC）：`5 16 * * *` ＋ `0 17-23,0-15 * * *`
 - 也可在 Actions 手動 **Run workflow**
 - 跑完會更新並 commit：`coupon-state.json`、`latest-coupons.txt`（以及探測到的 `coupons.txt`）
 
