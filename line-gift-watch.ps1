@@ -117,6 +117,7 @@ function Get-SlugList {
             'family_icecream',
             '7-11_coffee',
             '7-11_breakfast',
+            '7-11_1dollarcafe',
             'wootea_drinks',
             'KFC_Eggtart',
             '1point',
