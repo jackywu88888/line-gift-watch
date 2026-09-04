@@ -9,15 +9,9 @@
       },
       "2548260": {
         "status": "ISSUING",
-        "remaining": 8237,
-        "claimed": 1763,
+        "remaining": 6716,
+        "claimed": 3284,
         "title": "新客專屬：$90元限量優惠券"
-      },
-      "2548196": {
-        "status": "ISSUING",
-        "remaining": null,
-        "claimed": 6427,
-        "title": "歐舒丹｜秋日煥新禮券"
       }
     },
     "campaigns": {
@@ -57,7 +51,7 @@
             "id": "322558885",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 156894,
+            "stock": 156689,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌6666點！",
             "url": "https://giftshop-tw.line.me/products/322558885"
           }
@@ -75,5 +69,5 @@
       }
     ]
   },
-  "updatedAt": "2026-09-04T22:00:16.145049+08:00"
+  "updatedAt": "2026-09-04T23:52:54.103809+08:00"
 }
