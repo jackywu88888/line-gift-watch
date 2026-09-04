@@ -1,0 +1,25 @@
+{
+  "last": {
+    "coupons": {
+      "2548259": {
+        "status": "EXPIRED",
+        "remaining": 2509,
+        "claimed": 7491,
+        "title": "新客限定：$90元限量優惠券"
+      }
+    },
+    "campaigns": {
+      "https://gift-shop.landpress.line.me/202609_7-11_breakfast/": {
+        "status": "LIVE",
+        "title": "LINE禮物｜9月新客$1元 購買/送禮7-11早餐購物金！",
+        "products": []
+      },
+      "https://gift-shop.landpress.line.me/202609_1point/": {
+        "status": "LIVE",
+        "title": "LINE禮物｜1點有禮，轉出好運氣",
+        "products": []
+      }
+    }
+  },
+  "updatedAt": "2026-09-04T16:13:31.471530+08:00"
+}
