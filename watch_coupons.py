@@ -388,6 +388,54 @@ def probe_newer_ids(base_ids: list[str], ahead: int = 15) -> list[str]:
     return found
 
 
+def parse_tw_dt(text: str) -> Optional[datetime]:
+    """Parse 'YYYY/MM/DD HH:MM' used in coupon fields."""
+    text = (text or "").strip()
+    if not text:
+        return None
+    for fmt in ("%Y/%m/%d %H:%M", "%Y-%m-%d %H:%M", "%Y-%m-%d %H:%M:%S"):
+        try:
+            return datetime.strptime(text, fmt).replace(tzinfo=TZ)
+        except ValueError:
+            continue
+    return None
+
+
+def is_coupon_current(info: CouponInfo, now: Optional[datetime] = None) -> bool:
+    """Only push currently claimable coupons — never EXPIRED / past end time."""
+    if not info.ok:
+        return False
+    status = (info.status or "").upper()
+    if status in ("EXPIRED", "INACTIVE", "DISABLED", "ENDED"):
+        return False
+    now = now or now_tw()
+    for end in (info.issue_end, info.valid_end):
+        dt = parse_tw_dt(end)
+        if dt and now > dt:
+            return False
+    return status in ("ACTIVE", "READY", "ISSUING", "DOWNLOADABLE")
+
+
+def campaign_period_ended(period: str, now: Optional[datetime] = None) -> bool:
+    """Detect ended landpress periods like 2026年09月01日…23:59 - 2026年09月03日…23:59."""
+    if not period:
+        return False
+    now = now or now_tw()
+    m = re.search(
+        r"(\d{4})年(\d{1,2})月(\d{1,2})日.*?23:59\s*$",
+        period.strip(),
+    )
+    # Prefer the end date after the dash
+    parts = re.split(r"\s*[-~～]\s*", period)
+    end_part = parts[-1] if parts else period
+    m = re.search(r"(\d{4})年(\d{1,2})月(\d{1,2})日", end_part)
+    if not m:
+        return False
+    y, mo, d = int(m.group(1)), int(m.group(2)), int(m.group(3))
+    end = datetime(y, mo, d, 23, 59, 59, tzinfo=TZ)
+    return now > end
+
+
 def format_message(
     coupons: list[CouponInfo],
     campaigns: list[CampaignInfo],
@@ -395,9 +443,14 @@ def format_message(
 ) -> str:
     lines = ["🎁 LINE禮物追蹤", f"數據更新於：{updated_at}", ""]
 
-    # --- coupons with remaining qty ---
-    active = [i for i in coupons if i.ok and i.status == "ACTIVE"]
-    others = [i for i in coupons if i.ok and i.status != "ACTIVE"]
+    # --- coupons: 只推進行中，過期（如 9/1~9/3）一律不推 ---
+    active = [i for i in coupons if is_coupon_current(i)]
+    expired_skipped = [
+        i for i in coupons
+        if i.ok and i not in active and (i.status or "").upper() == "EXPIRED"
+    ]
+    for i in expired_skipped:
+        safe_print(f"[skip-expired] {i.collection_id} {i.title} {i.issue_start}~{i.issue_end}")
 
     lines.append("=== 優惠券（可查剩餘） ===")
     if active:
@@ -415,19 +468,14 @@ def format_message(
             lines.append(f"連結：{info.url}")
             lines.append("")
     else:
-        lines.append("目前沒有 ACTIVE 優惠券。")
+        lines.append("目前沒有進行中的優惠券。")
         lines.append("")
 
-    if others:
-        lines.append("其他已知券：")
-        for i in others[:5]:
-            rem = "—" if i.remaining is None else str(i.remaining)
-            lines.append(f"• [{i.status}] {i.title} 剩餘 {rem}")
-            lines.append(f"  {i.url}")
-        lines.append("")
-
-    # --- 1元 landpress campaigns: no stock qty, always include links ---
-    live = [c for c in campaigns if c.ok and c.status == "LIVE"]
+    # --- 1元 landpress：期間已結束的也不推 ---
+    live = [
+        c for c in campaigns
+        if c.ok and c.status == "LIVE" and not campaign_period_ended(c.period)
+    ]
     lines.append("=== 1元／新客活動頁（通常無法查剩餘數量） ===")
     if live:
         for c in live:

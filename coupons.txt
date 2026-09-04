@@ -1,7 +1,7 @@
 # LINE 禮物優惠券 collection ID（一行一個）
-# 可填純數字，或完整網址：
-# https://giftshop-tw.line.me/collection/coupon/2548259
+# 可填純數字，或完整網址
+# 已過期的券仍可留著作為「探測新 ID」的基準，推播時會自動略過 EXPIRED
 #
-# 腳本也會從最大 ID 往後探測 PROBE_AHEAD 個新 ID
+# https://giftshop-tw.line.me/collection/coupon/2548259
 
 2548259
