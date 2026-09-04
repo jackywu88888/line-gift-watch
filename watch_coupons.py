@@ -1,0 +1,554 @@
+# -*- coding: utf-8 -*-
+"""
+LINE 禮物優惠券／1元新客活動監控（GitHub Actions 可用）
+
+1) coupons.txt → giftshop-tw collection/coupon/{id}（可查剩餘張數）
+2) slugs.txt → landpress 活動頁（通常無庫存數，至少附活動／商品連結）
+3) 推播 Discord Webhook 與／或 LINE Messaging API
+"""
+from __future__ import annotations
+
+import json
+import os
+import re
+import sys
+import time
+import urllib.error
+import urllib.request
+from dataclasses import dataclass
+from datetime import datetime, timezone, timedelta
+from html import unescape
+from pathlib import Path
+from typing import Any, Optional
+
+TZ = timezone(timedelta(hours=8))
+ROOT = Path(__file__).resolve().parent
+COUPON_FILE = ROOT / "coupons.txt"
+SLUG_FILE = ROOT / "slugs.txt"
+STATE_FILE = ROOT / "coupon-state.json"
+REPORT_FILE = ROOT / "latest-coupons.txt"
+LANDPRESS = "https://gift-shop.landpress.line.me"
+UA = "Mozilla/5.0 LineGiftCouponWatch/1.0 (+GitHubActions)"
+CAMPAIGN_KEYWORDS = re.compile(r"新朋友|新客|1元|1點|心意禮")
+
+
+@dataclass
+class CouponInfo:
+    collection_id: str
+    url: str
+    title: str
+    status: str
+    discount_text: str
+    total: Optional[int]
+    claimed: Optional[int]
+    remaining: Optional[int]
+    issue_start: str
+    issue_end: str
+    valid_start: str
+    valid_end: str
+    ok: bool
+    error: str = ""
+
+
+@dataclass
+class CampaignInfo:
+    url: str
+    slug: str
+    month: str
+    title: str
+    period: str
+    product_urls: list[str]
+    status: str  # LIVE / DOWN / OTHER
+    ok: bool
+    error: str = ""
+
+
+def now_tw() -> datetime:
+    return datetime.now(TZ)
+
+
+def safe_print(*args: Any, **kwargs: Any) -> None:
+    kwargs.setdefault("flush", True)
+    try:
+        print(*args, **kwargs)
+    except UnicodeEncodeError:
+        text = " ".join(str(a) for a in args)
+        print(text.encode("utf-8", errors="replace").decode("ascii", errors="replace"), **kwargs)
+
+
+def clean_text(s: str) -> str:
+    return (s or "").replace("\ufeff", "").strip()
+
+
+def fmt_ts(ms: Any) -> str:
+    if not isinstance(ms, (int, float)):
+        return ""
+    return datetime.fromtimestamp(ms / 1000, TZ).strftime("%Y/%m/%d %H:%M")
+
+
+def http_get(url: str, timeout: int = 25) -> tuple[int, str]:
+    req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "text/html"})
+    try:
+        with urllib.request.urlopen(req, timeout=timeout) as resp:
+            return int(resp.status), resp.read().decode("utf-8", errors="replace")
+    except urllib.error.HTTPError as e:
+        body = e.read().decode("utf-8", errors="replace") if e.fp else ""
+        return int(e.code), body
+
+
+def http_post_json(url: str, payload: dict, headers: Optional[dict] = None) -> None:
+    data = json.dumps(payload).encode("utf-8")
+    hdrs = {"Content-Type": "application/json", "User-Agent": UA}
+    if headers:
+        hdrs.update(headers)
+    req = urllib.request.Request(url, data=data, headers=hdrs, method="POST")
+    with urllib.request.urlopen(req, timeout=25) as resp:
+        resp.read()
+
+
+def deref(data: list, idx: Any, seen: Optional[set] = None) -> Any:
+    if seen is None:
+        seen = set()
+    if not isinstance(idx, int):
+        return idx
+    if idx in seen or not (0 <= idx < len(data)):
+        return idx
+    seen = seen | {idx}
+    v = data[idx]
+    if isinstance(v, list) and len(v) >= 2 and isinstance(v[0], str) and v[0] in (
+        "Reactive", "ShallowReactive", "Ref", "EmptyRef", "Set", "Map"
+    ):
+        return deref(data, v[1], seen)
+    if isinstance(v, dict):
+        return {k: deref(data, val, seen) for k, val in v.items()}
+    if isinstance(v, list):
+        return [deref(data, i, seen) if isinstance(i, int) else i for i in v]
+    return v
+
+
+def parse_coupon_html(collection_id: str, html: str) -> CouponInfo:
+    url = f"https://giftshop-tw.line.me/collection/coupon/{collection_id}"
+    m = re.search(r'id="__NUXT_DATA__">(.*?)</script>', html, re.S)
+    if not m:
+        return CouponInfo(
+            collection_id=collection_id, url=url, title="", status="UNKNOWN",
+            discount_text="", total=None, claimed=None, remaining=None,
+            issue_start="", issue_end="", valid_start="", valid_end="",
+            ok=False, error="找不到 __NUXT_DATA__",
+        )
+
+    data = json.loads(m.group(1))
+    root = deref(data, 1)
+    dmap = (root or {}).get("data") or {}
+    payload = None
+    for k, v in dmap.items():
+        if str(collection_id) in str(k) and "coupon" in str(k).lower():
+            payload = v
+            break
+    if payload is None and isinstance(dmap, dict) and dmap:
+        payload = next(iter(dmap.values()))
+
+    result = (payload or {}).get("result") or {}
+    wrap = result.get("couponCollectionCouponPolicy") or {}
+    pol = wrap.get("policy") or {}
+    cc = result.get("couponCollection") or {}
+
+    title = clean_text(pol.get("title") or cc.get("title") or "")
+    status = str(pol.get("status") or "UNKNOWN")
+    claimed = pol.get("issuedCount")
+    if not isinstance(claimed, int):
+        claimed = None
+
+    issue_lim = pol.get("issueLimitation") or {}
+    total = None
+    if isinstance(issue_lim, dict):
+        for key in ("maxIssueCount", "maxCount", "totalCount", "quantity", "limit", "count"):
+            if isinstance(issue_lim.get(key), int):
+                total = issue_lim[key]
+                break
+
+    remaining = None
+    if isinstance(total, int) and isinstance(claimed, int):
+        remaining = max(0, total - claimed)
+
+    benefit = pol.get("benefit") or {}
+    use_lim = pol.get("useLimitation") or {}
+    discount_text = ""
+    if benefit.get("discountType") == "FIXED" and benefit.get("discountAmount") is not None:
+        amt = benefit.get("discountAmount")
+        min_amt = use_lim.get("minimumOrderSaleAmount")
+        if isinstance(min_amt, (int, float)):
+            discount_text = f"滿{int(min_amt)}元折{int(amt)}元"
+        else:
+            discount_text = f"折{int(amt)}元"
+    elif benefit.get("discountRate") is not None:
+        discount_text = f"折扣比率 {benefit.get('discountRate')}"
+
+    ip = pol.get("issuePeriod") or {}
+    vp = pol.get("validPeriod") or {}
+
+    return CouponInfo(
+        collection_id=collection_id,
+        url=url,
+        title=title or f"coupon/{collection_id}",
+        status=status,
+        discount_text=discount_text,
+        total=total,
+        claimed=claimed,
+        remaining=remaining,
+        issue_start=fmt_ts(ip.get("startTimestamp")),
+        issue_end=fmt_ts(ip.get("endTimestamp")),
+        valid_start=fmt_ts(vp.get("startTimestamp")),
+        valid_end=fmt_ts(vp.get("endTimestamp")),
+        ok=True,
+    )
+
+
+def fetch_coupon(collection_id: str) -> CouponInfo:
+    url = f"https://giftshop-tw.line.me/collection/coupon/{collection_id}"
+    try:
+        code, html = http_get(url)
+        if code != 200:
+            return CouponInfo(
+                collection_id=collection_id, url=url, title="", status=f"HTTP_{code}",
+                discount_text="", total=None, claimed=None, remaining=None,
+                issue_start="", issue_end="", valid_start="", valid_end="",
+                ok=False, error=f"HTTP {code}",
+            )
+        return parse_coupon_html(collection_id, html)
+    except Exception as e:
+        return CouponInfo(
+            collection_id=collection_id, url=url, title="", status="ERROR",
+            discount_text="", total=None, claimed=None, remaining=None,
+            issue_start="", issue_end="", valid_start="", valid_end="",
+            ok=False, error=str(e),
+        )
+
+
+def load_slugs() -> list[str]:
+    defaults = [
+        "family_icecream", "7-11_coffee", "7-11_breakfast",
+        "wootea_drinks", "KFC_Eggtart", "1point", "1dollar",
+    ]
+    slugs: list[str] = []
+    if SLUG_FILE.exists():
+        raw = SLUG_FILE.read_text(encoding="utf-8-sig")
+        for line in raw.splitlines():
+            line = clean_text(line)
+            if line and not line.startswith("#"):
+                slugs.append(line)
+    return slugs or defaults
+
+
+def load_coupon_ids() -> list[str]:
+    ids: list[str] = []
+    if COUPON_FILE.exists():
+        for line in COUPON_FILE.read_text(encoding="utf-8-sig").splitlines():
+            line = clean_text(line)
+            if not line or line.startswith("#"):
+                continue
+            m = re.search(r"/coupon/(\d+)", line)
+            ids.append(m.group(1) if m else line)
+    extra = os.environ.get("COUPON_IDS", "").strip()
+    if extra:
+        for part in re.split(r"[\s,;]+", extra):
+            if part:
+                ids.append(part)
+    seen: set[str] = set()
+    out: list[str] = []
+    for i in ids:
+        if i not in seen:
+            seen.add(i)
+            out.append(i)
+    return out
+
+
+def watch_months() -> list[str]:
+    now = now_tw()
+    nxt = (now.replace(day=1) + timedelta(days=32)).replace(day=1)
+    return [now.strftime("%Y%m"), nxt.strftime("%Y%m")]
+
+
+def extract_campaign_meta(html: str) -> tuple[str, str, list[str]]:
+    title = ""
+    m = re.search(r'property="og:title"\s+content="([^"]+)"', html)
+    if m:
+        title = clean_text(unescape(m.group(1)))
+    elif re.search(r"<title>([^<]+)</title>", html):
+        title = clean_text(unescape(re.search(r"<title>([^<]+)</title>", html).group(1)))
+
+    text = re.sub(r"<script[\s\S]*?</script>", " ", html, flags=re.I)
+    text = re.sub(r"<style[\s\S]*?</style>", " ", text, flags=re.I)
+    text = re.sub(r"<[^>]+>", " ", text)
+    text = unescape(re.sub(r"\s+", " ", text)).strip()
+
+    period = ""
+    pm = re.search(
+        r"(\d{4}年\d{1,2}月\d{1,2}日.{0,12}00:00\s*[-~～]\s*\d{4}年\d{1,2}月\d{1,2}日.{0,12}23:59)",
+        text,
+    )
+    if pm:
+        period = pm.group(1).strip()
+
+    product_urls: list[str] = []
+    for mid in re.finditer(
+        r"https?://(?:giftshop-tw\.line\.me|liff\.line\.me/[^/\s\"']+)/products/(\d+)",
+        html,
+    ):
+        pid = mid.group(1)
+        purl = f"https://giftshop-tw.line.me/products/{pid}"
+        if purl not in product_urls:
+            product_urls.append(purl)
+    # also bare /products/123
+    for mid in re.finditer(r"/products/(\d+)", html):
+        purl = f"https://giftshop-tw.line.me/products/{mid.group(1)}"
+        if purl not in product_urls:
+            product_urls.append(purl)
+
+    return title, period, product_urls
+
+
+def fetch_campaign(month: str, slug: str) -> CampaignInfo:
+    url = f"{LANDPRESS}/{month}_{slug}/"
+    try:
+        code, html = http_get(url)
+        if code != 200:
+            return CampaignInfo(
+                url=url, slug=slug, month=month, title="", period="",
+                product_urls=[], status="DOWN", ok=True, error=f"HTTP {code}",
+            )
+        title, period, products = extract_campaign_meta(html)
+        blob = f"{title} {period}"
+        # also scan a bit of body text for keywords
+        if not CAMPAIGN_KEYWORDS.search(blob):
+            plain = re.sub(r"<[^>]+>", " ", html)[:4000]
+            blob = f"{blob} {plain}"
+        if CAMPAIGN_KEYWORDS.search(blob):
+            status = "LIVE"
+        else:
+            status = "OTHER"
+        return CampaignInfo(
+            url=url, slug=slug, month=month, title=title or f"{month}_{slug}",
+            period=period, product_urls=products, status=status, ok=True,
+        )
+    except Exception as e:
+        return CampaignInfo(
+            url=url, slug=slug, month=month, title="", period="",
+            product_urls=[], status="ERROR", ok=False, error=str(e),
+        )
+
+
+def fetch_live_campaigns(delay: float = 1.0) -> list[CampaignInfo]:
+    months = watch_months()
+    slugs = load_slugs()
+    safe_print(f"campaign months={months} slugs={len(slugs)}")
+    results: list[CampaignInfo] = []
+    for ym in months:
+        for slug in slugs:
+            info = fetch_campaign(ym, slug)
+            safe_print(f"[campaign] {info.status} {info.url} {info.title}")
+            results.append(info)
+            if delay > 0:
+                time.sleep(delay)
+    return results
+
+
+def load_state() -> dict:
+    if STATE_FILE.exists():
+        try:
+            return json.loads(STATE_FILE.read_text(encoding="utf-8"))
+        except Exception:
+            return {}
+    return {}
+
+
+def save_state(state: dict) -> None:
+    STATE_FILE.write_text(json.dumps(state, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+def probe_newer_ids(base_ids: list[str], ahead: int = 15) -> list[str]:
+    if ahead <= 0:
+        return []
+    nums = [int(x) for x in base_ids if x.isdigit()]
+    if not nums:
+        return []
+    start = max(nums) + 1
+    found: list[str] = []
+    for cid in range(start, start + ahead):
+        info = fetch_coupon(str(cid))
+        if not info.ok:
+            continue
+        title = info.title or ""
+        if any(k in title for k in ("新客", "優惠券", "1元", "心意禮")):
+            found.append(str(cid))
+            print(f"[probe] hit {cid} {info.status} {title}", flush=True)
+        elif info.status in ("ACTIVE", "READY") and info.total:
+            found.append(str(cid))
+            print(f"[probe] active {cid} {title}", flush=True)
+    return found
+
+
+def format_message(
+    coupons: list[CouponInfo],
+    campaigns: list[CampaignInfo],
+    updated_at: str,
+) -> str:
+    lines = ["🎁 LINE禮物追蹤", f"數據更新於：{updated_at}", ""]
+
+    # --- coupons with remaining qty ---
+    active = [i for i in coupons if i.ok and i.status == "ACTIVE"]
+    others = [i for i in coupons if i.ok and i.status != "ACTIVE"]
+
+    lines.append("=== 優惠券（可查剩餘） ===")
+    if active:
+        for info in active:
+            rem = "—" if info.remaining is None else str(info.remaining)
+            total = "—" if info.total is None else str(info.total)
+            claimed = "—" if info.claimed is None else str(info.claimed)
+            lines.append(f"🎁 {info.title}")
+            lines.append(f"狀態：{info.status}")
+            if info.discount_text:
+                lines.append(f"💰 優惠：{info.discount_text}")
+            lines.append(f"發行/已領/剩餘：{total} / {claimed} / {rem}")
+            lines.append(f"⏳ 領取：{info.issue_start or '—'} ~ {info.issue_end or '—'}")
+            lines.append(f"使用：{info.valid_start or '—'} ~ {info.valid_end or '—'}")
+            lines.append(f"連結：{info.url}")
+            lines.append("")
+    else:
+        lines.append("目前沒有 ACTIVE 優惠券。")
+        lines.append("")
+
+    if others:
+        lines.append("其他已知券：")
+        for i in others[:5]:
+            rem = "—" if i.remaining is None else str(i.remaining)
+            lines.append(f"• [{i.status}] {i.title} 剩餘 {rem}")
+            lines.append(f"  {i.url}")
+        lines.append("")
+
+    # --- 1元 landpress campaigns: no stock qty, always include links ---
+    live = [c for c in campaigns if c.ok and c.status == "LIVE"]
+    lines.append("=== 1元／新客活動頁（通常無法查剩餘數量） ===")
+    if live:
+        for c in live:
+            lines.append(f"🎁 {c.title}")
+            lines.append("剩餘數量：無法查詢（公開頁未提供）")
+            if c.period:
+                lines.append(f"⏳ 期間：{c.period}")
+            lines.append(f"活動連結：{c.url}")
+            if c.product_urls:
+                lines.append("商品連結：")
+                for pu in c.product_urls[:5]:
+                    lines.append(f"  {pu}")
+            else:
+                lines.append("商品連結：尚無法從活動頁解析，請從活動連結進入")
+            lines.append("")
+    else:
+        lines.append("目前沒有偵測到已上線的 1 元／新客活動頁。")
+        lines.append("（仍會依 slugs.txt 持續探測）")
+        lines.append("")
+
+    return "\n".join(lines).strip() + "\n"
+
+
+def notify_discord(text: str) -> bool:
+    url = os.environ.get("DISCORD_WEBHOOK_URL", "").strip()
+    if not url:
+        print("[skip] 未設定 DISCORD_WEBHOOK_URL", flush=True)
+        return False
+    chunks = [text[i:i + 1900] for i in range(0, len(text), 1900)] or [text]
+    for chunk in chunks:
+        http_post_json(url, {"content": chunk})
+    print("[ok] Discord 已推播", flush=True)
+    return True
+
+
+def notify_line(text: str) -> bool:
+    token = os.environ.get("LINE_CHANNEL_ACCESS_TOKEN", "").strip()
+    user_id = os.environ.get("LINE_USER_ID", "").strip()
+    if not token or not user_id:
+        print("[skip] 未設定 LINE_CHANNEL_ACCESS_TOKEN / LINE_USER_ID", flush=True)
+        return False
+    body = text[:4900]
+    http_post_json(
+        "https://api.line.me/v2/bot/message/push",
+        {"to": user_id, "messages": [{"type": "text", "text": body}]},
+        headers={"Authorization": f"Bearer {token}"},
+    )
+    print("[ok] LINE 已推播", flush=True)
+    return True
+
+
+def main() -> int:
+    probe_ahead = int(os.environ.get("PROBE_AHEAD", "10"))
+    always_notify = os.environ.get("ALWAYS_NOTIFY", "1") == "1"
+    campaign_delay = float(os.environ.get("CAMPAIGN_DELAY", "1"))
+
+    ids = load_coupon_ids()
+    print(f"configured ids: {ids}", flush=True)
+
+    probed = probe_newer_ids(ids, ahead=probe_ahead)
+    for p in probed:
+        if p not in ids:
+            ids.append(p)
+            with COUPON_FILE.open("a", encoding="utf-8") as f:
+                f.write(f"\n# auto-discovered {now_tw().isoformat()}\n{p}\n")
+
+    coupons = [fetch_coupon(i) for i in ids]
+    for info in coupons:
+        print(
+            f"[coupon] {info.collection_id} ok={info.ok} status={info.status} "
+            f"remaining={info.remaining} title={info.title}",
+            flush=True,
+        )
+
+    campaigns = fetch_live_campaigns(delay=campaign_delay)
+
+    updated_at = now_tw().strftime("%Y年%m月%d日 %H:%M")
+    message = format_message(coupons, campaigns, updated_at)
+    print("--- message ---", flush=True)
+    print(message, flush=True)
+
+    state = load_state()
+    snapshot = {
+        "coupons": {
+            i.collection_id: {
+                "status": i.status,
+                "remaining": i.remaining,
+                "claimed": i.claimed,
+                "title": i.title,
+            }
+            for i in coupons if i.ok
+        },
+        "campaigns": {
+            c.url: {"status": c.status, "title": c.title, "products": c.product_urls}
+            for c in campaigns if c.ok and c.status == "LIVE"
+        },
+    }
+    changed = snapshot != state.get("last")
+    state["last"] = snapshot
+    state["updatedAt"] = now_tw().isoformat()
+    save_state(state)
+    REPORT_FILE.write_text(message, encoding="utf-8")
+
+    should_notify = always_notify or changed
+    if should_notify:
+        sent = False
+        try:
+            sent = notify_discord(message) or sent
+        except Exception as e:
+            print(f"[err] Discord: {e}", flush=True)
+        try:
+            sent = notify_line(message) or sent
+        except Exception as e:
+            print(f"[err] LINE: {e}", flush=True)
+        if not sent:
+            print("[warn] 沒有成功推播（請設定 Discord 或 LINE secrets）", flush=True)
+    else:
+        print("[skip] 無變化且 ALWAYS_NOTIFY=0", flush=True)
+
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

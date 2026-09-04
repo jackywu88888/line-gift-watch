@@ -1,0 +1,13 @@
+state.json
+watch.log
+latest-live.txt
+new-hits.txt
+catalog.json
+catalog.txt
+_tmp_*
+_decode_once.py
+__pycache__/
+.venv/
+.env
+.env.local
+.env.*

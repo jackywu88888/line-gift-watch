@@ -1,0 +1,9 @@
+﻿# 已知活動路徑（不要亂加大量猜測）
+# 腳本會自動組合：https://gift-shop.landpress.line.me/{YYYYMM}_{這一行}/
+family_icecream
+7-11_coffee
+7-11_breakfast
+wootea_drinks
+KFC_Eggtart
+1point
+1dollar

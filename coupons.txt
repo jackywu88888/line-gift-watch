@@ -1,0 +1,7 @@
+# LINE 禮物優惠券 collection ID（一行一個）
+# 可填純數字，或完整網址：
+# https://giftshop-tw.line.me/collection/coupon/2548259
+#
+# 腳本也會從最大 ID 往後探測 PROBE_AHEAD 個新 ID
+
+2548259

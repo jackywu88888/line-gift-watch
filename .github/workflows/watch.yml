@@ -1,0 +1,45 @@
+name: LINE Gift Coupon Watch
+
+on:
+  schedule:
+    # 每天台北時間 00:05 = UTC 16:05（前一天）
+    - cron: "5 16 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run coupon watch
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
+          LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
+          COUPON_IDS: ${{ vars.COUPON_IDS }}
+          PROBE_AHEAD: ${{ vars.PROBE_AHEAD || '15' }}
+          ALWAYS_NOTIFY: ${{ vars.ALWAYS_NOTIFY || '1' }}
+          CAMPAIGN_DELAY: ${{ vars.CAMPAIGN_DELAY || '1' }}
+        run: python watch_coupons.py
+
+      - name: Commit updated state
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add coupon-state.json latest-coupons.txt coupons.txt slugs.txt || true
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore: update coupon watch state $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            git push
+          fi
