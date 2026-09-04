@@ -227,7 +227,7 @@ def fetch_coupon(collection_id: str) -> CouponInfo:
 
 def load_slugs() -> list[str]:
     defaults = [
-        "family_icecream", "7-11_coffee", "7-11_breakfast",
+        "family_icecream", "7-11_coffee", "7-11_breakfast", "7-11_1dollarcafe",
         "wootea_drinks", "KFC_Eggtart", "1point", "1dollar",
     ]
     slugs: list[str] = []
@@ -417,23 +417,47 @@ def is_coupon_current(info: CouponInfo, now: Optional[datetime] = None) -> bool:
 
 
 def campaign_period_ended(period: str, now: Optional[datetime] = None) -> bool:
-    """Detect ended landpress periods like 2026年09月01日…23:59 - 2026年09月03日…23:59."""
-    if not period:
+    """Detect ended landpress periods like … - 2026年09月03日…23:59."""
+    end = parse_campaign_period_end(period)
+    if not end:
         return False
     now = now or now_tw()
-    m = re.search(
-        r"(\d{4})年(\d{1,2})月(\d{1,2})日.*?23:59\s*$",
-        period.strip(),
-    )
-    # Prefer the end date after the dash
-    parts = re.split(r"\s*[-~～]\s*", period)
-    end_part = parts[-1] if parts else period
-    m = re.search(r"(\d{4})年(\d{1,2})月(\d{1,2})日", end_part)
-    if not m:
-        return False
-    y, mo, d = int(m.group(1)), int(m.group(2)), int(m.group(3))
-    end = datetime(y, mo, d, 23, 59, 59, tzinfo=TZ)
     return now > end
+
+
+def parse_campaign_period_bounds(period: str) -> tuple[Optional[datetime], Optional[datetime]]:
+    if not period:
+        return None, None
+    parts = re.split(r"\s*[-~～]\s*", period)
+    start = None
+    end = None
+    if parts:
+        m0 = re.search(r"(\d{4})年(\d{1,2})月(\d{1,2})日", parts[0])
+        if m0:
+            start = datetime(int(m0.group(1)), int(m0.group(2)), int(m0.group(3)), 0, 0, 0, tzinfo=TZ)
+        end_part = parts[-1]
+        m1 = re.search(r"(\d{4})年(\d{1,2})月(\d{1,2})日", end_part)
+        if m1:
+            end = datetime(int(m1.group(1)), int(m1.group(2)), int(m1.group(3)), 23, 59, 59, tzinfo=TZ)
+    return start, end
+
+
+def parse_campaign_period_end(period: str) -> Optional[datetime]:
+    _, end = parse_campaign_period_bounds(period)
+    return end
+
+
+def is_campaign_current(info: CampaignInfo, now: Optional[datetime] = None) -> bool:
+    """LIVE and (no period OR today within period). Hide preview pages that start later."""
+    if not info.ok or info.status != "LIVE":
+        return False
+    now = now or now_tw()
+    start, end = parse_campaign_period_bounds(info.period)
+    if start and now < start:
+        return False
+    if end and now > end:
+        return False
+    return True
 
 
 def format_message(
@@ -470,11 +494,11 @@ def format_message(
         lines.append("目前沒有進行中的優惠券。")
         lines.append("")
 
-    # --- 1元 landpress：期間已結束的也不推 ---
-    live = [
-        c for c in campaigns
-        if c.ok and c.status == "LIVE" and not campaign_period_ended(c.period)
-    ]
+    # --- 1元 landpress：只推「今天落在活動期間內」的頁（未開始／已結束不推）---
+    live = [c for c in campaigns if is_campaign_current(c)]
+    for c in campaigns:
+        if c.ok and c.status == "LIVE" and c not in live:
+            safe_print(f"[skip-campaign] {c.url} period={c.period}")
     lines.append("=== 1元／新客活動頁 ===")
     if live:
         for c in live:
