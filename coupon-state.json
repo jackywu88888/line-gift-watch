@@ -9,8 +9,8 @@
       },
       "2548260": {
         "status": "ISSUING",
-        "remaining": 6716,
-        "claimed": 3284,
+        "remaining": 6624,
+        "claimed": 3376,
         "title": "新客專屬：$90元限量優惠券"
       }
     },
@@ -51,7 +51,7 @@
             "id": "322558885",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 156689,
+            "stock": 156538,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌6666點！",
             "url": "https://giftshop-tw.line.me/products/322558885"
           }
@@ -60,14 +60,14 @@
     },
     "homeProducts": [
       {
-        "id": "322562441",
-        "buyable": false,
-        "saleStatus": "OUTOFSTOCK",
-        "stock": 0,
-        "name": "[新客限定1元請客禮]【7-ELEVEN】 CITY CAFE冰美式(大)",
-        "url": "https://giftshop-tw.line.me/products/322562441"
+        "id": "322562443",
+        "buyable": true,
+        "saleStatus": "SALE",
+        "stock": 2990,
+        "name": "[新客限定1元請客禮]【7-ELEVEN】 舒跑運動飲料PET590",
+        "url": "https://giftshop-tw.line.me/products/322562443"
       }
     ]
   },
-  "updatedAt": "2026-09-04T23:52:54.103809+08:00"
+  "updatedAt": "2026-09-05T00:43:57.982420+08:00"
 }
