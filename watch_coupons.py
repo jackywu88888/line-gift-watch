@@ -547,7 +547,7 @@ def maybe_append_coupon_ids(new_ids: list[str]) -> list[str]:
     for cid in new_ids:
         info = fetch_coupon(cid)
         title = info.title or ""
-        if not info.ok or not CAMPAIGN_KEYWORDS.search(title):
+        if not info.ok or not is_target_coupon(info):
             safe_print(f"[home] skip coupon {cid} title={title}")
             continue
         kept.append(cid)
@@ -606,6 +606,13 @@ def save_state(state: dict) -> None:
     STATE_FILE.write_text(json.dumps(state, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
+def is_target_coupon(info: CouponInfo) -> bool:
+    """只追蹤新客／1元／1點相關券；一般品牌券（如歐舒丹滿額折）不推。"""
+    if not info.ok:
+        return False
+    return bool(CAMPAIGN_KEYWORDS.search(info.title or ""))
+
+
 def probe_newer_ids(base_ids: list[str], ahead: int = 15) -> list[str]:
     if ahead <= 0:
         return []
@@ -618,13 +625,14 @@ def probe_newer_ids(base_ids: list[str], ahead: int = 15) -> list[str]:
         info = fetch_coupon(str(cid))
         if not info.ok:
             continue
-        title = info.title or ""
-        if any(k in title for k in ("新客", "優惠券", "1元", "心意禮")):
+        if is_target_coupon(info) and info.status in (
+            "ACTIVE", "READY", "ISSUING", "DOWNLOADABLE", "EXPIRED"
+        ):
+            # EXPIRED 也可留下當基準，但推播仍會略過
             found.append(str(cid))
-            print(f"[probe] hit {cid} {info.status} {title}", flush=True)
-        elif info.status in ("ACTIVE", "READY") and info.total:
-            found.append(str(cid))
-            print(f"[probe] active {cid} {title}", flush=True)
+            print(f"[probe] hit {cid} {info.status} {info.title}", flush=True)
+        else:
+            safe_print(f"[probe] skip {cid} {info.status} {info.title}")
     return found
 
 
@@ -708,14 +716,13 @@ def format_message(
 ) -> str:
     lines = ["🎁 LINE禮物追蹤", f"數據更新於：{updated_at}", ""]
 
-    # --- coupons: 只推進行中，過期（如 9/1~9/3）一律不推 ---
-    active = [i for i in coupons if is_coupon_current(i)]
-    expired_skipped = [
-        i for i in coupons
-        if i.ok and i not in active and (i.status or "").upper() == "EXPIRED"
-    ]
-    for i in expired_skipped:
-        safe_print(f"[skip-expired] {i.collection_id} {i.title} {i.issue_start}~{i.issue_end}")
+    # --- coupons: 只推「新客／1元相關」且進行中的券 ---
+    active = [i for i in coupons if is_coupon_current(i) and is_target_coupon(i)]
+    for i in coupons:
+        if i.ok and is_coupon_current(i) and not is_target_coupon(i):
+            safe_print(f"[skip-coupon] unrelated {i.collection_id} {i.title}")
+        elif i.ok and (i.status or "").upper() == "EXPIRED":
+            safe_print(f"[skip-expired] {i.collection_id} {i.title} {i.issue_start}~{i.issue_end}")
 
     lines.append("=== 優惠券（可查剩餘） ===")
     if active:
