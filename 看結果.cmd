@@ -1,9 +1,10 @@
 @echo off
 chcp 65001 >nul
-set "F=%~dp0latest-live.txt"
-if exist "%F%" (
-  notepad "%F%"
-) else (
-  echo 還沒有結果檔，請先跑一次 line-gift-watch.ps1
-  pause
-)
+cd /d "%~dp0"
+echo ===== latest-coupons.txt =====
+type latest-coupons.txt
+echo.
+echo ===== last 30 log lines =====
+powershell -NoProfile -Command "Get-Content -Path '.\coupon-watch.log' -Encoding UTF8 -Tail 30"
+echo.
+pause

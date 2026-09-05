@@ -4,6 +4,8 @@ family_icecream
 7-11_coffee
 7-11_breakfast
 7-11_1dollarcafe
+7-11_1dollarSupau
+7-11_1dollarmilktea
 wootea_drinks
 KFC_Eggtart
 1point

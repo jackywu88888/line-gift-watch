@@ -39,12 +39,73 @@
 
 `.github/workflows/watch.yml`
 
-- 台北時間：**00:05**，以及 **01:00～23:00** 每整點（約每小時一次）
-- cron（UTC）：`5 16 * * *` ＋ `0 17-23,0-15 * * *`
-- 也可在 Actions 手動 **Run workflow**
-- 跑完會更新並 commit：`coupon-state.json`、`latest-coupons.txt`（以及探測到的 `coupons.txt`）
+**建議主力：外掛 cron 觸發**（見下方「外掛 cron」），較不易漏跑。
+
+| 觸發 | 說明 |
+|------|------|
+| `repository_dispatch`（`coupon-watch`） | 外掛 cron／HTTP 呼叫（推薦） |
+| `workflow_dispatch` | Actions 頁面手動 **Run workflow**，或 `gh workflow run` |
+| `schedule`（備援） | 台北約每小時 **:17**；GitHub 仍可能延遲或漏跑 |
+
+跑完會更新並 commit：`coupon-state.json`、`latest-coupons.txt`（以及探測到的 `coupons.txt`）。
 
 Repo：https://github.com/jackywu88888/line-gift-watch
+
+### 外掛 cron（cron-job.org，免費）
+
+用外部服務準時打 GitHub API，再由 Actions 跑腳本推播。
+
+#### 1. 建立 Fine-grained PAT
+
+1. GitHub → **Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate**
+2. Repository access：只選 `jackywu88888/line-gift-watch`
+3. Permissions → **Actions：Read and write**（其餘可維持 No access）
+4. 產生後**複製 token**（只顯示一次；勿 commit、勿貼到公開處）
+
+#### 2. 在 [cron-job.org](https://cron-job.org/) 新增工作
+
+| 欄位 | 建議值 |
+|------|--------|
+| Title | `LINE Gift Watch hourly` |
+| URL | `https://api.github.com/repos/jackywu88888/line-gift-watch/dispatches` |
+| Schedule | 每小時一次（時區選 **Asia/Taipei**；分鐘建議 **5**，例如每小時 `:05`） |
+| Request method | `POST` |
+| Request timeout | 30s 即可 |
+
+**Headers**（逐列新增）：
+
+```
+Authorization: Bearer 你的PAT
+Accept: application/vnd.github+json
+X-GitHub-Api-Version: 2022-11-28
+Content-Type: application/json
+```
+
+**Body**（raw JSON）：
+
+```json
+{"event_type":"coupon-watch"}
+```
+
+存檔後先按一次 **Run now**／測試執行，再到 GitHub → **Actions** 確認有出現由 `repository_dispatch` 觸發的 run，且 Discord 有推播。
+
+#### 3. 本機快速驗證（可選）
+
+```powershell
+$env:GH_TOKEN = "你的PAT"   # 或已用 gh auth login 亦可
+curl.exe -X POST "https://api.github.com/repos/jackywu88888/line-gift-watch/dispatches" `
+  -H "Authorization: Bearer $env:GH_TOKEN" `
+  -H "Accept: application/vnd.github+json" `
+  -H "X-GitHub-Api-Version: 2022-11-28" `
+  -H "Content-Type: application/json" `
+  -d "{\"event_type\":\"coupon-watch\"}"
+```
+
+成功時 HTTP 回應多半是 **204 No Content**。
+
+#### 4. 避免雙重推播
+
+外掛 cron 穩定後，可把 `watch.yml` 裡的 `schedule:` 整段刪掉或註解，只留 `repository_dispatch` + `workflow_dispatch`，以免同一小時推兩次。
 
 ## 設定步驟
 
@@ -102,5 +163,6 @@ notepad latest-coupons.txt
 - **舊的 `[新客限定1元體驗品]` 商品網址**（如 `products/322419346`）多半 `saleStatusType=CLOSE`，頁面還在但已結束；腳本會略過，只推 `SALE`／活動期限內的 `OUTOFSTOCK`。
 - 首頁掃描可提高發現率，但仍**無法保證**抓到所有未曝光在 home／已知 slug 的全新 landpress 路徑。
 - 未知的新 slug 若 home 也沒出現，仍需手動加入 `slugs.txt`。
-- GitHub 免費帳號的 `schedule` 可能有數分鐘延遲，屬正常現象。
+- GitHub 內建 `schedule` 可能延遲或漏跑；每小時監控請優先用外掛 cron → `repository_dispatch`。
+- Fine-grained PAT 只需 **Actions: Read and write**；workflow 內 commit 仍用 `GITHUB_TOKEN`，不必把 Contents 寫入權限開給 PAT。
 - 推送 `.github/workflows/*.yml` 需要 `gh` token 含 `workflow` scope。

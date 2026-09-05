@@ -88,11 +88,17 @@ def now_tw() -> datetime:
 
 def safe_print(*args: Any, **kwargs: Any) -> None:
     kwargs.setdefault("flush", True)
+    text = " ".join(str(a) for a in args)
     try:
-        print(*args, **kwargs)
+        print(text, **kwargs)
     except UnicodeEncodeError:
-        text = " ".join(str(a) for a in args)
-        print(text.encode("utf-8", errors="replace").decode("ascii", errors="replace"), **kwargs)
+        enc = getattr(sys.stdout, "encoding", None) or "utf-8"
+        safe = text.encode(enc, errors="replace").decode(enc, errors="replace")
+        try:
+            print(safe, **kwargs)
+        except Exception:
+            sys.stdout.buffer.write((safe + "\n").encode(enc, errors="replace"))
+            sys.stdout.flush()
 
 
 def clean_text(s: str) -> str:
@@ -750,11 +756,18 @@ def format_message(
     lines.append("=== 1元／新客活動頁 ===")
     if live:
         for c in live:
-            lines.append(f"🎁 {c.title}")
+            shown = [p for p in (c.products or []) if product_should_display(p)]
+            # 活動頁 <title>/og:title 有時沒改（例如舒跑頁仍寫咖啡）；有商品時以商品名為主標
+            if shown:
+                lines.append(f"🎁 {shown[0].name}")
+                page_title = (c.title or "").strip()
+                if page_title and page_title not in shown[0].name and shown[0].name not in page_title:
+                    lines.append(f"活動頁標題：{page_title}")
+            else:
+                lines.append(f"🎁 {c.title}")
             if c.period:
                 lines.append(f"⏳ 期間：{c.period}")
             lines.append(f"活動連結：{c.url}")
-            shown = [p for p in (c.products or []) if product_should_display(p)]
             if shown:
                 lines.append("商品連結：")
                 for p in shown[:5]:
