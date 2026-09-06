@@ -43,9 +43,10 @@
 
 | 觸發 | 說明 |
 |------|------|
-| `repository_dispatch`（`coupon-watch`） | 外掛 cron／HTTP 呼叫（推薦） |
-| `workflow_dispatch` | Actions 頁面手動 **Run workflow**，或 `gh workflow run` |
-| `schedule`（備援） | 台北約每小時 **:17**；GitHub 仍可能延遲或漏跑 |
+| `repository_dispatch`（`coupon-watch`） | 外掛 cron／HTTP 呼叫 |
+| `workflow_dispatch` | Actions 手動 **Run workflow**，或 cron-job.org／`gh workflow run` |
+
+已停用 GitHub 內建 `schedule`，避免與外掛 cron 同一小時推兩次。
 
 跑完會更新並 commit：`coupon-state.json`、`latest-coupons.txt`（以及探測到的 `coupons.txt`）。
 
@@ -103,9 +104,9 @@ curl.exe -X POST "https://api.github.com/repos/jackywu88888/line-gift-watch/disp
 
 成功時 HTTP 回應多半是 **204 No Content**。
 
-#### 4. 避免雙重推播
+#### 4. 排程說明
 
-外掛 cron 穩定後，可把 `watch.yml` 裡的 `schedule:` 整段刪掉或註解，只留 `repository_dispatch` + `workflow_dispatch`，以免同一小時推兩次。
+每小時監控由 **cron-job.org**（或同等外掛）觸發；workflow **不再**使用 GitHub `schedule`，以免重複推播。
 
 ## 設定步驟
 
@@ -163,6 +164,6 @@ notepad latest-coupons.txt
 - **舊的 `[新客限定1元體驗品]` 商品網址**（如 `products/322419346`）多半 `saleStatusType=CLOSE`，頁面還在但已結束；腳本會略過，只推 `SALE`／活動期限內的 `OUTOFSTOCK`。
 - 首頁掃描可提高發現率，但仍**無法保證**抓到所有未曝光在 home／已知 slug 的全新 landpress 路徑。
 - 未知的新 slug 若 home 也沒出現，仍需手動加入 `slugs.txt`。
-- GitHub 內建 `schedule` 可能延遲或漏跑；每小時監控請優先用外掛 cron → `repository_dispatch`。
+- 每小時監控請用外掛 cron → `workflow_dispatch`／`repository_dispatch`（已移除 GitHub 內建 `schedule`）。
 - Fine-grained PAT 只需 **Actions: Read and write**；workflow 內 commit 仍用 `GITHUB_TOKEN`，不必把 Contents 寫入權限開給 PAT。
 - 推送 `.github/workflows/*.yml` 需要 `gh` token 含 `workflow` scope。
