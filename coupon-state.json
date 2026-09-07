@@ -9,8 +9,8 @@
       },
       "2548260": {
         "status": "ISSUING",
-        "remaining": 3160,
-        "claimed": 6840,
+        "remaining": 3101,
+        "claimed": 6899,
         "title": "新客專屬：$90元限量優惠券"
       }
     },
@@ -51,7 +51,7 @@
             "id": "322562443",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 2260,
+            "stock": 2259,
             "name": "[新客限定1元請客禮]【7-ELEVEN】 舒跑運動飲料PET590",
             "url": "https://giftshop-tw.line.me/products/322562443"
           }
@@ -79,7 +79,7 @@
             "id": "322558885",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 146840,
+            "stock": 146759,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌6666點！",
             "url": "https://giftshop-tw.line.me/products/322558885"
           }
@@ -88,5 +88,5 @@
     },
     "homeProducts": []
   },
-  "updatedAt": "2026-09-07T13:02:06.710029+08:00"
+  "updatedAt": "2026-09-07T14:02:07.853644+08:00"
 }
