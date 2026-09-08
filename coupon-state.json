@@ -15,8 +15,8 @@
       },
       "2548261": {
         "status": "ISSUING",
-        "remaining": 8252,
-        "claimed": 1748,
+        "remaining": 8233,
+        "claimed": 1767,
         "title": "新客驚喜：$90元限量優惠券"
       },
       "2548512": {
@@ -97,7 +97,7 @@
             "id": "322558885",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 143344,
+            "stock": 143334,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌6666點！",
             "url": "https://giftshop-tw.line.me/products/322558885"
           }
@@ -116,5 +116,5 @@
     },
     "homeProducts": []
   },
-  "updatedAt": "2026-09-09T05:02:18.247764+08:00"
+  "updatedAt": "2026-09-09T06:02:22.874505+08:00"
 }
