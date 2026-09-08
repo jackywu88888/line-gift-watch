@@ -15,20 +15,20 @@
       },
       "2548261": {
         "status": "ISSUING",
-        "remaining": 8266,
-        "claimed": 1734,
+        "remaining": 8252,
+        "claimed": 1748,
         "title": "新客驚喜：$90元限量優惠券"
       },
       "2548512": {
         "status": "ISSUING",
         "remaining": null,
-        "claimed": 3234,
+        "claimed": 3235,
         "title": "IPSA心意禮物 現折$100"
       },
       "2548521": {
         "status": "ISSUING",
-        "remaining": 449,
-        "claimed": 3551,
+        "remaining": 448,
+        "claimed": 3552,
         "title": "轉出好運氣:新客$30限量優惠券"
       }
     },
@@ -97,7 +97,7 @@
             "id": "322558885",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 143356,
+            "stock": 143344,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌6666點！",
             "url": "https://giftshop-tw.line.me/products/322558885"
           }
@@ -116,5 +116,5 @@
     },
     "homeProducts": []
   },
-  "updatedAt": "2026-09-09T04:02:20.539936+08:00"
+  "updatedAt": "2026-09-09T05:02:18.247764+08:00"
 }
