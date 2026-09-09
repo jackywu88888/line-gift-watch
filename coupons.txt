@@ -17,3 +17,7 @@
 
 # auto-discovered 2026-09-09T01:01:39.193983+08:00
 2548521
+
+# 分眾：飲料控限定 滿25折20（2026-09-09～09-13）
+# https://giftshop-tw.line.me/collections/coupon/2551266
+2551266

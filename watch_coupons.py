@@ -31,7 +31,9 @@ REPORT_FILE = ROOT / "latest-coupons.txt"
 LANDPRESS = "https://gift-shop.landpress.line.me"
 HOME_URL = "https://giftshop-tw.line.me/home"
 UA = "Mozilla/5.0 LineGiftCouponWatch/1.0 (+GitHubActions)"
-CAMPAIGN_KEYWORDS = re.compile(r"新朋友|新客|1元|1點|心意禮|體驗品|請客禮")
+CAMPAIGN_KEYWORDS = re.compile(r"新朋友|新客|1元|1點|心意禮|體驗品|請客禮|飲料控|分眾")
+# coupons.txt 內手動列出的 ID 一律納入推播（不受關鍵字限制）
+_EXPLICIT_COUPON_IDS: set[str] = set()
 
 
 @dataclass
@@ -151,8 +153,12 @@ def deref(data: list, idx: Any, seen: Optional[set] = None) -> Any:
     return v
 
 
+def coupon_url(collection_id: str) -> str:
+    return f"https://giftshop-tw.line.me/collections/coupon/{collection_id}"
+
+
 def parse_coupon_html(collection_id: str, html: str) -> CouponInfo:
-    url = f"https://giftshop-tw.line.me/collection/coupon/{collection_id}"
+    url = coupon_url(collection_id)
     m = re.search(r'id="__NUXT_DATA__">(.*?)</script>', html, re.S)
     if not m:
         return CouponInfo(
@@ -230,9 +236,15 @@ def parse_coupon_html(collection_id: str, html: str) -> CouponInfo:
 
 
 def fetch_coupon(collection_id: str) -> CouponInfo:
-    url = f"https://giftshop-tw.line.me/collection/coupon/{collection_id}"
+    url = coupon_url(collection_id)
     try:
         code, html = http_get(url)
+        # 相容舊路徑 /collection/coupon/
+        if code != 200:
+            alt = f"https://giftshop-tw.line.me/collection/coupon/{collection_id}"
+            code, html = http_get(alt)
+            if code == 200:
+                url = alt
         if code != 200:
             return CouponInfo(
                 collection_id=collection_id, url=url, title="", status=f"HTTP_{code}",
@@ -240,7 +252,9 @@ def fetch_coupon(collection_id: str) -> CouponInfo:
                 issue_start="", issue_end="", valid_start="", valid_end="",
                 ok=False, error=f"HTTP {code}",
             )
-        return parse_coupon_html(collection_id, html)
+        info = parse_coupon_html(collection_id, html)
+        info.url = url
+        return info
     except Exception as e:
         return CouponInfo(
             collection_id=collection_id, url=url, title="", status="ERROR",
@@ -266,13 +280,15 @@ def load_slugs() -> list[str]:
 
 
 def load_coupon_ids() -> list[str]:
+    """回傳要檢查的券 ID；同時更新 _EXPLICIT_COUPON_IDS（檔案＋環境變數，不含後續自動探測）。"""
+    global _EXPLICIT_COUPON_IDS
     ids: list[str] = []
     if COUPON_FILE.exists():
         for line in COUPON_FILE.read_text(encoding="utf-8-sig").splitlines():
             line = clean_text(line)
             if not line or line.startswith("#"):
                 continue
-            m = re.search(r"/coupon/(\d+)", line)
+            m = re.search(r"/coupons?/(\d+)", line)
             ids.append(m.group(1) if m else line)
     extra = os.environ.get("COUPON_IDS", "").strip()
     if extra:
@@ -285,6 +301,7 @@ def load_coupon_ids() -> list[str]:
         if i not in seen:
             seen.add(i)
             out.append(i)
+    _EXPLICIT_COUPON_IDS = set(out)
     return out
 
 
@@ -508,7 +525,7 @@ def scan_home(delay: float = 0.25) -> tuple[list[ProductInfo], list[str], list[s
 
     product_ids = sorted(set(re.findall(r"/products/(\d+)", html)))
     coupon_ids = sorted(set(
-        re.findall(r"/collection/coupon/(\d+)", html)
+        re.findall(r"/collections?/coupon/(\d+)", html)
         + re.findall(r"(?<![/\w])coupon/(\d+)", html)
         + re.findall(r"/coupon/(\d+)", html)
     ))
@@ -613,9 +630,12 @@ def save_state(state: dict) -> None:
 
 
 def is_target_coupon(info: CouponInfo) -> bool:
-    """只追蹤新客／1元／1點相關券；一般品牌券（如歐舒丹滿額折）不推。"""
+    """追蹤：coupons.txt 手動列出的 ID，或標題含新客／1元／分眾等關鍵字。
+    一般品牌滿額券（未經手動加入）不推。"""
     if not info.ok:
         return False
+    if info.collection_id in _EXPLICIT_COUPON_IDS:
+        return True
     return bool(CAMPAIGN_KEYWORDS.search(info.title or ""))
 
 
