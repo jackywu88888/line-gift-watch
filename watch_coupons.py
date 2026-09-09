@@ -31,8 +31,9 @@ REPORT_FILE = ROOT / "latest-coupons.txt"
 LANDPRESS = "https://gift-shop.landpress.line.me"
 HOME_URL = "https://giftshop-tw.line.me/home"
 UA = "Mozilla/5.0 LineGiftCouponWatch/1.0 (+GitHubActions)"
-CAMPAIGN_KEYWORDS = re.compile(r"新朋友|新客|1元|1點|心意禮|體驗品|請客禮|飲料控|分眾")
-# coupons.txt 內手動列出的 ID 一律納入推播（不受關鍵字限制）
+# 活動頁／首頁商品用：勿加「心意禮」等過寬字（會誤抓 IPSA 等品牌券）
+CAMPAIGN_KEYWORDS = re.compile(r"新朋友|新客|1元|1點|體驗品|請客禮|飲料控|分眾")
+# 只有 coupons.txt／COUPON_IDS 列出的券才推播（不再因關鍵字自動納入品牌券）
 _EXPLICIT_COUPON_IDS: set[str] = set()
 
 
@@ -562,58 +563,32 @@ def scan_home(delay: float = 0.25) -> tuple[list[ProductInfo], list[str], list[s
 
 
 def maybe_append_coupon_ids(new_ids: list[str]) -> list[str]:
-    """只留下標題符合新客／1元等關鍵字的券；回傳應納入本輪檢查的 id。"""
-    kept: list[str] = []
+    """不再自動把首頁券寫入 coupons.txt（避免 IPSA 等品牌券）。只記錄 log。"""
     if not new_ids:
-        return kept
-    existing = set(load_coupon_ids())
+        return []
+    allow = set(load_coupon_ids())
     for cid in new_ids:
-        info = fetch_coupon(cid)
-        title = info.title or ""
-        if not info.ok or not is_target_coupon(info):
-            safe_print(f"[home] skip coupon {cid} title={title}")
-            continue
-        kept.append(cid)
-        if cid in existing:
-            continue
-        with COUPON_FILE.open("a", encoding="utf-8") as f:
-            f.write(f"\n# home-discovered {now_tw().isoformat()}\n{cid}\n")
-        safe_print(f"[home] append coupon id {cid} title={title}")
-        existing.add(cid)
-    return kept
+        if cid in allow:
+            safe_print(f"[home] known coupon {cid}")
+        else:
+            safe_print(f"[home] ignore coupon {cid}（未在 coupons.txt，不自動加入）")
+    return [cid for cid in new_ids if cid in allow]
 
 
 def maybe_append_slugs_from_landpress(paths: list[str]) -> None:
-    """從 home 發現的 202609_xxx 路徑抽出 slug；僅在活動標題符合關鍵字時寫入。"""
+    """不再自動把首頁發現的 landpress 路徑寫入 slugs.txt（只監控你列過的活動）。"""
     if not paths:
         return
     known = set(load_slugs())
-    months = watch_months()
     for path in paths:
         m = re.match(r"(\d{6})_(.+)$", path.strip("/"))
         if not m:
             continue
-        ym, slug = m.group(1), m.group(2)
+        slug = m.group(2)
         if slug in known:
-            continue
-        # prefer current/next month path; else try discovered month
-        check_months = [ym] + [x for x in months if x != ym]
-        matched = False
-        for month in check_months:
-            info = fetch_campaign(month, slug)
-            blob = f"{info.title} {info.period}"
-            if info.ok and info.status in ("LIVE", "OTHER") and CAMPAIGN_KEYWORDS.search(blob):
-                matched = True
-                break
-            if info.status == "DOWN":
-                continue
-        if not matched:
-            safe_print(f"[home] skip slug {slug} (no keyword match)")
-            continue
-        with SLUG_FILE.open("a", encoding="utf-8") as f:
-            f.write(f"\n# home-discovered {now_tw().isoformat()}\n{slug}\n")
-        safe_print(f"[home] append slug {slug}")
-        known.add(slug)
+            safe_print(f"[home] known slug {slug}")
+        else:
+            safe_print(f"[home] ignore slug {slug}（未在 slugs.txt，不自動加入）")
 
 
 def load_state() -> dict:
@@ -630,36 +605,18 @@ def save_state(state: dict) -> None:
 
 
 def is_target_coupon(info: CouponInfo) -> bool:
-    """追蹤：coupons.txt 手動列出的 ID，或標題含新客／1元／分眾等關鍵字。
-    一般品牌滿額券（未經手動加入）不推。"""
+    """只推 coupons.txt／COUPON_IDS 明確列出的券。"""
     if not info.ok:
         return False
-    if info.collection_id in _EXPLICIT_COUPON_IDS:
-        return True
-    return bool(CAMPAIGN_KEYWORDS.search(info.title or ""))
+    return info.collection_id in _EXPLICIT_COUPON_IDS
 
 
 def probe_newer_ids(base_ids: list[str], ahead: int = 15) -> list[str]:
+    """已停用自動探測寫入：未說要追的券不抓。"""
     if ahead <= 0:
         return []
-    nums = [int(x) for x in base_ids if x.isdigit()]
-    if not nums:
-        return []
-    start = max(nums) + 1
-    found: list[str] = []
-    for cid in range(start, start + ahead):
-        info = fetch_coupon(str(cid))
-        if not info.ok:
-            continue
-        if is_target_coupon(info) and info.status in (
-            "ACTIVE", "READY", "ISSUING", "DOWNLOADABLE", "EXPIRED"
-        ):
-            # EXPIRED 也可留下當基準，但推播仍會略過
-            found.append(str(cid))
-            print(f"[probe] hit {cid} {info.status} {info.title}", flush=True)
-        else:
-            safe_print(f"[probe] skip {cid} {info.status} {info.title}")
-    return found
+    safe_print(f"[probe] skipped（PROBE_AHEAD={ahead} 已忽略，僅監控 coupons.txt）")
+    return []
 
 
 def parse_tw_dt(text: str) -> Optional[datetime]:

@@ -1,22 +1,13 @@
 # LINE 禮物優惠券 collection ID（一行一個）
-# 可填純數字，或完整網址
-# 已過期的券仍可留著作為「探測新 ID」的基準，推播時會自動略過 EXPIRED
+# 只有寫在這裡的券才會監控／推播（不會再自動把首頁品牌券加進來）
+# 已過期的券可留著作基準，推播時會略過 EXPIRED
 #
 # https://giftshop-tw.line.me/collection/coupon/2548259
 
+# 新客 $90
 2548259
-
-# auto-discovered 2026-09-04T17:21:42.371966+08:00
 2548260
-
-# auto-discovered 2026-09-08T00:01:37.225727+08:00
 2548261
-
-# home-discovered 2026-09-09T01:01:13.684984+08:00
-2548512
-
-# auto-discovered 2026-09-09T01:01:39.193983+08:00
-2548521
 
 # 分眾：飲料控限定 滿25折20（2026-09-09～09-13）
 # https://giftshop-tw.line.me/collections/coupon/2551266
