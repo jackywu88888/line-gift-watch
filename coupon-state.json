@@ -15,20 +15,20 @@
       },
       "2548261": {
         "status": "ISSUING",
-        "remaining": 7846,
-        "claimed": 2154,
+        "remaining": 7774,
+        "claimed": 2226,
         "title": "新客驚喜：$90元限量優惠券"
       },
       "2548512": {
         "status": "ISSUING",
         "remaining": null,
-        "claimed": 3279,
+        "claimed": 3289,
         "title": "IPSA心意禮物 現折$100"
       },
       "2548521": {
         "status": "ISSUING",
-        "remaining": 437,
-        "claimed": 3563,
+        "remaining": 433,
+        "claimed": 3567,
         "title": "轉出好運氣:新客$30限量優惠券"
       }
     },
@@ -83,7 +83,7 @@
             "id": "322562442",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 8979,
+            "stock": 8973,
             "name": "[新客限定1元請客禮]【7-ELEVEN】 麥香奶茶300ml",
             "url": "https://giftshop-tw.line.me/products/322562442"
           }
@@ -97,7 +97,7 @@
             "id": "322558885",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 143098,
+            "stock": 142959,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌6666點！",
             "url": "https://giftshop-tw.line.me/products/322558885"
           }
@@ -116,5 +116,5 @@
     },
     "homeProducts": []
   },
-  "updatedAt": "2026-09-09T12:02:22.339103+08:00"
+  "updatedAt": "2026-09-09T13:02:23.717253+08:00"
 }
