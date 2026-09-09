@@ -15,14 +15,14 @@
       },
       "2548261": {
         "status": "ISSUING",
-        "remaining": 6612,
-        "claimed": 3388,
+        "remaining": 6600,
+        "claimed": 3400,
         "title": "新客驚喜：$90元限量優惠券"
       },
       "2551266": {
         "status": "ISSUING",
-        "remaining": 2859,
-        "claimed": 17141,
+        "remaining": 2669,
+        "claimed": 17331,
         "title": "飲料控限定：限量20元優惠券"
       }
     },
@@ -35,7 +35,7 @@
             "id": "322562444",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 7950,
+            "stock": 7947,
             "name": "[新客限定1元體驗禮]【7-ELEVEN】 超值組合45元超值餐購物金(一次抵用型)",
             "url": "https://giftshop-tw.line.me/products/322562444"
           }
@@ -91,7 +91,7 @@
             "id": "322558885",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 140863,
+            "stock": 140809,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌6666點！",
             "url": "https://giftshop-tw.line.me/products/322558885"
           }
@@ -113,7 +113,7 @@
         "id": "322558885",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 140863,
+        "stock": 140810,
         "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌6666點！",
         "url": "https://giftshop-tw.line.me/products/322558885"
       },
@@ -121,11 +121,11 @@
         "id": "322562444",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 7950,
+        "stock": 7947,
         "name": "[新客限定1元體驗禮]【7-ELEVEN】 超值組合45元超值餐購物金(一次抵用型)",
         "url": "https://giftshop-tw.line.me/products/322562444"
       }
     ]
   },
-  "updatedAt": "2026-09-10T04:01:47.331406+08:00"
+  "updatedAt": "2026-09-10T05:01:49.265947+08:00"
 }
