@@ -33,8 +33,14 @@ HOME_URL = "https://giftshop-tw.line.me/home"
 UA = "Mozilla/5.0 LineGiftCouponWatch/1.0 (+GitHubActions)"
 # 活動頁／首頁商品用：勿加「心意禮」等過寬字（會誤抓 IPSA 等品牌券）
 CAMPAIGN_KEYWORDS = re.compile(r"新朋友|新客|1元|1點|體驗品|請客禮|飲料控|分眾")
-# 只有 coupons.txt／COUPON_IDS 列出的券才推播（不再因關鍵字自動納入品牌券）
+# coupons.txt／COUPON_IDS 手動列出的 ID（含分眾等）一律可推
 _EXPLICIT_COUPON_IDS: set[str] = set()
+# 自動發現只收「新客滿100折90」；品牌滿額券不收
+_NEW_CUSTOMER_90 = re.compile(
+    r"(?=.*(新客|新朋友))"
+    r"(?=.*(?:\$ ?90|90\s*元))"
+)
+_DISCOUNT_100_OFF_90 = re.compile(r"滿\s*100\s*元?\s*折\s*90")
 
 
 @dataclass
@@ -563,16 +569,31 @@ def scan_home(delay: float = 0.25) -> tuple[list[ProductInfo], list[str], list[s
 
 
 def maybe_append_coupon_ids(new_ids: list[str]) -> list[str]:
-    """不再自動把首頁券寫入 coupons.txt（避免 IPSA 等品牌券）。只記錄 log。"""
+    """首頁發現的券：僅「新客滿100折90」才寫入白名單並納入本輪。"""
+    kept: list[str] = []
     if not new_ids:
-        return []
-    allow = set(load_coupon_ids())
+        return kept
+    existing = set(load_coupon_ids())
     for cid in new_ids:
-        if cid in allow:
+        if cid in existing:
             safe_print(f"[home] known coupon {cid}")
-        else:
-            safe_print(f"[home] ignore coupon {cid}（未在 coupons.txt，不自動加入）")
-    return [cid for cid in new_ids if cid in allow]
+            kept.append(cid)
+            continue
+        info = fetch_coupon(cid)
+        if not info.ok:
+            safe_print(f"[home] skip coupon {cid} fetch-fail {info.error}")
+            continue
+        if not is_new_customer_90_coupon(info):
+            safe_print(
+                f"[home] ignore coupon {cid}（非新客滿100折90） "
+                f"{info.discount_text} | {info.title}"
+            )
+            continue
+        append_coupon_id(cid, "home-discovered-90")
+        existing.add(cid)
+        kept.append(cid)
+        safe_print(f"[home] append 新客$90 {cid} {info.title}")
+    return kept
 
 
 def maybe_append_slugs_from_landpress(paths: list[str]) -> None:
@@ -604,19 +625,79 @@ def save_state(state: dict) -> None:
     STATE_FILE.write_text(json.dumps(state, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
-def is_target_coupon(info: CouponInfo) -> bool:
-    """只推 coupons.txt／COUPON_IDS 明確列出的券。"""
+def is_new_customer_90_coupon(info: CouponInfo) -> bool:
+    """新客滿100折90（不含滿1000折100 等品牌券）。"""
     if not info.ok:
         return False
-    return info.collection_id in _EXPLICIT_COUPON_IDS
+    title = info.title or ""
+    discount = info.discount_text or ""
+    if _DISCOUNT_100_OFF_90.search(discount):
+        return True
+    if _NEW_CUSTOMER_90.search(title):
+        return True
+    return False
+
+
+def append_coupon_id(cid: str, reason: str) -> None:
+    global _EXPLICIT_COUPON_IDS
+    with COUPON_FILE.open("a", encoding="utf-8") as f:
+        f.write(f"\n# {reason} {now_tw().isoformat()}\n{cid}\n")
+    _EXPLICIT_COUPON_IDS.add(cid)
+
+
+def is_target_coupon(info: CouponInfo) -> bool:
+    """白名單（手動／已收錄）或本輪辨識為新客滿100折90。"""
+    if not info.ok:
+        return False
+    if info.collection_id in _EXPLICIT_COUPON_IDS:
+        return True
+    return is_new_customer_90_coupon(info)
+
+
+def _probe_start_ids(nums: list[int]) -> list[int]:
+    """每個 ID 叢集的最大值都當探測起點（避免跳號後漏掉中間序列）。"""
+    nums = sorted(set(nums))
+    if not nums:
+        return []
+    starts: list[int] = []
+    cluster_max = nums[0]
+    prev = nums[0]
+    for n in nums[1:]:
+        if n - prev > 500:
+            starts.append(cluster_max)
+            cluster_max = n
+        else:
+            cluster_max = n
+        prev = n
+    starts.append(cluster_max)
+    return starts
 
 
 def probe_newer_ids(base_ids: list[str], ahead: int = 15) -> list[str]:
-    """已停用自動探測寫入：未說要追的券不抓。"""
+    """從各 ID 叢集往後探測；只自動收下「新客滿100折90」。"""
     if ahead <= 0:
         return []
-    safe_print(f"[probe] skipped（PROBE_AHEAD={ahead} 已忽略，僅監控 coupons.txt）")
-    return []
+    nums = sorted({int(x) for x in base_ids if x.isdigit()})
+    if not nums:
+        return []
+    found: list[str] = []
+    seen: set[str] = set(base_ids)
+    for start in _probe_start_ids(nums):
+        safe_print(f"[probe] from {start + 1} .. {start + ahead}")
+        for cid_n in range(start + 1, start + ahead + 1):
+            cid = str(cid_n)
+            if cid in seen:
+                continue
+            info = fetch_coupon(cid)
+            if not info.ok:
+                continue
+            if is_new_customer_90_coupon(info):
+                found.append(cid)
+                seen.add(cid)
+                safe_print(f"[probe] hit {cid} {info.status} {info.discount_text} | {info.title}")
+            else:
+                safe_print(f"[probe] skip {cid} {info.status} {info.discount_text} | {info.title}")
+    return found
 
 
 def parse_tw_dt(text: str) -> Optional[datetime]:
@@ -823,7 +904,7 @@ def notify_line(text: str) -> bool:
 
 
 def main() -> int:
-    probe_ahead = int(os.environ.get("PROBE_AHEAD", "10"))
+    probe_ahead = int(os.environ.get("PROBE_AHEAD", "20"))
     always_notify = os.environ.get("ALWAYS_NOTIFY", "1") == "1"
     campaign_delay = float(os.environ.get("CAMPAIGN_DELAY", "1"))
     home_delay = float(os.environ.get("HOME_DELAY", "0.25"))
@@ -845,8 +926,7 @@ def main() -> int:
     for p in probed:
         if p not in ids:
             ids.append(p)
-            with COUPON_FILE.open("a", encoding="utf-8") as f:
-                f.write(f"\n# auto-discovered {now_tw().isoformat()}\n{p}\n")
+            append_coupon_id(p, "auto-discovered-90")
 
     coupons = [fetch_coupon(i) for i in ids]
     for info in coupons:

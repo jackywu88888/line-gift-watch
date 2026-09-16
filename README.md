@@ -14,9 +14,11 @@
 
 ### 推播過濾（重要）
 
-- **優惠券**：**只推 `coupons.txt`／`COUPON_IDS` 你手動列出的 ID**（不會再自動把首頁品牌券加進來）  
-  - `EXPIRED` 或已過期 → **不推**  
-  - 例：IPSA 滿額折、未列入的品牌券 → **不推**
+- **優惠券**：
+  - `coupons.txt`／`COUPON_IDS` **手動列出的 ID 一律追蹤**（例如分眾券）
+  - **自動發現（並用）**：首頁掃描＋ID 探測，但**只收下「新客滿100折90」**
+  - `EXPIRED` 或已過期 → **不推**
+  - IPSA／滿1000折100、滿50折30 等品牌或非 $90 新客券 → **不自動加入、不推**（除非你手動寫進 `coupons.txt`）
 - **1 元活動頁**：只推 `slugs.txt` 列出、且「**今天落在活動期間內**」的頁（不會自動新增 slug）  
   - 期間尚未開始（例如 9/18 才開始的早餐頁）→ **不推**  
   - 期間已結束 → **不推**  
@@ -29,12 +31,12 @@
 
 ### 追蹤清單
 
-- `coupons.txt`：優惠券 collection ID（**白名單**；未列出的券一律不抓、不推）
+- `coupons.txt`：優惠券 collection ID（手動白名單 + 自動寫入的新客 $90）
 - `slugs.txt`：活動路徑片段，會自動組「這個月 + 下個月」網址，目前包含例如：
   - `7-11_1dollarcafe` → `…/202609_7-11_1dollarcafe/`（9 月初 $1 冰美式）
   - `7-11_breakfast`、`7-11_coffee`、`family_icecream`、`wootea_drinks`、`KFC_Eggtart`、`1point`、`1dollar`
-- **不會**再自動探測新券 ID，也不會把首頁發現的券／slug 寫回清單
-- **首頁掃描**（`SCAN_HOME=1`）：仍可顯示符合新客／1元關鍵字的**商品**；未知券／slug 只記 log
+- **自動發現新客 $90**：首頁券連結；以及從各 ID 叢集往後探測 `PROBE_AHEAD`（預設 20）
+- **首頁掃描**（`SCAN_HOME=1`）：新客／1元**商品**可進推播；未知 slug 不自動加入 `slugs.txt`
 
 ## 排程
 
@@ -123,7 +125,7 @@ curl.exe -X POST "https://api.github.com/repos/jackywu88888/line-gift-watch/disp
 
 | Variable | 預設 | 說明 |
 |----------|------|------|
-| `PROBE_AHEAD` | `15` | 從最大券 ID 往後探測幾個新 ID |
+| `PROBE_AHEAD` | `20` | 從各 ID 叢集往後探測幾個新 ID（只收新客滿100折90） |
 | `ALWAYS_NOTIFY` | `1` | `1`=每天都推；`0`=有變化才推 |
 | `COUPON_IDS` | （空） | 額外券 ID，逗號分隔 |
 | `CAMPAIGN_DELAY` | `1` | 活動頁請求間隔秒數 |

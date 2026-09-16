@@ -27,7 +27,7 @@ jobs:
           LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
           LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
           COUPON_IDS: ${{ vars.COUPON_IDS }}
-          PROBE_AHEAD: ${{ vars.PROBE_AHEAD || '15' }}
+          PROBE_AHEAD: ${{ vars.PROBE_AHEAD || '20' }}
           ALWAYS_NOTIFY: ${{ vars.ALWAYS_NOTIFY || '1' }}
           CAMPAIGN_DELAY: ${{ vars.CAMPAIGN_DELAY || '1' }}
           SCAN_HOME: ${{ vars.SCAN_HOME || '1' }}
