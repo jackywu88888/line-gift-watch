@@ -27,8 +27,8 @@
       },
       "2553175": {
         "status": "ISSUING",
-        "remaining": 5629,
-        "claimed": 4371,
+        "remaining": 5573,
+        "claimed": 4427,
         "title": "新客專享：$90元限量優惠券"
       },
       "2551266": {
@@ -89,7 +89,7 @@
             "id": "322562442",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 7393,
+            "stock": 7384,
             "name": "[新客限定1元請客禮]【7-ELEVEN】 麥香奶茶300ml",
             "url": "https://giftshop-tw.line.me/products/322562442"
           }
@@ -103,7 +103,7 @@
             "id": "322558885",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 106063,
+            "stock": 104582,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌6666點！",
             "url": "https://giftshop-tw.line.me/products/322558885"
           }
@@ -125,11 +125,11 @@
         "id": "322558885",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 106182,
+        "stock": 104633,
         "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌6666點！",
         "url": "https://giftshop-tw.line.me/products/322558885"
       }
     ]
   },
-  "updatedAt": "2026-09-17T15:04:04.078664+08:00"
+  "updatedAt": "2026-09-17T16:03:26.262535+08:00"
 }
