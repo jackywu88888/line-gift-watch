@@ -1,5 +1,7 @@
-﻿# 已知活動路徑（不要亂加大量猜測）
-# 腳本會自動組合：https://gift-shop.landpress.line.me/{YYYYMM}_{這一行}/
+﻿# 已知活動路徑
+# - 純 slug：自動組合「這個月 + 下個月」YYYYMM，以及近日 YYYYMMDD
+# - 完整路徑（6～8 位日期_slug）：直接檢查該頁
+# 例：https://gift-shop.landpress.line.me/{這一行}/
 family_icecream
 7-11_coffee
 7-11_breakfast
@@ -10,3 +12,7 @@ wootea_drinks
 KFC_Eggtart
 1point
 1dollar
+
+# 2026-09-21 起舒跑 $1（日期型路徑；舊 202609_ 頁已過期）
+# https://gift-shop.landpress.line.me/20260921_7-11_1dollarSupau/
+20260921_7-11_1dollarSupau

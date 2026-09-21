@@ -272,18 +272,49 @@ def fetch_coupon(collection_id: str) -> CouponInfo:
 
 
 def load_slugs() -> list[str]:
+    """純 slug（會搭配年月／近日日期組合）。完整路徑請用 load_campaign_keys。"""
+    plain, _full = load_slug_config()
+    return plain
+
+
+def load_slug_config() -> tuple[list[str], list[str]]:
+    """回傳 (plain_slugs, full_path_keys)。
+    full_path 例：20260921_7-11_1dollarSupau（含 6～8 位日期前綴）。
+    """
     defaults = [
         "family_icecream", "7-11_coffee", "7-11_breakfast", "7-11_1dollarcafe",
         "wootea_drinks", "KFC_Eggtart", "1point", "1dollar",
     ]
-    slugs: list[str] = []
+    plain: list[str] = []
+    full: list[str] = []
     if SLUG_FILE.exists():
         raw = SLUG_FILE.read_text(encoding="utf-8-sig")
         for line in raw.splitlines():
             line = clean_text(line)
-            if line and not line.startswith("#"):
-                slugs.append(line)
-    return slugs or defaults
+            if not line or line.startswith("#"):
+                continue
+            if re.match(r"^\d{6,8}_.+$", line):
+                full.append(line)
+            else:
+                plain.append(line)
+    if not plain and not full:
+        plain = list(defaults)
+    # 去重保序
+    def uniq(items: list[str]) -> list[str]:
+        seen: set[str] = set()
+        out: list[str] = []
+        for x in items:
+            if x not in seen:
+                seen.add(x)
+                out.append(x)
+        return out
+    return uniq(plain), uniq(full)
+
+
+def watch_date_prefixes() -> list[str]:
+    """近日 YYYYMMDD（含昨天～往後 5 天），供日期型 landpress 路徑。"""
+    now = now_tw()
+    return [(now + timedelta(days=d)).strftime("%Y%m%d") for d in range(-1, 6)]
 
 
 def load_coupon_ids() -> list[str]:
@@ -452,7 +483,15 @@ def product_should_display(p: ProductInfo) -> bool:
 
 
 def fetch_campaign(month: str, slug: str) -> CampaignInfo:
-    url = f"{LANDPRESS}/{month}_{slug}/"
+    return fetch_campaign_path(f"{month}_{slug}")
+
+
+def fetch_campaign_path(path_key: str) -> CampaignInfo:
+    """path_key 例：202609_7-11_1dollarSupau 或 20260921_7-11_1dollarSupau。"""
+    url = f"{LANDPRESS}/{path_key.strip('/')}/"
+    m = re.match(r"^(\d{6,8})_(.+)$", path_key.strip("/"))
+    month = m.group(1) if m else ""
+    slug = m.group(2) if m else path_key
     try:
         code, html = http_get(url)
         if code != 200:
@@ -477,7 +516,6 @@ def fetch_campaign(month: str, slug: str) -> CampaignInfo:
             )
             time.sleep(0.3)
 
-        # 活動期限內：可買與售完(庫存0)都列入推播
         shown_urls = [p.url for p in products if product_should_display(p)]
         blob = f"{title} {period}"
         if not CAMPAIGN_KEYWORDS.search(blob):
@@ -488,7 +526,7 @@ def fetch_campaign(month: str, slug: str) -> CampaignInfo:
         else:
             status = "OTHER"
         return CampaignInfo(
-            url=url, slug=slug, month=month, title=title or f"{month}_{slug}",
+            url=url, slug=slug, month=month, title=title or path_key,
             period=period,
             product_urls=shown_urls,
             products=products,
@@ -503,17 +541,35 @@ def fetch_campaign(month: str, slug: str) -> CampaignInfo:
 
 
 def fetch_live_campaigns(delay: float = 1.0) -> list[CampaignInfo]:
+    plain, full = load_slug_config()
     months = watch_months()
-    slugs = load_slugs()
-    safe_print(f"campaign months={months} slugs={len(slugs)}")
-    results: list[CampaignInfo] = []
+    dates = watch_date_prefixes()
+    keys: list[str] = list(full)
     for ym in months:
-        for slug in slugs:
-            info = fetch_campaign(ym, slug)
-            safe_print(f"[campaign] {info.status} {info.url} {info.title}")
-            results.append(info)
-            if delay > 0:
-                time.sleep(delay)
+        for slug in plain:
+            keys.append(f"{ym}_{slug}")
+    for ymd in dates:
+        for slug in plain:
+            keys.append(f"{ymd}_{slug}")
+    # 去重保序
+    seen: set[str] = set()
+    uniq_keys: list[str] = []
+    for k in keys:
+        if k not in seen:
+            seen.add(k)
+            uniq_keys.append(k)
+
+    safe_print(
+        f"campaign keys={len(uniq_keys)} plain={len(plain)} full={len(full)} "
+        f"months={months} dates={dates[0]}..{dates[-1]}"
+    )
+    results: list[CampaignInfo] = []
+    for key in uniq_keys:
+        info = fetch_campaign_path(key)
+        safe_print(f"[campaign] {info.status} {info.url} {info.title}")
+        results.append(info)
+        if delay > 0:
+            time.sleep(delay)
     return results
 
 
@@ -537,11 +593,11 @@ def scan_home(delay: float = 0.25) -> tuple[list[ProductInfo], list[str], list[s
         + re.findall(r"/coupon/(\d+)", html)
     ))
     landpress_paths = sorted(set(re.findall(
-        r"https://gift-shop\.landpress\.line\.me/([0-9]{6}_[A-Za-z0-9_\-]+)/?",
+        r"https://gift-shop\.landpress\.line\.me/([0-9]{6,8}_[A-Za-z0-9_\-]+)/?",
         html,
     )))
     # also bare path fragments
-    landpress_paths += sorted(set(re.findall(r"/([0-9]{6}_[A-Za-z0-9_\-]+)/", html)))
+    landpress_paths += sorted(set(re.findall(r"/([0-9]{6,8}_[A-Za-z0-9_\-]+)/", html)))
     landpress_paths = sorted(set(landpress_paths))
 
     safe_print(
@@ -597,19 +653,31 @@ def maybe_append_coupon_ids(new_ids: list[str]) -> list[str]:
 
 
 def maybe_append_slugs_from_landpress(paths: list[str]) -> None:
-    """不再自動把首頁發現的 landpress 路徑寫入 slugs.txt（只監控你列過的活動）。"""
+    """首頁發現的完整路徑若為日期型（YYYYMMDD_slug）且符合關鍵字，寫入 slugs.txt。"""
     if not paths:
         return
-    known = set(load_slugs())
+    plain, full = load_slug_config()
+    known = set(plain) | set(full)
     for path in paths:
-        m = re.match(r"(\d{6})_(.+)$", path.strip("/"))
+        key = path.strip("/")
+        m = re.match(r"^(\d{6,8})_(.+)$", key)
         if not m:
             continue
-        slug = m.group(2)
-        if slug in known:
-            safe_print(f"[home] known slug {slug}")
-        else:
-            safe_print(f"[home] ignore slug {slug}（未在 slugs.txt，不自動加入）")
+        prefix, slug = m.group(1), m.group(2)
+        # 日期型完整路徑優先保留；年月型只記 slug
+        entry = key if len(prefix) == 8 else slug
+        if entry in known:
+            safe_print(f"[home] known campaign entry {entry}")
+            continue
+        info = fetch_campaign_path(key)
+        blob = f"{info.title} {info.period}"
+        if not (info.ok and info.status in ("LIVE", "OTHER") and CAMPAIGN_KEYWORDS.search(blob)):
+            safe_print(f"[home] ignore campaign {key} status={info.status} title={info.title}")
+            continue
+        with SLUG_FILE.open("a", encoding="utf-8") as f:
+            f.write(f"\n# home-discovered {now_tw().isoformat()}\n{entry}\n")
+        safe_print(f"[home] append campaign entry {entry}")
+        known.add(entry)
 
 
 def load_state() -> dict:
