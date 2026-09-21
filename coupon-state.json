@@ -26,9 +26,9 @@
         "title": "新客獨享：$90元限量優惠券"
       },
       "2553175": {
-        "status": "ISSUING",
-        "remaining": 5382,
-        "claimed": 4618,
+        "status": "EXPIRED",
+        "remaining": 5193,
+        "claimed": 4807,
         "title": "新客專享：$90元限量優惠券"
       },
       "2551266": {
@@ -36,6 +36,18 @@
         "remaining": 0,
         "claimed": 20000,
         "title": "飲料控限定：限量20元優惠券"
+      },
+      "2553194": {
+        "status": "EXPIRED",
+        "remaining": 4794,
+        "claimed": 15206,
+        "title": "速食控專屬：限量$20優惠券"
+      },
+      "2553213": {
+        "status": "ISSUING",
+        "remaining": 8037,
+        "claimed": 1963,
+        "title": "新客限量：$90元驚喜優惠券"
       }
     },
     "campaigns": {
@@ -47,7 +59,7 @@
             "id": "322562444",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 4551,
+            "stock": 2950,
             "name": "[新客限定1元體驗禮]【7-ELEVEN】 超值組合45元超值餐購物金(一次抵用型)",
             "url": "https://giftshop-tw.line.me/products/322562444"
           }
@@ -75,8 +87,8 @@
             "id": "322562443",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 1799,
-            "name": "[新客限定1元請客禮]【7-ELEVEN】 舒跑運動飲料PET590",
+            "stock": 1330,
+            "name": "[新客限定1元體驗禮]【7-ELEVEN】 舒跑運動飲料PET590",
             "url": "https://giftshop-tw.line.me/products/322562443"
           }
         ]
@@ -89,8 +101,8 @@
             "id": "322562442",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 7367,
-            "name": "[新客限定1元請客禮]【7-ELEVEN】 麥香奶茶300ml",
+            "stock": 7338,
+            "name": "[新客限定1元體驗禮]【7-ELEVEN】 麥香奶茶300ml",
             "url": "https://giftshop-tw.line.me/products/322562442"
           }
         ]
@@ -103,7 +115,7 @@
             "id": "322558885",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 102000,
+            "stock": 86904,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌6666點！",
             "url": "https://giftshop-tw.line.me/products/322558885"
           }
@@ -118,18 +130,32 @@
         "status": "LIVE",
         "title": "LINE禮物｜10月新朋友限定心意禮！新客購買/送禮 7-ELEVEN 45元超值餐購物金 只要1元！",
         "products": []
+      },
+      "https://gift-shop.landpress.line.me/202610_1point/": {
+        "status": "LIVE",
+        "title": "LINE禮物｜1點拿好禮，轉好運轉盤 ！",
+        "products": [
+          {
+            "id": "322558885",
+            "buyable": true,
+            "saleStatus": "SALE",
+            "stock": 86904,
+            "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌6666點！",
+            "url": "https://giftshop-tw.line.me/products/322558885"
+          }
+        ]
       }
     },
     "homeProducts": [
       {
-        "id": "322558885",
+        "id": "322562444",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 102012,
-        "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌6666點！",
-        "url": "https://giftshop-tw.line.me/products/322558885"
+        "stock": 2950,
+        "name": "[新客限定1元體驗禮]【7-ELEVEN】 超值組合45元超值餐購物金(一次抵用型)",
+        "url": "https://giftshop-tw.line.me/products/322562444"
       }
     ]
   },
-  "updatedAt": "2026-09-17T19:03:54.764724+08:00"
+  "updatedAt": "2026-09-21T13:04:13.432770+08:00"
 }
