@@ -45,8 +45,8 @@
       },
       "2553213": {
         "status": "ISSUING",
-        "remaining": 8181,
-        "claimed": 1819,
+        "remaining": 8037,
+        "claimed": 1963,
         "title": "新客限量：$90元驚喜優惠券"
       }
     },
@@ -59,7 +59,7 @@
             "id": "322562444",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 2952,
+            "stock": 2950,
             "name": "[新客限定1元體驗禮]【7-ELEVEN】 超值組合45元超值餐購物金(一次抵用型)",
             "url": "https://giftshop-tw.line.me/products/322562444"
           }
@@ -87,7 +87,7 @@
             "id": "322562443",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 1359,
+            "stock": 1330,
             "name": "[新客限定1元體驗禮]【7-ELEVEN】 舒跑運動飲料PET590",
             "url": "https://giftshop-tw.line.me/products/322562443"
           }
@@ -115,7 +115,7 @@
             "id": "322558885",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 87108,
+            "stock": 86904,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌6666點！",
             "url": "https://giftshop-tw.line.me/products/322558885"
           }
@@ -130,6 +130,20 @@
         "status": "LIVE",
         "title": "LINE禮物｜10月新朋友限定心意禮！新客購買/送禮 7-ELEVEN 45元超值餐購物金 只要1元！",
         "products": []
+      },
+      "https://gift-shop.landpress.line.me/202610_1point/": {
+        "status": "LIVE",
+        "title": "LINE禮物｜1點拿好禮，轉好運轉盤 ！",
+        "products": [
+          {
+            "id": "322558885",
+            "buyable": true,
+            "saleStatus": "SALE",
+            "stock": 86904,
+            "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌6666點！",
+            "url": "https://giftshop-tw.line.me/products/322558885"
+          }
+        ]
       }
     },
     "homeProducts": [
@@ -137,11 +151,11 @@
         "id": "322562444",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 2954,
+        "stock": 2950,
         "name": "[新客限定1元體驗禮]【7-ELEVEN】 超值組合45元超值餐購物金(一次抵用型)",
         "url": "https://giftshop-tw.line.me/products/322562444"
       }
     ]
   },
-  "updatedAt": "2026-09-21T12:03:41.733485+08:00"
+  "updatedAt": "2026-09-21T13:04:13.432770+08:00"
 }
