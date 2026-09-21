@@ -9,7 +9,7 @@
 | 類型 | 來源 | 剩餘數量 | 推播內容 |
 |------|------|----------|----------|
 | 優惠券 | `giftshop-tw.line.me/collection/coupon/{id}` | ✅ 發行／已領／剩餘 | 名稱、滿額折抵、張數、領取／使用期限、連結 |
-| 1 元／新客活動頁 | `gift-shop.landpress.line.me/{YYYYMM}_{slug}/` | 活動頁本身通常無庫存；**商品頁**可查 `stockQuantity` | 標題、期間、活動連結；商品名稱／價格／剩餘庫存（售完也顯示 0） |
+| 1 元／新客活動頁 | `…/{YYYYMM}_{slug}/` 或 `…/{YYYYMMDD}_{slug}/` | 活動頁本身通常無庫存；**商品頁**可查 `stockQuantity` | 標題、期間、活動連結；商品名稱／價格／剩餘庫存（售完也顯示 0） |
 | 首頁發現 | `giftshop-tw.line.me/home` | 商品可查庫存；券可查剩餘 | 標題含新客／1元等關鍵字的商品；發現的券 ID／landpress 路徑會寫回清單 |
 
 ### 推播過濾（重要）
@@ -19,9 +19,9 @@
   - **自動發現（並用）**：首頁掃描＋ID 探測，但**只收下「新客滿100折90」**
   - `EXPIRED` 或已過期 → **不推**
   - IPSA／滿1000折100、滿50折30 等品牌或非 $90 新客券 → **不自動加入、不推**（除非你手動寫進 `coupons.txt`）
-- **1 元活動頁**：只推 `slugs.txt` 列出、且「**今天落在活動期間內**」的頁（不會自動新增 slug）  
-  - 期間尚未開始（例如 9/18 才開始的早餐頁）→ **不推**  
-  - 期間已結束 → **不推**  
+- **1 元活動頁**：`slugs.txt` 的純 slug 會查「年月 + 近日日期」；也可直接寫完整 `20260921_7-11_1dollarSupau`  
+  - 只推「**今天落在活動期間內**」的頁  
+  - 期間尚未開始 → **不推**；已結束 → **不推**  
   - 頁面已公開但解析不到期間（例如部分 1點活動）→ 仍可能推播
 - **商品連結**：從活動頁抽出 `products/{id}` 或 LIFF `voucher/{id}`，再到 `giftshop-tw.line.me/products/{id}` 查 `saleStatusType`  
   - `SALE` → 推播商品連結＋剩餘庫存  
@@ -32,11 +32,11 @@
 ### 追蹤清單
 
 - `coupons.txt`：優惠券 collection ID（手動白名單 + 自動寫入的新客 $90）
-- `slugs.txt`：活動路徑片段，會自動組「這個月 + 下個月」網址，目前包含例如：
-  - `7-11_1dollarcafe` → `…/202609_7-11_1dollarcafe/`（9 月初 $1 冰美式）
-  - `7-11_breakfast`、`7-11_coffee`、`family_icecream`、`wootea_drinks`、`KFC_Eggtart`、`1point`、`1dollar`
+- `slugs.txt`：
+  - 純 slug（如 `7-11_1dollarSupau`）→ 自動組 `YYYYMM`（這個月／下個月）+ 近日 `YYYYMMDD`
+  - 完整路徑（如 `20260921_7-11_1dollarSupau`）→ 直接檢查該頁
 - **自動發現新客 $90**：首頁券連結；以及從各 ID 叢集往後探測 `PROBE_AHEAD`（預設 20）
-- **首頁掃描**（`SCAN_HOME=1`）：新客／1元**商品**可進推播；未知 slug 不自動加入 `slugs.txt`
+- **首頁掃描**（`SCAN_HOME=1`）：新客／1元**商品**可進推播；符合關鍵字的日期型 landpress 路徑可寫回 `slugs.txt`
 
 ## 排程
 
