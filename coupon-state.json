@@ -7,12 +7,6 @@
         "claimed": 7491,
         "title": "新客限定：$90元限量優惠券"
       },
-      "2548260": {
-        "status": "EXPIRED",
-        "remaining": 2629,
-        "claimed": 7371,
-        "title": "新客專屬：$90元限量優惠券"
-      },
       "2548261": {
         "status": "EXPIRED",
         "remaining": 4119,
@@ -51,8 +45,8 @@
       },
       "2554834": {
         "status": "ISSUING",
-        "remaining": 8062,
-        "claimed": 1938,
+        "remaining": 7963,
+        "claimed": 2037,
         "title": "新客限量：$90元專享優惠券"
       }
     },
@@ -65,7 +59,7 @@
             "id": "322562443",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 833,
+            "stock": 820,
             "name": "[新客限定1元體驗禮]【7-ELEVEN】 舒跑運動飲料PET590",
             "url": "https://giftshop-tw.line.me/products/322562443"
           }
@@ -107,7 +101,7 @@
             "id": "322562443",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 833,
+            "stock": 820,
             "name": "[新客限定1元體驗禮]【7-ELEVEN】 舒跑運動飲料PET590",
             "url": "https://giftshop-tw.line.me/products/322562443"
           }
@@ -135,7 +129,7 @@
             "id": "322558885",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 84893,
+            "stock": 84860,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌6666點！",
             "url": "https://giftshop-tw.line.me/products/322558885"
           }
@@ -159,7 +153,7 @@
             "id": "322558885",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 84893,
+            "stock": 84860,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌6666點！",
             "url": "https://giftshop-tw.line.me/products/322558885"
           }
@@ -185,11 +179,11 @@
         "id": "322562443",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 833,
+        "stock": 823,
         "name": "[新客限定1元體驗禮]【7-ELEVEN】 舒跑運動飲料PET590",
         "url": "https://giftshop-tw.line.me/products/322562443"
       }
     ]
   },
-  "updatedAt": "2026-09-22T21:10:43.486351+08:00"
+  "updatedAt": "2026-09-22T22:18:50.008987+08:00"
 }
