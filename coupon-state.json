@@ -1,12 +1,6 @@
 {
   "last": {
     "coupons": {
-      "2548259": {
-        "status": "EXPIRED",
-        "remaining": 2509,
-        "claimed": 7491,
-        "title": "新客限定：$90元限量優惠券"
-      },
       "2548260": {
         "status": "EXPIRED",
         "remaining": 2629,
@@ -51,8 +45,8 @@
       },
       "2554834": {
         "status": "ISSUING",
-        "remaining": 8997,
-        "claimed": 1003,
+        "remaining": 8577,
+        "claimed": 1423,
         "title": "新客限量：$90元專享優惠券"
       }
     },
@@ -65,7 +59,7 @@
             "id": "322562443",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 914,
+            "stock": 883,
             "name": "[新客限定1元體驗禮]【7-ELEVEN】 舒跑運動飲料PET590",
             "url": "https://giftshop-tw.line.me/products/322562443"
           }
@@ -107,7 +101,7 @@
             "id": "322562443",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 914,
+            "stock": 882,
             "name": "[新客限定1元體驗禮]【7-ELEVEN】 舒跑運動飲料PET590",
             "url": "https://giftshop-tw.line.me/products/322562443"
           }
@@ -135,7 +129,7 @@
             "id": "322558885",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 85280,
+            "stock": 85170,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌6666點！",
             "url": "https://giftshop-tw.line.me/products/322558885"
           }
@@ -159,7 +153,7 @@
             "id": "322558885",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 85279,
+            "stock": 85170,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌6666點！",
             "url": "https://giftshop-tw.line.me/products/322558885"
           }
@@ -185,11 +179,11 @@
         "id": "322562443",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 917,
+        "stock": 886,
         "name": "[新客限定1元體驗禮]【7-ELEVEN】 舒跑運動飲料PET590",
         "url": "https://giftshop-tw.line.me/products/322562443"
       }
     ]
   },
-  "updatedAt": "2026-09-22T14:08:19.535693+08:00"
+  "updatedAt": "2026-09-22T15:13:30.440185+08:00"
 }
