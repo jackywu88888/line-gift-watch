@@ -51,8 +51,8 @@
       },
       "2554834": {
         "status": "ISSUING",
-        "remaining": 7816,
-        "claimed": 2184,
+        "remaining": 7603,
+        "claimed": 2397,
         "title": "新客限量：$90元專享優惠券"
       }
     },
@@ -65,7 +65,7 @@
             "id": "322562443",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 794,
+            "stock": 714,
             "name": "[新客限定1元體驗禮]【7-ELEVEN】 舒跑運動飲料PET590",
             "url": "https://giftshop-tw.line.me/products/322562443"
           }
@@ -79,7 +79,7 @@
             "id": "322562444",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 2945,
+            "stock": 2857,
             "name": "[新客限定1元體驗禮]【7-ELEVEN】 超值組合45元超值餐購物金(一次抵用型)",
             "url": "https://giftshop-tw.line.me/products/322562444"
           }
@@ -107,7 +107,7 @@
             "id": "322562443",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 792,
+            "stock": 714,
             "name": "[新客限定1元體驗禮]【7-ELEVEN】 舒跑運動飲料PET590",
             "url": "https://giftshop-tw.line.me/products/322562443"
           }
@@ -135,7 +135,7 @@
             "id": "322558885",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 84750,
+            "stock": 84549,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌6666點！",
             "url": "https://giftshop-tw.line.me/products/322558885"
           }
@@ -159,7 +159,7 @@
             "id": "322558885",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 84748,
+            "stock": 84549,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌6666點！",
             "url": "https://giftshop-tw.line.me/products/322558885"
           }
@@ -185,11 +185,11 @@
         "id": "322562443",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 796,
+        "stock": 718,
         "name": "[新客限定1元體驗禮]【7-ELEVEN】 舒跑運動飲料PET590",
         "url": "https://giftshop-tw.line.me/products/322562443"
       }
     ]
   },
-  "updatedAt": "2026-09-23T00:12:35.714307+08:00"
+  "updatedAt": "2026-09-23T01:08:22.863291+08:00"
 }
