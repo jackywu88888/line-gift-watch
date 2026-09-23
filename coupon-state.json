@@ -51,8 +51,8 @@
       },
       "2554834": {
         "status": "ISSUING",
-        "remaining": 4483,
-        "claimed": 5517,
+        "remaining": 4401,
+        "claimed": 5599,
         "title": "新客限量：$90元專享優惠券"
       }
     },
@@ -65,7 +65,7 @@
             "id": "322562443",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 93,
+            "stock": 82,
             "name": "[新客限定1元體驗禮]【7-ELEVEN】 舒跑運動飲料PET590",
             "url": "https://giftshop-tw.line.me/products/322562443"
           }
@@ -107,7 +107,7 @@
             "id": "322562443",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 93,
+            "stock": 82,
             "name": "[新客限定1元體驗禮]【7-ELEVEN】 舒跑運動飲料PET590",
             "url": "https://giftshop-tw.line.me/products/322562443"
           }
@@ -135,7 +135,7 @@
             "id": "322558885",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 83198,
+            "stock": 83179,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌6666點！",
             "url": "https://giftshop-tw.line.me/products/322558885"
           }
@@ -159,7 +159,7 @@
             "id": "322558885",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 83198,
+            "stock": 83179,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌6666點！",
             "url": "https://giftshop-tw.line.me/products/322558885"
           }
@@ -171,10 +171,10 @@
         "products": [
           {
             "id": "322562442",
-            "buyable": true,
-            "saleStatus": "SALE",
-            "stock": 7338,
-            "name": "[新客限定1元體驗禮]【7-ELEVEN】 麥香奶茶300ml",
+            "buyable": false,
+            "saleStatus": "ERROR",
+            "stock": null,
+            "name": "",
             "url": "https://giftshop-tw.line.me/products/322562442"
           }
         ]
@@ -185,11 +185,11 @@
         "id": "322562443",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 93,
+        "stock": 84,
         "name": "[新客限定1元體驗禮]【7-ELEVEN】 舒跑運動飲料PET590",
         "url": "https://giftshop-tw.line.me/products/322562443"
       }
     ]
   },
-  "updatedAt": "2026-09-23T17:09:52.492867+08:00"
+  "updatedAt": "2026-09-23T18:10:07.316378+08:00"
 }
