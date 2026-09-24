@@ -31,12 +31,6 @@
         "claimed": 4807,
         "title": "新客專享：$90元限量優惠券"
       },
-      "2551266": {
-        "status": "EXPIRED",
-        "remaining": 0,
-        "claimed": 20000,
-        "title": "飲料控限定：限量20元優惠券"
-      },
       "2553194": {
         "status": "EXPIRED",
         "remaining": 4794,
@@ -57,8 +51,8 @@
       },
       "2554836": {
         "status": "ISSUING",
-        "remaining": 9287,
-        "claimed": 713,
+        "remaining": 9191,
+        "claimed": 809,
         "title": "9/24限定：$90元新客優惠券"
       }
     },
@@ -127,7 +121,7 @@
             "id": "322562442",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 7273,
+            "stock": 7265,
             "name": "[新客限定1元體驗禮]【7-ELEVEN】 麥香奶茶300ml",
             "url": "https://giftshop-tw.line.me/products/322562442"
           }
@@ -141,7 +135,7 @@
             "id": "322558885",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 77087,
+            "stock": 75446,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌6666點！",
             "url": "https://giftshop-tw.line.me/products/322558885"
           }
@@ -165,7 +159,7 @@
             "id": "322558885",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 77076,
+            "stock": 75440,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌6666點！",
             "url": "https://giftshop-tw.line.me/products/322558885"
           }
@@ -179,7 +173,7 @@
             "id": "322562442",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 7273,
+            "stock": 7265,
             "name": "[新客限定1元體驗禮]【7-ELEVEN】 麥香奶茶300ml",
             "url": "https://giftshop-tw.line.me/products/322562442"
           }
@@ -191,11 +185,11 @@
         "id": "322562442",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 7273,
+        "stock": 7268,
         "name": "[新客限定1元體驗禮]【7-ELEVEN】 麥香奶茶300ml",
         "url": "https://giftshop-tw.line.me/products/322562442"
       }
     ]
   },
-  "updatedAt": "2026-09-24T14:06:33.209282+08:00"
+  "updatedAt": "2026-09-24T15:11:40.317844+08:00"
 }
