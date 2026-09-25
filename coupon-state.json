@@ -63,8 +63,8 @@
       },
       "2554838": {
         "status": "ISSUING",
-        "remaining": 9301,
-        "claimed": 699,
+        "remaining": 9158,
+        "claimed": 842,
         "title": "中秋送禮：$90元新客優惠券"
       }
     },
@@ -133,7 +133,7 @@
             "id": "322562442",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 7043,
+            "stock": 7037,
             "name": "[新客限定1元體驗禮]【7-ELEVEN】 麥香奶茶300ml",
             "url": "https://giftshop-tw.line.me/products/322562442"
           }
@@ -147,7 +147,7 @@
             "id": "322558885",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 65230,
+            "stock": 64907,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌6666點！",
             "url": "https://giftshop-tw.line.me/products/322558885"
           }
@@ -171,7 +171,7 @@
             "id": "322558885",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 65230,
+            "stock": 64896,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌6666點！",
             "url": "https://giftshop-tw.line.me/products/322558885"
           }
@@ -185,7 +185,7 @@
             "id": "322562442",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 7043,
+            "stock": 7037,
             "name": "[新客限定1元體驗禮]【7-ELEVEN】 麥香奶茶300ml",
             "url": "https://giftshop-tw.line.me/products/322562442"
           }
@@ -197,7 +197,7 @@
         "id": "322558885",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 65254,
+        "stock": 64935,
         "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌6666點！",
         "url": "https://giftshop-tw.line.me/products/322558885"
       },
@@ -205,11 +205,11 @@
         "id": "322562442",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 7043,
+        "stock": 7037,
         "name": "[新客限定1元體驗禮]【7-ELEVEN】 麥香奶茶300ml",
         "url": "https://giftshop-tw.line.me/products/322562442"
       }
     ]
   },
-  "updatedAt": "2026-09-25T10:07:27.967141+08:00"
+  "updatedAt": "2026-09-25T11:07:36.189541+08:00"
 }
