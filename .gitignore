@@ -4,7 +4,10 @@ latest-live.txt
 new-hits.txt
 catalog.json
 catalog.txt
+coupon-watch.log
 _tmp_*
+_check_*
+_probe_*
 _decode_once.py
 __pycache__/
 .venv/

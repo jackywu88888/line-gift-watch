@@ -4,6 +4,9 @@
 
 來源包含：`coupons.txt` 優惠券、`slugs.txt` landpress 活動頁、以及 **`giftshop-tw.line.me/home` 首頁掃描**。
 
+> **Repo 為 Public**：標準 GitHub Actions 不扣私有帳號那 2,000 分鐘。  
+> Discord／LINE 憑證**只**放在 GitHub Actions Secrets（`DISCORD_WEBHOOK_URL` 等），**禁止**寫進程式碼或 commit。
+
 ## 會抓什麼
 
 | 類型 | 來源 | 剩餘數量 | 推播內容 |
