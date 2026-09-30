@@ -78,6 +78,12 @@
         "remaining": 8269,
         "claimed": 1731,
         "title": "9/30限定：$90元新客優惠券"
+      },
+      "2556934": {
+        "status": "ISSUING",
+        "remaining": 9905,
+        "claimed": 95,
+        "title": "新客限定：$90元限量優惠券"
       }
     },
     "campaigns": {
@@ -103,7 +109,7 @@
             "id": "322577912",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 5999,
+            "stock": 5980,
             "name": "[新客限定1元體驗品]【全家】Fami霜淇淋 (口味不限)",
             "url": "https://giftshop-tw.line.me/products/322577912"
           }
@@ -138,7 +144,16 @@
         ]
       }
     },
-    "homeProducts": []
+    "homeProducts": [
+      {
+        "id": "322577912",
+        "buyable": true,
+        "saleStatus": "SALE",
+        "stock": 5981,
+        "name": "[新客限定1元體驗品]【全家】Fami霜淇淋 (口味不限)",
+        "url": "https://giftshop-tw.line.me/products/322577912"
+      }
+    ]
   },
-  "updatedAt": "2026-10-01T00:05:54.258129+08:00"
+  "updatedAt": "2026-10-01T01:06:57.770732+08:00"
 }
