@@ -75,8 +75,8 @@
       },
       "2554850": {
         "status": "ISSUING",
-        "remaining": 8863,
-        "claimed": 1137,
+        "remaining": 8785,
+        "claimed": 1215,
         "title": "9/30限定：$90元新客優惠券"
       }
     },
@@ -145,7 +145,7 @@
             "id": "322562442",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 5560,
+            "stock": 5557,
             "name": "[新客限定1元體驗禮]【7-ELEVEN】 麥香奶茶300ml",
             "url": "https://giftshop-tw.line.me/products/322562442"
           }
@@ -213,11 +213,11 @@
         "id": "322562442",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 5560,
+        "stock": 5556,
         "name": "[新客限定1元體驗禮]【7-ELEVEN】 麥香奶茶300ml",
         "url": "https://giftshop-tw.line.me/products/322562442"
       }
     ]
   },
-  "updatedAt": "2026-09-30T16:05:35.367173+08:00"
+  "updatedAt": "2026-09-30T17:07:07.635760+08:00"
 }
