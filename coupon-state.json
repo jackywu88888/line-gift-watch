@@ -75,8 +75,8 @@
       },
       "2554850": {
         "status": "ISSUING",
-        "remaining": 8960,
-        "claimed": 1040,
+        "remaining": 8863,
+        "claimed": 1137,
         "title": "9/30限定：$90元新客優惠券"
       }
     },
@@ -145,7 +145,7 @@
             "id": "322562442",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 5566,
+            "stock": 5560,
             "name": "[新客限定1元體驗禮]【7-ELEVEN】 麥香奶茶300ml",
             "url": "https://giftshop-tw.line.me/products/322562442"
           }
@@ -168,12 +168,30 @@
       "https://gift-shop.landpress.line.me/202610_family_icecream/": {
         "status": "LIVE",
         "title": "LINE禮物｜10月新朋友限定心意禮！新客購買/送禮 全家 Fami霜淇淋(口味不限) 只要1元！",
-        "products": []
+        "products": [
+          {
+            "id": "322577912",
+            "buyable": false,
+            "saleStatus": "WAIT",
+            "stock": 6000,
+            "name": "[新客限定1元體驗品]【全家】Fami霜淇淋 (口味不限)",
+            "url": "https://giftshop-tw.line.me/products/322577912"
+          }
+        ]
       },
       "https://gift-shop.landpress.line.me/202610_7-11_breakfast/": {
         "status": "LIVE",
         "title": "LINE禮物｜10月新朋友限定心意禮！新客購買/送禮 7-ELEVEN 45元超值餐購物金 只要1元！",
-        "products": []
+        "products": [
+          {
+            "id": "322577910",
+            "buyable": false,
+            "saleStatus": "WAIT",
+            "stock": 11000,
+            "name": "[新客限定1元體驗品]【7-ELEVEN】 超值組合45元超值餐購物金(一次抵用型)",
+            "url": "https://giftshop-tw.line.me/products/322577910"
+          }
+        ]
       },
       "https://gift-shop.landpress.line.me/202610_1point/": {
         "status": "LIVE",
@@ -195,11 +213,11 @@
         "id": "322562442",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 5567,
+        "stock": 5560,
         "name": "[新客限定1元體驗禮]【7-ELEVEN】 麥香奶茶300ml",
         "url": "https://giftshop-tw.line.me/products/322562442"
       }
     ]
   },
-  "updatedAt": "2026-09-30T15:06:30.935308+08:00"
+  "updatedAt": "2026-09-30T16:05:35.367173+08:00"
 }
