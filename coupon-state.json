@@ -19,6 +19,12 @@
         "claimed": 5881,
         "title": "新客驚喜：$90元限量優惠券"
       },
+      "2548263": {
+        "status": "EXPIRED",
+        "remaining": 832,
+        "claimed": 9168,
+        "title": "新客獨享：$90元限量優惠券"
+      },
       "2553175": {
         "status": "EXPIRED",
         "remaining": 5193,
@@ -68,9 +74,9 @@
         "title": "9/29限定：$90元新客優惠券"
       },
       "2554850": {
-        "status": "ISSUING",
-        "remaining": 8295,
-        "claimed": 1705,
+        "status": "EXPIRED",
+        "remaining": 8269,
+        "claimed": 1731,
         "title": "9/30限定：$90元新客優惠券"
       }
     },
@@ -82,80 +88,10 @@
           {
             "id": "322562443",
             "buyable": false,
-            "saleStatus": "OUTOFSTOCK",
-            "stock": 0,
-            "name": "[新客限定1元體驗禮]【7-ELEVEN】 舒跑運動飲料PET590",
-            "url": "https://giftshop-tw.line.me/products/322562443"
-          }
-        ]
-      },
-      "https://gift-shop.landpress.line.me/202609_7-11_breakfast/": {
-        "status": "LIVE",
-        "title": "LINE禮物｜9月新客$1元 購買/送禮7-11早餐購物金！",
-        "products": [
-          {
-            "id": "322562444",
-            "buyable": true,
-            "saleStatus": "SALE",
-            "stock": 1083,
-            "name": "[新客限定1元體驗禮]【7-ELEVEN】 超值組合45元超值餐購物金(一次抵用型)",
-            "url": "https://giftshop-tw.line.me/products/322562444"
-          }
-        ]
-      },
-      "https://gift-shop.landpress.line.me/202609_7-11_1dollarcafe/": {
-        "status": "LIVE",
-        "title": "LINE禮物｜9月新客送好友大冰美式咖啡，$1塊請客1+1！",
-        "products": [
-          {
-            "id": "322562441",
-            "buyable": false,
-            "saleStatus": "OUTOFSTOCK",
-            "stock": 0,
-            "name": "[新客限定1元請客禮]【7-ELEVEN】 CITY CAFE冰美式(大)",
-            "url": "https://giftshop-tw.line.me/products/322562441"
-          }
-        ]
-      },
-      "https://gift-shop.landpress.line.me/202609_7-11_1dollarSupau/": {
-        "status": "LIVE",
-        "title": "LINE禮物｜9月新客送好友大冰美式咖啡，$1塊請客1+1！",
-        "products": [
-          {
-            "id": "322562443",
-            "buyable": false,
-            "saleStatus": "OUTOFSTOCK",
-            "stock": 0,
-            "name": "[新客限定1元體驗禮]【7-ELEVEN】 舒跑運動飲料PET590",
-            "url": "https://giftshop-tw.line.me/products/322562443"
-          }
-        ]
-      },
-      "https://gift-shop.landpress.line.me/202609_7-11_1dollarmilktea/": {
-        "status": "LIVE",
-        "title": "LINE禮物｜9月新客送好友麥香奶茶，$1塊請客1+1！",
-        "products": [
-          {
-            "id": "322562442",
-            "buyable": true,
-            "saleStatus": "SALE",
-            "stock": 5503,
-            "name": "[新客限定1元體驗禮]【7-ELEVEN】 麥香奶茶300ml",
-            "url": "https://giftshop-tw.line.me/products/322562442"
-          }
-        ]
-      },
-      "https://gift-shop.landpress.line.me/202609_1point/": {
-        "status": "LIVE",
-        "title": "LINE禮物｜1點有禮，轉出好運氣",
-        "products": [
-          {
-            "id": "322558885",
-            "buyable": false,
             "saleStatus": "CLOSE",
-            "stock": 45859,
-            "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌6666點！",
-            "url": "https://giftshop-tw.line.me/products/322558885"
+            "stock": 0,
+            "name": "[新客限定1元體驗禮]【7-ELEVEN】 舒跑運動飲料PET590",
+            "url": "https://giftshop-tw.line.me/products/322562443"
           }
         ]
       },
@@ -165,9 +101,9 @@
         "products": [
           {
             "id": "322577912",
-            "buyable": false,
-            "saleStatus": "WAIT",
-            "stock": 6000,
+            "buyable": true,
+            "saleStatus": "SALE",
+            "stock": 5999,
             "name": "[新客限定1元體驗品]【全家】Fami霜淇淋 (口味不限)",
             "url": "https://giftshop-tw.line.me/products/322577912"
           }
@@ -179,8 +115,8 @@
         "products": [
           {
             "id": "322577910",
-            "buyable": false,
-            "saleStatus": "WAIT",
+            "buyable": true,
+            "saleStatus": "SALE",
             "stock": 11000,
             "name": "[新客限定1元體驗品]【7-ELEVEN】 超值組合45元超值餐購物金(一次抵用型)",
             "url": "https://giftshop-tw.line.me/products/322577910"
@@ -202,16 +138,7 @@
         ]
       }
     },
-    "homeProducts": [
-      {
-        "id": "322562442",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 5505,
-        "name": "[新客限定1元體驗禮]【7-ELEVEN】 麥香奶茶300ml",
-        "url": "https://giftshop-tw.line.me/products/322562442"
-      }
-    ]
+    "homeProducts": []
   },
-  "updatedAt": "2026-09-30T23:10:27.280937+08:00"
+  "updatedAt": "2026-10-01T00:05:54.258129+08:00"
 }
