@@ -103,7 +103,7 @@
             "id": "322577912",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 2956,
+            "stock": 2934,
             "name": "[新客限定1元體驗品]【全家】Fami霜淇淋 (口味不限)",
             "url": "https://giftshop-tw.line.me/products/322577912"
           }
@@ -131,7 +131,7 @@
             "id": "322574889",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 165651,
+            "stock": 165424,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌6666點！",
             "url": "https://giftshop-tw.line.me/products/322574889"
           }
@@ -140,14 +140,22 @@
     },
     "homeProducts": [
       {
+        "id": "322574889",
+        "buyable": true,
+        "saleStatus": "SALE",
+        "stock": 165442,
+        "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌6666點！",
+        "url": "https://giftshop-tw.line.me/products/322574889"
+      },
+      {
         "id": "322577912",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 2958,
+        "stock": 2936,
         "name": "[新客限定1元體驗品]【全家】Fami霜淇淋 (口味不限)",
         "url": "https://giftshop-tw.line.me/products/322577912"
       }
     ]
   },
-  "updatedAt": "2026-10-05T18:06:13.166196+08:00"
+  "updatedAt": "2026-10-05T19:06:30.116489+08:00"
 }
