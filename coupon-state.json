@@ -81,8 +81,8 @@
       },
       "2558660": {
         "status": "ISSUING",
-        "remaining": 6058,
-        "claimed": 3942,
+        "remaining": 5908,
+        "claimed": 4092,
         "title": "新客專屬：$90元限量優惠券"
       }
     },
@@ -109,7 +109,7 @@
             "id": "322577912",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 1520,
+            "stock": 1514,
             "name": "[新客限定1元體驗品]【全家】Fami霜淇淋 (口味不限)",
             "url": "https://giftshop-tw.line.me/products/322577912"
           }
@@ -137,7 +137,7 @@
             "id": "322574889",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 160487,
+            "stock": 160404,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌6666點！",
             "url": "https://giftshop-tw.line.me/products/322574889"
           }
@@ -149,11 +149,11 @@
         "id": "322574889",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 160501,
+        "stock": 160406,
         "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌6666點！",
         "url": "https://giftshop-tw.line.me/products/322574889"
       }
     ]
   },
-  "updatedAt": "2026-10-07T11:06:42.329646+08:00"
+  "updatedAt": "2026-10-07T12:08:23.295565+08:00"
 }
