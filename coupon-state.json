@@ -13,12 +13,6 @@
         "claimed": 4807,
         "title": "新客專享：$90元限量優惠券"
       },
-      "2551266": {
-        "status": "EXPIRED",
-        "remaining": 0,
-        "claimed": 20000,
-        "title": "飲料控限定：限量20元優惠券"
-      },
       "2553194": {
         "status": "EXPIRED",
         "remaining": 4794,
@@ -125,7 +119,7 @@
             "id": "322574889",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 123650,
+            "stock": 123442,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌6666點！",
             "url": "https://giftshop-tw.line.me/products/322574889"
           }
@@ -142,11 +136,11 @@
         "id": "322577915",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 727,
+        "stock": 629,
         "name": "[新客限定1元體驗品]【清心福全】 烏龍綠茶(L)好禮即享券",
         "url": "https://giftshop-tw.line.me/products/322577915"
       }
     ]
   },
-  "updatedAt": "2026-10-13T23:07:48.509807+08:00"
+  "updatedAt": "2026-10-14T00:06:49.174318+08:00"
 }
