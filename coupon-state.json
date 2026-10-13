@@ -119,7 +119,7 @@
             "id": "322574889",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 123442,
+            "stock": 123312,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌6666點！",
             "url": "https://giftshop-tw.line.me/products/322574889"
           }
@@ -133,14 +133,14 @@
     },
     "homeProducts": [
       {
-        "id": "322577915",
+        "id": "322574889",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 629,
-        "name": "[新客限定1元體驗品]【清心福全】 烏龍綠茶(L)好禮即享券",
-        "url": "https://giftshop-tw.line.me/products/322577915"
+        "stock": 123316,
+        "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌6666點！",
+        "url": "https://giftshop-tw.line.me/products/322574889"
       }
     ]
   },
-  "updatedAt": "2026-10-14T00:06:49.174318+08:00"
+  "updatedAt": "2026-10-14T01:08:03.643522+08:00"
 }
