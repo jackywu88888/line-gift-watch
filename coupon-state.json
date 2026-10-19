@@ -93,7 +93,7 @@
             "id": "322577910",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 6968,
+            "stock": 6959,
             "name": "[新客限定1元體驗品]【7-ELEVEN】 超值組合45元超值餐購物金(一次抵用型)",
             "url": "https://giftshop-tw.line.me/products/322577910"
           }
@@ -107,7 +107,7 @@
             "id": "322574889",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 92250,
+            "stock": 92201,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌6666點！",
             "url": "https://giftshop-tw.line.me/products/322574889"
           }
@@ -121,16 +121,7 @@
       "https://gift-shop.landpress.line.me/202611_1point/": {
         "status": "LIVE",
         "title": "LINE禮物｜1點試手氣，轉出好運氣！",
-        "products": [
-          {
-            "id": "322574889",
-            "buyable": true,
-            "saleStatus": "SALE",
-            "stock": 92250,
-            "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌6666點！",
-            "url": "https://giftshop-tw.line.me/products/322574889"
-          }
-        ]
+        "products": []
       }
     },
     "homeProducts": [
@@ -138,11 +129,11 @@
         "id": "322577910",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 6969,
+        "stock": 6959,
         "name": "[新客限定1元體驗品]【7-ELEVEN】 超值組合45元超值餐購物金(一次抵用型)",
         "url": "https://giftshop-tw.line.me/products/322577910"
       }
     ]
   },
-  "updatedAt": "2026-10-19T17:07:52.316563+08:00"
+  "updatedAt": "2026-10-19T18:07:29.216753+08:00"
 }
