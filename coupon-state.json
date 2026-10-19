@@ -1,12 +1,6 @@
 {
   "last": {
     "coupons": {
-      "2553194": {
-        "status": "EXPIRED",
-        "remaining": 4794,
-        "claimed": 15206,
-        "title": "速食控專屬：限量$20優惠券"
-      },
       "2553213": {
         "status": "EXPIRED",
         "remaining": 7054,
@@ -93,7 +87,7 @@
             "id": "322577910",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 6728,
+            "stock": 6709,
             "name": "[新客限定1元體驗品]【7-ELEVEN】 超值組合45元超值餐購物金(一次抵用型)",
             "url": "https://giftshop-tw.line.me/products/322577910"
           }
@@ -107,7 +101,7 @@
             "id": "322574889",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 91499,
+            "stock": 91426,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌6666點！",
             "url": "https://giftshop-tw.line.me/products/322574889"
           }
@@ -129,11 +123,11 @@
         "id": "322577910",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 6739,
+        "stock": 6712,
         "name": "[新客限定1元體驗品]【7-ELEVEN】 超值組合45元超值餐購物金(一次抵用型)",
         "url": "https://giftshop-tw.line.me/products/322577910"
       }
     ]
   },
-  "updatedAt": "2026-10-19T23:08:45.784968+08:00"
+  "updatedAt": "2026-10-20T00:08:24.654404+08:00"
 }
