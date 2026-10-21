@@ -95,7 +95,7 @@
             "id": "322574889",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 84376,
+            "stock": 84363,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌6666點！",
             "url": "https://giftshop-tw.line.me/products/322574889"
           }
@@ -114,10 +114,18 @@
     },
     "homeProducts": [
       {
+        "id": "322060820",
+        "buyable": true,
+        "saleStatus": "SALE",
+        "stock": 99955805,
+        "name": "[LINE POINTS 1點大於1元活動]【foodpanda】優惠碼 200元好禮即享券(輸入序號後即可取得foodpanda優惠碼)",
+        "url": "https://giftshop-tw.line.me/products/322060820"
+      },
+      {
         "id": "322574889",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 84378,
+        "stock": 84363,
         "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌6666點！",
         "url": "https://giftshop-tw.line.me/products/322574889"
       },
@@ -131,5 +139,5 @@
       }
     ]
   },
-  "updatedAt": "2026-10-22T04:07:58.697428+08:00"
+  "updatedAt": "2026-10-22T05:08:23.706478+08:00"
 }
