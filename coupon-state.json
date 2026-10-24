@@ -1,12 +1,6 @@
 {
   "last": {
     "coupons": {
-      "2554836": {
-        "status": "EXPIRED",
-        "remaining": 8454,
-        "claimed": 1546,
-        "title": "9/24限定：$90元新客優惠券"
-      },
       "2554838": {
         "status": "EXPIRED",
         "remaining": 8043,
@@ -75,7 +69,7 @@
             "id": "322577910",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 3878,
+            "stock": 3852,
             "name": "[新客限定1元體驗品]【7-ELEVEN】 超值組合45元超值餐購物金(一次抵用型)",
             "url": "https://giftshop-tw.line.me/products/322577910"
           }
@@ -89,7 +83,7 @@
             "id": "322574889",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 76533,
+            "stock": 76452,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌6666點！",
             "url": "https://giftshop-tw.line.me/products/322574889"
           }
@@ -108,22 +102,22 @@
     },
     "homeProducts": [
       {
-        "id": "322060820",
+        "id": "322574889",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 99955758,
-        "name": "[LINE POINTS 1點大於1元活動]【foodpanda】優惠碼 200元好禮即享券(輸入序號後即可取得foodpanda優惠碼)",
-        "url": "https://giftshop-tw.line.me/products/322060820"
+        "stock": 76454,
+        "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌6666點！",
+        "url": "https://giftshop-tw.line.me/products/322574889"
       },
       {
         "id": "322577910",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 3879,
+        "stock": 3856,
         "name": "[新客限定1元體驗品]【7-ELEVEN】 超值組合45元超值餐購物金(一次抵用型)",
         "url": "https://giftshop-tw.line.me/products/322577910"
       }
     ]
   },
-  "updatedAt": "2026-10-24T23:06:54.910033+08:00"
+  "updatedAt": "2026-10-25T00:06:45.158504+08:00"
 }
