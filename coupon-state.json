@@ -27,8 +27,8 @@
       },
       "2562690": {
         "status": "ISSUING",
-        "remaining": 3690,
-        "claimed": 6310,
+        "remaining": 3534,
+        "claimed": 6466,
         "title": "連假加碼：$90元限量優惠券"
       }
     },
@@ -83,7 +83,7 @@
             "id": "322574889",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 68577,
+            "stock": 68518,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌6666點！",
             "url": "https://giftshop-tw.line.me/products/322574889"
           }
@@ -107,6 +107,20 @@
             "url": "https://giftshop-tw.line.me/products/322591122"
           }
         ]
+      },
+      "https://gift-shop.landpress.line.me/20261028_family_icecream/": {
+        "status": "LIVE",
+        "title": "LINE禮物｜10月新朋友限定心意禮！新客購買/送禮 全家 Fami霜淇淋(口味不限) 只要1元！",
+        "products": [
+          {
+            "id": "322577912",
+            "buyable": true,
+            "saleStatus": "SALE",
+            "stock": 233,
+            "name": "[新客限定1元體驗品]【全家】Fami霜淇淋 (口味不限)",
+            "url": "https://giftshop-tw.line.me/products/322577912"
+          }
+        ]
       }
     },
     "homeProducts": [
@@ -120,5 +134,5 @@
       }
     ]
   },
-  "updatedAt": "2026-10-27T16:07:43.388628+08:00"
+  "updatedAt": "2026-10-27T17:09:38.786440+08:00"
 }
