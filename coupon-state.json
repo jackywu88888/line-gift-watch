@@ -27,8 +27,8 @@
       },
       "2562690": {
         "status": "ISSUING",
-        "remaining": 3397,
-        "claimed": 6603,
+        "remaining": 3281,
+        "claimed": 6719,
         "title": "連假加碼：$90元限量優惠券"
       }
     },
@@ -41,7 +41,7 @@
             "id": "322562443",
             "buyable": false,
             "saleStatus": "CLOSE",
-            "stock": 146,
+            "stock": 164,
             "name": "[新客限定1元體驗禮]【7-ELEVEN】 舒跑運動飲料PET590",
             "url": "https://giftshop-tw.line.me/products/322562443"
           }
@@ -83,7 +83,7 @@
             "id": "322574889",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 68435,
+            "stock": 68294,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌6666點！",
             "url": "https://giftshop-tw.line.me/products/322574889"
           }
@@ -111,6 +111,22 @@
     },
     "homeProducts": [
       {
+        "id": "322060820",
+        "buyable": true,
+        "saleStatus": "SALE",
+        "stock": 99955648,
+        "name": "[LINE POINTS 1點大於1元活動]【foodpanda】優惠碼 200元好禮即享券(輸入序號後即可取得foodpanda優惠碼)",
+        "url": "https://giftshop-tw.line.me/products/322060820"
+      },
+      {
+        "id": "322574889",
+        "buyable": true,
+        "saleStatus": "SALE",
+        "stock": 68309,
+        "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌6666點！",
+        "url": "https://giftshop-tw.line.me/products/322574889"
+      },
+      {
         "id": "322577910",
         "buyable": false,
         "saleStatus": "OUTOFSTOCK",
@@ -120,5 +136,5 @@
       }
     ]
   },
-  "updatedAt": "2026-10-27T18:07:52.321873+08:00"
+  "updatedAt": "2026-10-27T19:09:06.167541+08:00"
 }
