@@ -26,9 +26,9 @@
         "title": "新客專屬：$90元限量優惠券"
       },
       "2562690": {
-        "status": "ISSUING",
-        "remaining": 3021,
-        "claimed": 6979,
+        "status": "EXPIRED",
+        "remaining": 2896,
+        "claimed": 7104,
         "title": "連假加碼：$90元限量優惠券"
       }
     },
@@ -83,7 +83,7 @@
             "id": "322574889",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 67926,
+            "stock": 67575,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌6666點！",
             "url": "https://giftshop-tw.line.me/products/322574889"
           }
@@ -114,7 +114,7 @@
         "id": "322574889",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 67941,
+        "stock": 67610,
         "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌6666點！",
         "url": "https://giftshop-tw.line.me/products/322574889"
       },
@@ -128,5 +128,5 @@
       }
     ]
   },
-  "updatedAt": "2026-10-27T21:09:09.991181+08:00"
+  "updatedAt": "2026-10-27T22:09:33.859960+08:00"
 }
