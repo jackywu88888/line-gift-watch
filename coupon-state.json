@@ -55,7 +55,7 @@
             "id": "322577912",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 84,
+            "stock": 74,
             "name": "[新客限定1元體驗品]【全家】Fami霜淇淋 (口味不限)",
             "url": "https://giftshop-tw.line.me/products/322577912"
           }
@@ -83,7 +83,7 @@
             "id": "322574889",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 60016,
+            "stock": 53405,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌6666點！",
             "url": "https://giftshop-tw.line.me/products/322574889"
           }
@@ -111,18 +111,10 @@
     },
     "homeProducts": [
       {
-        "id": "322060820",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 99955597,
-        "name": "[LINE POINTS 1點大於1元活動]【foodpanda】優惠碼 200元好禮即享券(輸入序號後即可取得foodpanda優惠碼)",
-        "url": "https://giftshop-tw.line.me/products/322060820"
-      },
-      {
         "id": "322574889",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 60263,
+        "stock": 54160,
         "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌6666點！",
         "url": "https://giftshop-tw.line.me/products/322574889"
       },
@@ -130,11 +122,11 @@
         "id": "322577912",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 87,
+        "stock": 73,
         "name": "[新客限定1元體驗品]【全家】Fami霜淇淋 (口味不限)",
         "url": "https://giftshop-tw.line.me/products/322577912"
       }
     ]
   },
-  "updatedAt": "2026-10-29T13:08:47.508106+08:00"
+  "updatedAt": "2026-10-29T14:08:17.517099+08:00"
 }
