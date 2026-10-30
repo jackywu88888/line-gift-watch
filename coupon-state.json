@@ -77,7 +77,7 @@
             "id": "322574889",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 40590,
+            "stock": 40523,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌6666點！",
             "url": "https://giftshop-tw.line.me/products/322574889"
           }
@@ -86,7 +86,16 @@
       "https://gift-shop.landpress.line.me/202611_7-11_breakfast/": {
         "status": "LIVE",
         "title": "LINE禮物｜11月新朋友限定心意禮！新客購買/送禮 7-ELEVEN 45元超值餐購物金 只要1元！",
-        "products": []
+        "products": [
+          {
+            "id": "322596152",
+            "buyable": false,
+            "saleStatus": "WAIT",
+            "stock": 10000,
+            "name": "[新客限定1元體驗品]【7-ELEVEN】 7-ELEVEN 超值組合45元超值餐購物金(一次抵用型)",
+            "url": "https://giftshop-tw.line.me/products/322596152"
+          }
+        ]
       },
       "https://gift-shop.landpress.line.me/202611_1point/": {
         "status": "LIVE",
@@ -108,7 +117,7 @@
         "id": "322574889",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 40597,
+        "stock": 40533,
         "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌6666點！",
         "url": "https://giftshop-tw.line.me/products/322574889"
       },
@@ -116,11 +125,11 @@
         "id": "322577915",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 227,
+        "stock": 218,
         "name": "[新客限定1元體驗品]【清心福全】 烏龍綠茶(L)好禮即享券",
         "url": "https://giftshop-tw.line.me/products/322577915"
       }
     ]
   },
-  "updatedAt": "2026-10-30T17:09:21.135217+08:00"
+  "updatedAt": "2026-10-30T18:09:05.894847+08:00"
 }
