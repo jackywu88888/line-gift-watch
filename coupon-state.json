@@ -1,12 +1,6 @@
 {
   "last": {
     "coupons": {
-      "2554850": {
-        "status": "EXPIRED",
-        "remaining": 8269,
-        "claimed": 1731,
-        "title": "9/30限定：$90元新客優惠券"
-      },
       "2556934": {
         "status": "EXPIRED",
         "remaining": 0,
@@ -75,9 +69,9 @@
         "products": [
           {
             "id": "322574889",
-            "buyable": true,
-            "saleStatus": "SALE",
-            "stock": 39730,
+            "buyable": false,
+            "saleStatus": "CLOSE",
+            "stock": 39639,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌6666點！",
             "url": "https://giftshop-tw.line.me/products/322574889"
           }
@@ -114,22 +108,14 @@
     },
     "homeProducts": [
       {
-        "id": "322574889",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 39735,
-        "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌6666點！",
-        "url": "https://giftshop-tw.line.me/products/322574889"
-      },
-      {
         "id": "322577915",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 183,
+        "stock": 174,
         "name": "[新客限定1元體驗品]【清心福全】 烏龍綠茶(L)好禮即享券",
         "url": "https://giftshop-tw.line.me/products/322577915"
       }
     ]
   },
-  "updatedAt": "2026-10-30T23:08:22.840457+08:00"
+  "updatedAt": "2026-10-31T00:09:34.822623+08:00"
 }
