@@ -35,56 +35,14 @@
           }
         ]
       },
-      "https://gift-shop.landpress.line.me/202610_family_icecream/": {
-        "status": "LIVE",
-        "title": "LINE禮物｜10月新朋友限定心意禮！新客購買/送禮 全家 Fami霜淇淋(口味不限) 只要1元！",
-        "products": [
-          {
-            "id": "322577912",
-            "buyable": true,
-            "saleStatus": "SALE",
-            "stock": 3,
-            "name": "[新客限定1元體驗品]【全家】Fami霜淇淋 (口味不限)",
-            "url": "https://giftshop-tw.line.me/products/322577912"
-          }
-        ]
-      },
-      "https://gift-shop.landpress.line.me/202610_7-11_breakfast/": {
-        "status": "LIVE",
-        "title": "LINE禮物｜10月新朋友限定心意禮！新客購買/送禮 7-ELEVEN 45元超值餐購物金 只要1元！",
-        "products": [
-          {
-            "id": "322577910",
-            "buyable": false,
-            "saleStatus": "OUTOFSTOCK",
-            "stock": 0,
-            "name": "[新客限定1元體驗品]【7-ELEVEN】 超值組合45元超值餐購物金(一次抵用型)",
-            "url": "https://giftshop-tw.line.me/products/322577910"
-          }
-        ]
-      },
-      "https://gift-shop.landpress.line.me/202610_1point/": {
-        "status": "LIVE",
-        "title": "LINE禮物｜1點拿好禮，轉好運轉盤 ！",
-        "products": [
-          {
-            "id": "322574889",
-            "buyable": false,
-            "saleStatus": "CLOSE",
-            "stock": 39639,
-            "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌6666點！",
-            "url": "https://giftshop-tw.line.me/products/322574889"
-          }
-        ]
-      },
       "https://gift-shop.landpress.line.me/202611_7-11_breakfast/": {
         "status": "LIVE",
         "title": "LINE禮物｜11月新朋友限定心意禮！新客購買/送禮 7-ELEVEN 45元超值餐購物金 只要1元！",
         "products": [
           {
             "id": "322596152",
-            "buyable": false,
-            "saleStatus": "WAIT",
+            "buyable": true,
+            "saleStatus": "SALE",
             "stock": 10000,
             "name": "[新客限定1元體驗品]【7-ELEVEN】 7-ELEVEN 超值組合45元超值餐購物金(一次抵用型)",
             "url": "https://giftshop-tw.line.me/products/322596152"
@@ -108,14 +66,14 @@
     },
     "homeProducts": [
       {
-        "id": "322577915",
+        "id": "322596148",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 125,
-        "name": "[新客限定1元體驗品]【清心福全】 烏龍綠茶(L)好禮即享券",
-        "url": "https://giftshop-tw.line.me/products/322577915"
+        "stock": 5000,
+        "name": "[新客限定1元體驗品]【7-ELEVEN】 7-ELEVEN CITY CAFE熱美式(大)",
+        "url": "https://giftshop-tw.line.me/products/322596148"
       }
     ]
   },
-  "updatedAt": "2026-10-31T23:08:27.378804+08:00"
+  "updatedAt": "2026-11-01T00:07:44.319604+08:00"
 }
