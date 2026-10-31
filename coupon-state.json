@@ -108,22 +108,14 @@
     },
     "homeProducts": [
       {
-        "id": "322060820",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 99955534,
-        "name": "[LINE POINTS 1點大於1元活動]【foodpanda】優惠碼 200元好禮即享券(輸入序號後即可取得foodpanda優惠碼)",
-        "url": "https://giftshop-tw.line.me/products/322060820"
-      },
-      {
         "id": "322577915",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 156,
+        "stock": 147,
         "name": "[新客限定1元體驗品]【清心福全】 烏龍綠茶(L)好禮即享券",
         "url": "https://giftshop-tw.line.me/products/322577915"
       }
     ]
   },
-  "updatedAt": "2026-10-31T12:08:00.383433+08:00"
+  "updatedAt": "2026-10-31T13:09:25.253414+08:00"
 }
