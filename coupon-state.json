@@ -57,7 +57,7 @@
             "id": "322591122",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 186229,
+            "stock": 185967,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌1,111點！",
             "url": "https://giftshop-tw.line.me/products/322591122"
           }
@@ -74,30 +74,14 @@
         "url": "https://giftshop-tw.line.me/products/322590133"
       },
       {
-        "id": "322590147",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 6000,
-        "name": "新客限定【星巴克】生日星願 甜蜜任選",
-        "url": "https://giftshop-tw.line.me/products/322590147"
-      },
-      {
-        "id": "322591122",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 186269,
-        "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌1,111點！",
-        "url": "https://giftshop-tw.line.me/products/322591122"
-      },
-      {
         "id": "322596148",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 4311,
+        "stock": 4286,
         "name": "[新客限定1元體驗品]【7-ELEVEN】 7-ELEVEN CITY CAFE熱美式(大)",
         "url": "https://giftshop-tw.line.me/products/322596148"
       }
     ]
   },
-  "updatedAt": "2026-11-01T19:07:20.194839+08:00"
+  "updatedAt": "2026-11-01T20:07:41.514614+08:00"
 }
