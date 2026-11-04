@@ -1,12 +1,6 @@
 {
   "last": {
     "coupons": {
-      "2556934": {
-        "status": "EXPIRED",
-        "remaining": 0,
-        "claimed": 10000,
-        "title": "新客限定：$90元限量優惠券"
-      },
       "2558660": {
         "status": "EXPIRED",
         "remaining": 0,
@@ -57,7 +51,7 @@
             "id": "322591122",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 172296,
+            "stock": 169491,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌1,111點！",
             "url": "https://giftshop-tw.line.me/products/322591122"
           }
@@ -69,7 +63,7 @@
         "id": "322591122",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 172651,
+        "stock": 169715,
         "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌1,111點！",
         "url": "https://giftshop-tw.line.me/products/322591122"
       },
@@ -77,11 +71,11 @@
         "id": "322596148",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 2487,
+        "stock": 2349,
         "name": "[新客限定1元體驗品]【7-ELEVEN】 7-ELEVEN CITY CAFE熱美式(大)",
         "url": "https://giftshop-tw.line.me/products/322596148"
       }
     ]
   },
-  "updatedAt": "2026-11-04T23:08:43.148564+08:00"
+  "updatedAt": "2026-11-05T00:08:35.737993+08:00"
 }
