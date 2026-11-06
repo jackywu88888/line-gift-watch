@@ -51,23 +51,14 @@
             "id": "322591122",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 161370,
+            "stock": 161308,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌1,111點！",
             "url": "https://giftshop-tw.line.me/products/322591122"
           }
         ]
       }
     },
-    "homeProducts": [
-      {
-        "id": "322591122",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 161379,
-        "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌1,111點！",
-        "url": "https://giftshop-tw.line.me/products/322591122"
-      }
-    ]
+    "homeProducts": []
   },
-  "updatedAt": "2026-11-06T12:08:20.131676+08:00"
+  "updatedAt": "2026-11-06T13:08:14.926056+08:00"
 }
