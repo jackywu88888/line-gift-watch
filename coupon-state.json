@@ -51,7 +51,7 @@
             "id": "322591122",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 159799,
+            "stock": 159752,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌1,111點！",
             "url": "https://giftshop-tw.line.me/products/322591122"
           }
@@ -63,19 +63,11 @@
         "id": "322590133",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 1951,
+        "stock": 1948,
         "name": "新客限定【星巴克】175元星享飲料券",
         "url": "https://giftshop-tw.line.me/products/322590133"
-      },
-      {
-        "id": "322591122",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 159801,
-        "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌1,111點！",
-        "url": "https://giftshop-tw.line.me/products/322591122"
       }
     ]
   },
-  "updatedAt": "2026-11-07T11:07:40.206578+08:00"
+  "updatedAt": "2026-11-07T12:07:26.027158+08:00"
 }
