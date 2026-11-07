@@ -26,21 +26,27 @@ TZ = timezone(timedelta(hours=8))
 ROOT = Path(__file__).resolve().parent
 COUPON_FILE = ROOT / "coupons.txt"
 SLUG_FILE = ROOT / "slugs.txt"
+PRODUCT_FILE = ROOT / "products.txt"
 STATE_FILE = ROOT / "coupon-state.json"
 REPORT_FILE = ROOT / "latest-coupons.txt"
 LANDPRESS = "https://gift-shop.landpress.line.me"
 HOME_URL = "https://giftshop-tw.line.me/home"
 UA = "Mozilla/5.0 LineGiftCouponWatch/1.0 (+GitHubActions)"
-# 活動頁／首頁商品用：勿加「心意禮」等過寬字（會誤抓 IPSA 等品牌券）
+# landpress 活動頁標題用；首頁商品另用 is_one_dollar_deal（避免只便宜十几元的「新客」組合）
 CAMPAIGN_KEYWORDS = re.compile(r"新朋友|新客|1元|1點|體驗品|請客禮|飲料控|分眾")
 # coupons.txt／COUPON_IDS 手動列出的 ID（含分眾等）一律可推
 _EXPLICIT_COUPON_IDS: set[str] = set()
-# 自動發現只收「新客滿100折90」；品牌滿額券不收
+# 自動發現：新客滿100折90 或 新客滿89折80（$80券）
 _NEW_CUSTOMER_90 = re.compile(
     r"(?=.*(新客|新朋友))"
     r"(?=.*(?:\$ ?90|90\s*元))"
 )
+_NEW_CUSTOMER_80 = re.compile(
+    r"(?=.*(新客|新朋友))"
+    r"(?=.*(?:\$ ?80|80\s*元))"
+)
 _DISCOUNT_100_OFF_90 = re.compile(r"滿\s*100\s*元?\s*折\s*90")
+_DISCOUNT_89_OFF_80 = re.compile(r"滿\s*89\s*元?\s*折\s*80")
 
 
 @dataclass
@@ -608,12 +614,16 @@ def scan_home(delay: float = 0.25) -> tuple[list[ProductInfo], list[str], list[s
     for pid in product_ids:
         p = fetch_product(pid)
         name = p.name or ""
-        if not CAMPAIGN_KEYWORDS.search(name):
-            safe_print(f"  [home-product] skip-keyword {pid} {name}")
-            time.sleep(delay)
-            continue
-        if not product_should_display(p):
-            safe_print(f"  [home-product] skip/{p.sale_status} {pid} {name}")
+        if not is_one_dollar_deal(p):
+            reason = "not-1yuan"
+            if not product_should_display(p):
+                reason = f"skip/{p.sale_status}"
+            elif CAMPAIGN_KEYWORDS.search(name):
+                reason = "shallow-discount"
+            safe_print(
+                f"  [home-product] {reason} {pid} "
+                f"price={p.discounted_price}/{p.price} {name}"
+            )
             time.sleep(delay)
             continue
         tag = "BUYABLE" if p.buyable else f"SHOW/{p.sale_status}"
@@ -625,7 +635,7 @@ def scan_home(delay: float = 0.25) -> tuple[list[ProductInfo], list[str], list[s
 
 
 def maybe_append_coupon_ids(new_ids: list[str]) -> list[str]:
-    """首頁發現的券：僅「新客滿100折90」才寫入白名單並納入本輪。"""
+    """首頁發現的券：新客滿100折90 或 滿89折80 才寫入白名單。"""
     kept: list[str] = []
     if not new_ids:
         return kept
@@ -639,16 +649,17 @@ def maybe_append_coupon_ids(new_ids: list[str]) -> list[str]:
         if not info.ok:
             safe_print(f"[home] skip coupon {cid} fetch-fail {info.error}")
             continue
-        if not is_new_customer_90_coupon(info):
+        if not is_auto_discoverable_coupon(info):
             safe_print(
-                f"[home] ignore coupon {cid}（非新客滿100折90） "
+                f"[home] ignore coupon {cid}（非新客$90/$80） "
                 f"{info.discount_text} | {info.title}"
             )
             continue
-        append_coupon_id(cid, "home-discovered-90")
+        tag = "80" if is_new_customer_80_coupon(info) and not is_new_customer_90_coupon(info) else "90"
+        append_coupon_id(cid, f"home-discovered-{tag}")
         existing.add(cid)
         kept.append(cid)
-        safe_print(f"[home] append 新客$90 {cid} {info.title}")
+        safe_print(f"[home] append 新客${tag} {cid} {info.title}")
     return kept
 
 
@@ -706,6 +717,66 @@ def is_new_customer_90_coupon(info: CouponInfo) -> bool:
     return False
 
 
+def is_new_customer_80_coupon(info: CouponInfo) -> bool:
+    """新客滿89折80／$80 限量券。"""
+    if not info.ok:
+        return False
+    title = info.title or ""
+    discount = info.discount_text or ""
+    if _DISCOUNT_89_OFF_80.search(discount):
+        return True
+    if _NEW_CUSTOMER_80.search(title):
+        return True
+    return False
+
+
+def is_auto_discoverable_coupon(info: CouponInfo) -> bool:
+    """可自動寫入白名單的券：新客 $90 或 $80。"""
+    return is_new_customer_90_coupon(info) or is_new_customer_80_coupon(info)
+
+
+def is_one_dollar_deal(p: ProductInfo) -> bool:
+    """真・1元／1點優惠；排除只便宜十几元的「新客組合」。"""
+    if not p.ok or not product_should_display(p):
+        return False
+    name = p.name or ""
+    if "1點" in name:
+        return True
+    price = p.discounted_price
+    if isinstance(price, (int, float)) and price <= 1:
+        return True
+    if re.search(r"1\s*元|只要\s*1|\$\s*1", name):
+        # 標題寫1元但售價明顯不是1 → 不收
+        if isinstance(price, (int, float)) and price > 5:
+            return False
+        return True
+    return False
+
+
+def load_product_ids() -> list[str]:
+    """products.txt：直接監控的商品 ID（不依賴 landpress）。"""
+    ids: list[str] = []
+    if PRODUCT_FILE.exists():
+        for line in PRODUCT_FILE.read_text(encoding="utf-8-sig").splitlines():
+            line = clean_text(line)
+            if not line or line.startswith("#"):
+                continue
+            m = re.search(r"/products/(\d+)", line)
+            ids.append(m.group(1) if m else line)
+    extra = os.environ.get("PRODUCT_IDS", "").strip()
+    if extra:
+        for part in re.split(r"[\s,;]+", extra):
+            if part:
+                ids.append(part)
+    seen: set[str] = set()
+    out: list[str] = []
+    for i in ids:
+        if i not in seen:
+            seen.add(i)
+            out.append(i)
+    return out
+
+
 def append_coupon_id(cid: str, reason: str) -> None:
     global _EXPLICIT_COUPON_IDS
     with COUPON_FILE.open("a", encoding="utf-8") as f:
@@ -714,12 +785,12 @@ def append_coupon_id(cid: str, reason: str) -> None:
 
 
 def is_target_coupon(info: CouponInfo) -> bool:
-    """白名單（手動／已收錄）或本輪辨識為新客滿100折90。"""
+    """白名單（手動／已收錄）或本輪辨識為新客 $90／$80。"""
     if not info.ok:
         return False
     if info.collection_id in _EXPLICIT_COUPON_IDS:
         return True
-    return is_new_customer_90_coupon(info)
+    return is_auto_discoverable_coupon(info)
 
 
 def _probe_start_ids(nums: list[int]) -> list[int]:
@@ -742,7 +813,7 @@ def _probe_start_ids(nums: list[int]) -> list[int]:
 
 
 def probe_newer_ids(base_ids: list[str], ahead: int = 15) -> list[str]:
-    """從各 ID 叢集往後探測；只自動收下「新客滿100折90」。"""
+    """從各 ID 叢集往後探測；自動收下新客 $90／$80。"""
     if ahead <= 0:
         return []
     nums = sorted({int(x) for x in base_ids if x.isdigit()})
@@ -759,7 +830,7 @@ def probe_newer_ids(base_ids: list[str], ahead: int = 15) -> list[str]:
             info = fetch_coupon(cid)
             if not info.ok:
                 continue
-            if is_new_customer_90_coupon(info):
+            if is_auto_discoverable_coupon(info):
                 found.append(cid)
                 seen.add(cid)
                 safe_print(f"[probe] hit {cid} {info.status} {info.discount_text} | {info.title}")
@@ -845,10 +916,11 @@ def format_message(
     campaigns: list[CampaignInfo],
     updated_at: str,
     home_products: Optional[list[ProductInfo]] = None,
+    watched_products: Optional[list[ProductInfo]] = None,
 ) -> str:
     lines = ["🎁 LINE禮物追蹤", f"數據更新於：{updated_at}", ""]
 
-    # --- coupons: 只推「新客／1元相關」且進行中的券 ---
+    # --- coupons: 白名單／新客$90$80 且仍可領 ---
     active = [i for i in coupons if is_coupon_current(i) and is_target_coupon(i)]
     for i in coupons:
         if i.ok and is_coupon_current(i) and not is_target_coupon(i):
@@ -874,7 +946,21 @@ def format_message(
         lines.append("目前沒有進行中的優惠券。")
         lines.append("")
 
-    # --- 1元 landpress：只推「今天落在活動期間內」的頁（未開始／已結束不推）---
+    # --- 指定商品（products.txt，不依賴活動頁）---
+    watched_products = watched_products or []
+    watched_show = [p for p in watched_products if product_should_display(p)]
+    lines.append("=== 指定商品（直接監控） ===")
+    if watched_show:
+        for p in watched_show:
+            lines.extend(_format_product_lines(p))
+            if p.sale_start or p.sale_end:
+                lines.append(f"  銷售：{p.sale_start or '—'} ~ {p.sale_end or '—'}")
+            lines.append("")
+    else:
+        lines.append("指定清單目前沒有可顯示的商品。")
+        lines.append("")
+
+    # --- 1元 landpress：只推「今天落在活動期間內」的頁 ---
     live = [c for c in campaigns if is_campaign_current(c)]
     for c in campaigns:
         if c.ok and c.status == "LIVE" and c not in live:
@@ -882,8 +968,10 @@ def format_message(
     lines.append("=== 1元／新客活動頁 ===")
     if live:
         for c in live:
-            shown = [p for p in (c.products or []) if product_should_display(p)]
-            # 活動頁 <title>/og:title 有時沒改（例如舒跑頁仍寫咖啡）；有商品時以商品名為主標
+            shown = [p for p in (c.products or []) if product_should_display(p) and is_one_dollar_deal(p)]
+            if not shown:
+                # 活動頁在期間內但商品非1元 → 仍顯示頁面，不塞淺折扣商品
+                shown = []
             if shown:
                 lines.append(f"🎁 {shown[0].name}")
                 page_title = (c.title or "").strip()
@@ -903,25 +991,26 @@ def format_message(
         lines.append("目前沒有偵測到已上線的 1 元／新客活動頁。")
         lines.append("")
 
-    # --- home 發現：排除已在活動頁出現過的商品 ---
+    # --- home 發現：只要真1元；排除已出現的商品 ---
     home_products = home_products or []
-    seen_ids = {
+    seen_ids = {p.product_id for p in watched_show}
+    seen_ids |= {
         p.product_id
         for c in live
         for p in (c.products or [])
-        if product_should_display(p)
+        if is_one_dollar_deal(p)
     }
     home_extra = [
         p for p in home_products
-        if product_should_display(p) and p.product_id not in seen_ids
+        if is_one_dollar_deal(p) and p.product_id not in seen_ids
     ]
-    lines.append("=== 首頁發現（新客／1元） ===")
+    lines.append("=== 首頁發現（限1元／1點） ===")
     if home_extra:
         for p in home_extra[:10]:
             lines.extend(_format_product_lines(p))
             lines.append("")
     else:
-        lines.append("首頁目前沒有額外的新客／1元商品（或已出現在上方活動）。")
+        lines.append("首頁目前沒有額外的 1 元／1 點商品（或已出現在上方）。")
         lines.append("")
 
     return "\n".join(lines).strip() + "\n"
@@ -994,7 +1083,9 @@ def main() -> int:
     for p in probed:
         if p not in ids:
             ids.append(p)
-            append_coupon_id(p, "auto-discovered-90")
+            info = fetch_coupon(p)
+            tag = "80" if is_new_customer_80_coupon(info) and not is_new_customer_90_coupon(info) else "90"
+            append_coupon_id(p, f"auto-discovered-{tag}")
 
     coupons = [fetch_coupon(i) for i in ids]
     for info in coupons:
@@ -1004,10 +1095,24 @@ def main() -> int:
             flush=True,
         )
 
+    product_ids = load_product_ids()
+    watched_products = [fetch_product(pid) for pid in product_ids]
+    for p in watched_products:
+        safe_print(
+            f"[product-watch] {p.product_id} {p.sale_status} stock={p.stock} "
+            f"price={p.discounted_price}/{p.price} {p.name}"
+        )
+
     campaigns = fetch_live_campaigns(delay=campaign_delay)
 
     updated_at = now_tw().strftime("%Y年%m月%d日 %H:%M")
-    message = format_message(coupons, campaigns, updated_at, home_products=home_products)
+    message = format_message(
+        coupons,
+        campaigns,
+        updated_at,
+        home_products=home_products,
+        watched_products=watched_products,
+    )
     print("--- message ---", flush=True)
     print(message, flush=True)
 
@@ -1040,6 +1145,17 @@ def main() -> int:
             }
             for c in campaigns if c.ok and c.status == "LIVE"
         },
+        "watchedProducts": [
+            {
+                "id": p.product_id,
+                "buyable": p.buyable,
+                "saleStatus": p.sale_status,
+                "stock": p.stock,
+                "name": p.name,
+                "url": p.url,
+            }
+            for p in watched_products
+        ],
         "homeProducts": [
             {
                 "id": p.product_id,

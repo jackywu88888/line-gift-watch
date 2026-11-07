@@ -1,0 +1,6 @@
+# 直接監控的商品 ID（不依賴 landpress 活動頁）
+# 可填純數字或完整 https://giftshop-tw.line.me/products/{id}
+#
+# 7-ELEVEN CITY CAFE熱美式(大) 新客$1（2026/11）
+# https://giftshop-tw.line.me/products/322596148
+322596148

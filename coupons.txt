@@ -45,3 +45,7 @@
 
 # home-discovered-90 2026-10-26T01:01:09.558721+08:00
 2562690
+
+# 新客 $80（滿89折80）；領券期已過仍留作探測／對照
+# https://giftshop-tw.line.me/collections/coupon/2559811
+2559811
