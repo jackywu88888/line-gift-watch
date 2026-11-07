@@ -1,12 +1,6 @@
 {
   "last": {
     "coupons": {
-      "2558660": {
-        "status": "EXPIRED",
-        "remaining": 0,
-        "claimed": 10000,
-        "title": "新客專屬：$90元限量優惠券"
-      },
       "2562690": {
         "status": "EXPIRED",
         "remaining": 2896,
@@ -51,7 +45,7 @@
             "id": "322591122",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 159035,
+            "stock": 158930,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌1,111點！",
             "url": "https://giftshop-tw.line.me/products/322591122"
           }
@@ -63,7 +57,7 @@
         "id": "322590155",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 1944,
+        "stock": 1942,
         "name": "新客限定【星巴克】你是最特別的人組合",
         "url": "https://giftshop-tw.line.me/products/322590155"
       },
@@ -71,11 +65,11 @@
         "id": "322591122",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 159045,
+        "stock": 158974,
         "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌1,111點！",
         "url": "https://giftshop-tw.line.me/products/322591122"
       }
     ]
   },
-  "updatedAt": "2026-11-07T23:08:52.870587+08:00"
+  "updatedAt": "2026-11-08T00:09:48.578587+08:00"
 }
