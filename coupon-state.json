@@ -45,7 +45,7 @@
             "id": "322591122",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 157804,
+            "stock": 157727,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌1,111點！",
             "url": "https://giftshop-tw.line.me/products/322591122"
           }
@@ -54,18 +54,10 @@
     },
     "homeProducts": [
       {
-        "id": "322590133",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 1939,
-        "name": "新客限定【星巴克】175元星享飲料券",
-        "url": "https://giftshop-tw.line.me/products/322590133"
-      },
-      {
         "id": "322591122",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 157825,
+        "stock": 157733,
         "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌1,111點！",
         "url": "https://giftshop-tw.line.me/products/322591122"
       },
@@ -73,11 +65,11 @@
         "id": "322596148",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 614,
+        "stock": 604,
         "name": "[新客限定1元體驗品]【7-ELEVEN】 7-ELEVEN CITY CAFE熱美式(大)",
         "url": "https://giftshop-tw.line.me/products/322596148"
       }
     ]
   },
-  "updatedAt": "2026-11-08T10:08:18.739250+08:00"
+  "updatedAt": "2026-11-08T11:07:19.623030+08:00"
 }
