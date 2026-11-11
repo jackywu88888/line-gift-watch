@@ -45,11 +45,21 @@
             "id": "322591122",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 151906,
+            "stock": 151790,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌1,111點！",
             "url": "https://giftshop-tw.line.me/products/322591122"
           }
         ]
+      },
+      "https://gift-shop.landpress.line.me/202612_family_icecream/": {
+        "status": "LIVE",
+        "title": "LINE禮物｜12月新朋友限定心意禮！新客購買/送禮 全家 Fami霜淇淋(口味不限) 只要1元！",
+        "products": []
+      },
+      "https://gift-shop.landpress.line.me/202612_7-11_breakfast/": {
+        "status": "LIVE",
+        "title": "LINE禮物｜12月新朋友限定心意禮！新客購買/送禮 7-ELEVEN 45元超值餐購物金 只要1元！",
+        "products": []
       }
     },
     "homeProducts": [
@@ -57,11 +67,11 @@
         "id": "322596146",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 1057,
+        "stock": 1004,
         "name": "[新客限定1元體驗品]【麥當勞】 麥當勞豬肉滿福堡加蛋好禮即享券",
         "url": "https://giftshop-tw.line.me/products/322596146"
       }
     ]
   },
-  "updatedAt": "2026-11-11T20:07:14.890904+08:00"
+  "updatedAt": "2026-11-11T21:07:26.991848+08:00"
 }
