@@ -45,7 +45,7 @@
             "id": "322591122",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 151491,
+            "stock": 151335,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌1,111點！",
             "url": "https://giftshop-tw.line.me/products/322591122"
           }
@@ -64,14 +64,14 @@
     },
     "homeProducts": [
       {
-        "id": "322596146",
+        "id": "322591122",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 851,
-        "name": "[新客限定1元體驗品]【麥當勞】 麥當勞豬肉滿福堡加蛋好禮即享券",
-        "url": "https://giftshop-tw.line.me/products/322596146"
+        "stock": 151358,
+        "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌1,111點！",
+        "url": "https://giftshop-tw.line.me/products/322591122"
       }
     ]
   },
-  "updatedAt": "2026-11-12T00:09:15.289397+08:00"
+  "updatedAt": "2026-11-12T01:07:48.523118+08:00"
 }
