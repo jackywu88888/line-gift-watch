@@ -15,8 +15,8 @@
       },
       "2568707": {
         "status": "ISSUING",
-        "remaining": 18274,
-        "claimed": 1726,
+        "remaining": 18246,
+        "claimed": 1754,
         "title": "新客專享：$80元限量優惠券"
       }
     },
@@ -57,7 +57,7 @@
             "id": "322591122",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 137249,
+            "stock": 137119,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌1,111點！",
             "url": "https://giftshop-tw.line.me/products/322591122"
           }
@@ -121,7 +121,7 @@
         "id": "322247376",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 305,
+        "stock": 302,
         "name": "【DIOR】癮誘粉漾潤唇膏 l 收禮者自選色號 [快速出貨]",
         "url": "https://giftshop-tw.line.me/products/322247376"
       },
@@ -129,7 +129,7 @@
         "id": "322349094",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 61,
+        "stock": 59,
         "name": "【DIOR】豐漾俏唇蜜 l 收禮者自選色號 [快速出貨]",
         "url": "https://giftshop-tw.line.me/products/322349094"
       },
@@ -145,7 +145,7 @@
         "id": "322504000",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 631,
+        "stock": 627,
         "name": "【DIOR】MISS DIOR 花漾迪奧護手霜 [快速出貨]",
         "url": "https://giftshop-tw.line.me/products/322504000"
       },
@@ -169,7 +169,7 @@
         "id": "322558691",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 39,
+        "stock": 38,
         "name": "【DIOR】J'adore金緻髮香噴霧 35ML",
         "url": "https://giftshop-tw.line.me/products/322558691"
       },
@@ -209,11 +209,11 @@
         "id": "322591122",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 137274,
+        "stock": 137123,
         "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌1,111點！",
         "url": "https://giftshop-tw.line.me/products/322591122"
       }
     ]
   },
-  "updatedAt": "2026-11-14T01:07:42.977544+08:00"
+  "updatedAt": "2026-11-14T02:09:10.419534+08:00"
 }
