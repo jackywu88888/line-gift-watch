@@ -15,8 +15,8 @@
       },
       "2568707": {
         "status": "ISSUING",
-        "remaining": 18189,
-        "claimed": 1811,
+        "remaining": 18162,
+        "claimed": 1838,
         "title": "新客專享：$80元限量優惠券"
       }
     },
@@ -57,7 +57,7 @@
             "id": "322591122",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 137069,
+            "stock": 137003,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌1,111點！",
             "url": "https://giftshop-tw.line.me/products/322591122"
           }
@@ -86,22 +86,6 @@
     ],
     "homeProducts": [
       {
-        "id": "321868093",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 10,
-        "name": "【PAUL & JOE】🎁小仙女生日快樂🎁貓咪保濕修護潤唇膏組『LINE禮物獨家組合』",
-        "url": "https://giftshop-tw.line.me/products/321868093"
-      },
-      {
-        "id": "321951491",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 48,
-        "name": "張員瑛御用👑Medicube｜AGE-R Booster Pro多功能美容儀 155g（粉/黑）★附祝福卡片、禮品袋、針織提袋✧生日禮物/情人節禮物-平輸版",
-        "url": "https://giftshop-tw.line.me/products/321951491"
-      },
-      {
         "id": "322086078",
         "buyable": true,
         "saleStatus": "SALE",
@@ -113,7 +97,7 @@
         "id": "322247376",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 294,
+        "stock": 292,
         "name": "【DIOR】癮誘粉漾潤唇膏 l 收禮者自選色號 [快速出貨]",
         "url": "https://giftshop-tw.line.me/products/322247376"
       },
@@ -124,22 +108,6 @@
         "stock": 59,
         "name": "【DIOR】豐漾俏唇蜜 l 收禮者自選色號 [快速出貨]",
         "url": "https://giftshop-tw.line.me/products/322349094"
-      },
-      {
-        "id": "322366772",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 670,
-        "name": "❤️ OHANA MAHAALO 十時香隨限定香水吊飾 (14款任選) | 收禮者自選款式 (快速出貨)",
-        "url": "https://giftshop-tw.line.me/products/322366772"
-      },
-      {
-        "id": "322374809",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 23,
-        "name": "⚡快速出貨｜代印卡片｜【CLARINS 克蘭詩】好孕綿綿貼心禮-(護理油/撫紋霜+禮袋)-平輸版",
-        "url": "https://giftshop-tw.line.me/products/322374809"
       },
       {
         "id": "322375040",
@@ -177,7 +145,7 @@
         "id": "322562989",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 179,
+        "stock": 178,
         "name": "【DIOR】迪奧潤唇修護雙件組 限量禮盒版 [快速出貨]",
         "url": "https://giftshop-tw.line.me/products/322562989"
       },
@@ -201,11 +169,11 @@
         "id": "322591122",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 137069,
+        "stock": 137010,
         "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌1,111點！",
         "url": "https://giftshop-tw.line.me/products/322591122"
       }
     ]
   },
-  "updatedAt": "2026-11-14T06:08:25.559419+08:00"
+  "updatedAt": "2026-11-14T07:09:36.825808+08:00"
 }
