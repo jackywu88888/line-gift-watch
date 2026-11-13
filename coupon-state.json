@@ -15,8 +15,8 @@
       },
       "2568707": {
         "status": "ISSUING",
-        "remaining": 18423,
-        "claimed": 1577,
+        "remaining": 18336,
+        "claimed": 1664,
         "title": "新客專享：$80元限量優惠券"
       }
     },
@@ -57,7 +57,7 @@
             "id": "322591122",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 137471,
+            "stock": 137371,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌1,111點！",
             "url": "https://giftshop-tw.line.me/products/322591122"
           }
@@ -85,14 +85,6 @@
       }
     ],
     "homeProducts": [
-      {
-        "id": "321657627",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 172,
-        "name": "【農純鄉】 滴雞精8入/盒 （常溫）1+1組合 【有你真好】【送禮推薦】",
-        "url": "https://giftshop-tw.line.me/products/321657627"
-      },
       {
         "id": "321753821",
         "buyable": true,
@@ -137,7 +129,7 @@
         "id": "322572424",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 611,
+        "stock": 609,
         "name": "【Jo Malone London】蘇格蘭格紋_蘇格蘭高地限定系列 節慶限量糅香禮盒組 | 生日禮物 |收禮者自選香調 | 送女友 | 送男友",
         "url": "https://giftshop-tw.line.me/products/322572424"
       },
@@ -161,11 +153,11 @@
         "id": "322596146",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 79,
+        "stock": 45,
         "name": "[新客限定1元體驗品]【麥當勞】 麥當勞豬肉滿福堡加蛋好禮即享券",
         "url": "https://giftshop-tw.line.me/products/322596146"
       }
     ]
   },
-  "updatedAt": "2026-11-13T23:10:24.090330+08:00"
+  "updatedAt": "2026-11-14T00:10:08.747480+08:00"
 }
