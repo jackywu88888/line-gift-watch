@@ -49,3 +49,7 @@
 # 新客 $80（滿89折80）；領券期已過仍留作探測／對照
 # https://giftshop-tw.line.me/collections/coupon/2559811
 2559811
+
+# home/manual 新客$80 滿89折80（2026-11-13～11-16）
+# https://giftshop-tw.line.me/collections/coupon/2568707
+2568707
