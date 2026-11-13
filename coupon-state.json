@@ -15,8 +15,8 @@
       },
       "2568707": {
         "status": "ISSUING",
-        "remaining": 18211,
-        "claimed": 1789,
+        "remaining": 18202,
+        "claimed": 1798,
         "title": "新客專享：$80元限量優惠券"
       }
     },
@@ -57,7 +57,7 @@
             "id": "322591122",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 137103,
+            "stock": 137077,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌1,111點！",
             "url": "https://giftshop-tw.line.me/products/322591122"
           }
@@ -121,7 +121,7 @@
         "id": "322247376",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 294,
+        "stock": 295,
         "name": "【DIOR】癮誘粉漾潤唇膏 l 收禮者自選色號 [快速出貨]",
         "url": "https://giftshop-tw.line.me/products/322247376"
       },
@@ -145,7 +145,7 @@
         "id": "322504000",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 625,
+        "stock": 623,
         "name": "【DIOR】MISS DIOR 花漾迪奧護手霜 [快速出貨]",
         "url": "https://giftshop-tw.line.me/products/322504000"
       },
@@ -209,11 +209,11 @@
         "id": "322591122",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 137103,
+        "stock": 137079,
         "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌1,111點！",
         "url": "https://giftshop-tw.line.me/products/322591122"
       }
     ]
   },
-  "updatedAt": "2026-11-14T04:08:49.947776+08:00"
+  "updatedAt": "2026-11-14T05:10:40.749590+08:00"
 }
