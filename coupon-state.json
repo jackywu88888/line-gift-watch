@@ -15,8 +15,8 @@
       },
       "2568707": {
         "status": "ISSUING",
-        "remaining": 18643,
-        "claimed": 1357,
+        "remaining": 18634,
+        "claimed": 1366,
         "title": "新客專享：$80元限量優惠券"
       }
     },
@@ -57,7 +57,7 @@
             "id": "322591122",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 137696,
+            "stock": 137686,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌1,111點！",
             "url": "https://giftshop-tw.line.me/products/322591122"
           }
@@ -94,22 +94,6 @@
         "url": "https://giftshop-tw.line.me/products/321753821"
       },
       {
-        "id": "322027006",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 438,
-        "name": "【快速出貨】【TLH】黃金墜手鍊 純金999 多選 山茶花雙鑽 約重0.03錢±0.01(生日禮 情人節 )",
-        "url": "https://giftshop-tw.line.me/products/322027006"
-      },
-      {
-        "id": "322029008",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 102,
-        "name": "【金喜飛來】黃金手鍊招財貔貅水晶串珠多選(0.07錢±0.02)10月/生日禮物/天秤座/ 天蠍座/ 萬聖節/ 感謝禮/紀念日/金飾/小資首選/朋友家人長輩送禮/開運/發財/好運【快速出貨】",
-        "url": "https://giftshop-tw.line.me/products/322029008"
-      },
-      {
         "id": "322186441",
         "buyable": true,
         "saleStatus": "SALE",
@@ -118,36 +102,20 @@
         "url": "https://giftshop-tw.line.me/products/322186441"
       },
       {
+        "id": "322210555",
+        "buyable": true,
+        "saleStatus": "SALE",
+        "stock": 24,
+        "name": "🎁特別心意 1＋1 🎁【 sOlac+DOSHISHA 】自動研磨咖啡機＋迪士尼米奇手持USB風扇 / 天蠍座生日快樂 / 幸福滿滿💞 / 只想寵你 / 幸福加倍 / 生日禮物",
+        "url": "https://giftshop-tw.line.me/products/322210555"
+      },
+      {
         "id": "322336124",
         "buyable": true,
         "saleStatus": "SALE",
         "stock": 66,
         "name": "超人氣韓星推薦✨【Jo Malone London】英倫田園系列香水 30ml 單入組贈萊姆布貼 | 快速出貨 |  緋紅甜菜根 | 收禮者自選香調",
         "url": "https://giftshop-tw.line.me/products/322336124"
-      },
-      {
-        "id": "322360046",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 87,
-        "name": "［預購］收禮者自選款式【Prisme Gold】黃金墜項鍊 純金999墜 加贈提袋 (約0.02錢±0.01)｜情人節 生日送禮 閨蜜禮物 交換禮物",
-        "url": "https://giftshop-tw.line.me/products/322360046"
-      },
-      {
-        "id": "322375972",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 25,
-        "name": "[快速出貨]【Kuder Jewelry】天然和田羊脂白玉 國王狗/飄蟲/路路通墜飾附珠寶鑑定書任買1件送天然珍珠耳環一對",
-        "url": "https://giftshop-tw.line.me/products/322375972"
-      },
-      {
-        "id": "322387190",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 10,
-        "name": "【J'code真愛密碼金飾】台灣特色金豆-晶片金豆",
-        "url": "https://giftshop-tw.line.me/products/322387190"
       },
       {
         "id": "322398123",
@@ -182,6 +150,14 @@
         "url": "https://giftshop-tw.line.me/products/322578072"
       },
       {
+        "id": "322590240",
+        "buyable": true,
+        "saleStatus": "SALE",
+        "stock": 60,
+        "name": "快速出貨🚚【2013愛你一生_好禮1+1+1】雙層溫控不沾料理鍋3L(附蒸籠)AP8 & 製冷噴霧風扇 RK30 & 手機充電掛繩120cm RX70 RASTO",
+        "url": "https://giftshop-tw.line.me/products/322590240"
+      },
+      {
         "id": "322595904",
         "buyable": true,
         "saleStatus": "SALE",
@@ -193,11 +169,11 @@
         "id": "322596146",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 150,
+        "stock": 144,
         "name": "[新客限定1元體驗品]【麥當勞】 麥當勞豬肉滿福堡加蛋好禮即享券",
         "url": "https://giftshop-tw.line.me/products/322596146"
       }
     ]
   },
-  "updatedAt": "2026-11-13T19:57:30.053813+08:00"
+  "updatedAt": "2026-11-13T20:09:46.180940+08:00"
 }
