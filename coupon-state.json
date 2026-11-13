@@ -15,8 +15,8 @@
       },
       "2568707": {
         "status": "ISSUING",
-        "remaining": 18497,
-        "claimed": 1503,
+        "remaining": 18423,
+        "claimed": 1577,
         "title": "新客專享：$80元限量優惠券"
       }
     },
@@ -57,7 +57,7 @@
             "id": "322591122",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 137518,
+            "stock": 137471,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌1,111點！",
             "url": "https://giftshop-tw.line.me/products/322591122"
           }
@@ -86,12 +86,12 @@
     ],
     "homeProducts": [
       {
-        "id": "321752903",
+        "id": "321657627",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 153,
-        "name": "【小獅王辛巴】蘊蜜質金玻璃寬口奶瓶新生入門禮盒｜新生禮、彌月禮｜ ♡贈心意提袋♡",
-        "url": "https://giftshop-tw.line.me/products/321752903"
+        "stock": 172,
+        "name": "【農純鄉】 滴雞精8入/盒 （常溫）1+1組合 【有你真好】【送禮推薦】",
+        "url": "https://giftshop-tw.line.me/products/321657627"
       },
       {
         "id": "321753821",
@@ -100,22 +100,6 @@
         "stock": 614,
         "name": "【Jo Malone London】經典香水糅香禮盒 🎁 生日禮物推薦 | 送男友 送女友 香水禮物 | LINE禮物獨家 英倫經典香氛 | 收禮者自選香調",
         "url": "https://giftshop-tw.line.me/products/321753821"
-      },
-      {
-        "id": "321969256",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 108,
-        "name": "Fees 法緻｜🧸1心1意只為禮🧸幸福新生彌月禮盒 ( 粉 / 藍 )",
-        "url": "https://giftshop-tw.line.me/products/321969256"
-      },
-      {
-        "id": "322063696",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 353,
-        "name": "媽咪莉娜 孕期撫紋保養2+1 (無痕美體霜150ml+彈力潤膚油100ml+乳尖修護膏) 妊娠霜/撫紋霜/妊娠油/身體油/羊脂膏｜懷孕禮/媽媽禮/按摩油霜送禮首選/女性保養",
-        "url": "https://giftshop-tw.line.me/products/322063696"
       },
       {
         "id": "322186441",
@@ -142,28 +126,12 @@
         "url": "https://giftshop-tw.line.me/products/322398123"
       },
       {
-        "id": "322550349",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 10,
-        "name": "【bimbidreams】兔兔安撫巾+二入紗布巾新生禮盒｜寶寶新生兒禮、滿月禮、彌月禮、嬰兒禮盒",
-        "url": "https://giftshop-tw.line.me/products/322550349"
-      },
-      {
         "id": "322558265",
         "buyable": true,
         "saleStatus": "SALE",
         "stock": 179,
         "name": "享獨家禮盒包裝【Jo Malone London】經典髮香噴霧 30ml  | 快速出貨 | 送女友 生日禮物 | 收禮者自選香調 ｜LINE禮物獨家",
         "url": "https://giftshop-tw.line.me/products/322558265"
-      },
-      {
-        "id": "322567100",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 288,
-        "name": "獨家加購贈好禮【麗嬰房les enphants】Kori Deer可莉鹿嬰兒童安撫魔豆毯+寶寶襪3雙彌月禮盒組 5選1 ｜彌月禮盒｜新生兒禮物｜寶寶毯｜安撫毯｜嬰兒生日禮｜好禮成雙，1+1 更有禮",
-        "url": "https://giftshop-tw.line.me/products/322567100"
       },
       {
         "id": "322572424",
@@ -193,11 +161,11 @@
         "id": "322596146",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 95,
+        "stock": 79,
         "name": "[新客限定1元體驗品]【麥當勞】 麥當勞豬肉滿福堡加蛋好禮即享券",
         "url": "https://giftshop-tw.line.me/products/322596146"
       }
     ]
   },
-  "updatedAt": "2026-11-13T22:09:57.594131+08:00"
+  "updatedAt": "2026-11-13T23:10:24.090330+08:00"
 }
