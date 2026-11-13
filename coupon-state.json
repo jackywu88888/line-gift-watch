@@ -15,8 +15,8 @@
       },
       "2568707": {
         "status": "ISSUING",
-        "remaining": 18569,
-        "claimed": 1431,
+        "remaining": 18497,
+        "claimed": 1503,
         "title": "新客專享：$80元限量優惠券"
       }
     },
@@ -57,7 +57,7 @@
             "id": "322591122",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 137594,
+            "stock": 137518,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌1,111點！",
             "url": "https://giftshop-tw.line.me/products/322591122"
           }
@@ -86,6 +86,14 @@
     ],
     "homeProducts": [
       {
+        "id": "321752903",
+        "buyable": true,
+        "saleStatus": "SALE",
+        "stock": 153,
+        "name": "【小獅王辛巴】蘊蜜質金玻璃寬口奶瓶新生入門禮盒｜新生禮、彌月禮｜ ♡贈心意提袋♡",
+        "url": "https://giftshop-tw.line.me/products/321752903"
+      },
+      {
         "id": "321753821",
         "buyable": true,
         "saleStatus": "SALE",
@@ -94,20 +102,20 @@
         "url": "https://giftshop-tw.line.me/products/321753821"
       },
       {
-        "id": "321868093",
+        "id": "321969256",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 12,
-        "name": "【PAUL & JOE】🎁小仙女生日快樂🎁貓咪保濕修護潤唇膏組『LINE禮物獨家組合』",
-        "url": "https://giftshop-tw.line.me/products/321868093"
+        "stock": 108,
+        "name": "Fees 法緻｜🧸1心1意只為禮🧸幸福新生彌月禮盒 ( 粉 / 藍 )",
+        "url": "https://giftshop-tw.line.me/products/321969256"
       },
       {
-        "id": "321951491",
+        "id": "322063696",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 48,
-        "name": "張員瑛御用👑Medicube｜AGE-R Booster Pro多功能美容儀 155g（粉/黑）★附祝福卡片、禮品袋、針織提袋✧生日禮物/情人節禮物-平輸版",
-        "url": "https://giftshop-tw.line.me/products/321951491"
+        "stock": 353,
+        "name": "媽咪莉娜 孕期撫紋保養2+1 (無痕美體霜150ml+彈力潤膚油100ml+乳尖修護膏) 妊娠霜/撫紋霜/妊娠油/身體油/羊脂膏｜懷孕禮/媽媽禮/按摩油霜送禮首選/女性保養",
+        "url": "https://giftshop-tw.line.me/products/322063696"
       },
       {
         "id": "322186441",
@@ -126,28 +134,20 @@
         "url": "https://giftshop-tw.line.me/products/322336124"
       },
       {
-        "id": "322366772",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 673,
-        "name": "❤️ OHANA MAHAALO 十時香隨限定香水吊飾 (14款任選) | 收禮者自選款式 (快速出貨)",
-        "url": "https://giftshop-tw.line.me/products/322366772"
-      },
-      {
-        "id": "322374809",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 23,
-        "name": "⚡快速出貨｜代印卡片｜【CLARINS 克蘭詩】好孕綿綿貼心禮-(護理油/撫紋霜+禮袋)-平輸版",
-        "url": "https://giftshop-tw.line.me/products/322374809"
-      },
-      {
         "id": "322398123",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 300,
+        "stock": 299,
         "name": "【Jo Malone London】蘇格蘭格紋_季節限定聖誕香氛奶油掛飾/銀色掛飾   | 生日禮物 | 送女生| 送男生 秋冬限定｜送禮推薦",
         "url": "https://giftshop-tw.line.me/products/322398123"
+      },
+      {
+        "id": "322550349",
+        "buyable": true,
+        "saleStatus": "SALE",
+        "stock": 10,
+        "name": "【bimbidreams】兔兔安撫巾+二入紗布巾新生禮盒｜寶寶新生兒禮、滿月禮、彌月禮、嬰兒禮盒",
+        "url": "https://giftshop-tw.line.me/products/322550349"
       },
       {
         "id": "322558265",
@@ -156,6 +156,14 @@
         "stock": 179,
         "name": "享獨家禮盒包裝【Jo Malone London】經典髮香噴霧 30ml  | 快速出貨 | 送女友 生日禮物 | 收禮者自選香調 ｜LINE禮物獨家",
         "url": "https://giftshop-tw.line.me/products/322558265"
+      },
+      {
+        "id": "322567100",
+        "buyable": true,
+        "saleStatus": "SALE",
+        "stock": 288,
+        "name": "獨家加購贈好禮【麗嬰房les enphants】Kori Deer可莉鹿嬰兒童安撫魔豆毯+寶寶襪3雙彌月禮盒組 5選1 ｜彌月禮盒｜新生兒禮物｜寶寶毯｜安撫毯｜嬰兒生日禮｜好禮成雙，1+1 更有禮",
+        "url": "https://giftshop-tw.line.me/products/322567100"
       },
       {
         "id": "322572424",
@@ -185,11 +193,11 @@
         "id": "322596146",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 128,
+        "stock": 95,
         "name": "[新客限定1元體驗品]【麥當勞】 麥當勞豬肉滿福堡加蛋好禮即享券",
         "url": "https://giftshop-tw.line.me/products/322596146"
       }
     ]
   },
-  "updatedAt": "2026-11-13T21:08:23.080383+08:00"
+  "updatedAt": "2026-11-13T22:09:57.594131+08:00"
 }
