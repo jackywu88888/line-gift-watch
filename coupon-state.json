@@ -6,6 +6,18 @@
         "remaining": 2896,
         "claimed": 7104,
         "title": "連假加碼：$90元限量優惠券"
+      },
+      "2559811": {
+        "status": "EXPIRED",
+        "remaining": 8363,
+        "claimed": 6637,
+        "title": "新客驚喜：$80元限量優惠券"
+      },
+      "2568707": {
+        "status": "ISSUING",
+        "remaining": 18643,
+        "claimed": 1357,
+        "title": "新客專享：$80元限量優惠券"
       }
     },
     "campaigns": {
@@ -45,7 +57,7 @@
             "id": "322591122",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 137728,
+            "stock": 137696,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌1,111點！",
             "url": "https://giftshop-tw.line.me/products/322591122"
           }
@@ -62,16 +74,130 @@
         "products": []
       }
     },
+    "watchedProducts": [
+      {
+        "id": "322596148",
+        "buyable": false,
+        "saleStatus": "OUTOFSTOCK",
+        "stock": 0,
+        "name": "[新客限定1元體驗品]【7-ELEVEN】 7-ELEVEN CITY CAFE熱美式(大)",
+        "url": "https://giftshop-tw.line.me/products/322596148"
+      }
+    ],
     "homeProducts": [
+      {
+        "id": "321753821",
+        "buyable": true,
+        "saleStatus": "SALE",
+        "stock": 615,
+        "name": "【Jo Malone London】經典香水糅香禮盒 🎁 生日禮物推薦 | 送男友 送女友 香水禮物 | LINE禮物獨家 英倫經典香氛 | 收禮者自選香調",
+        "url": "https://giftshop-tw.line.me/products/321753821"
+      },
+      {
+        "id": "322027006",
+        "buyable": true,
+        "saleStatus": "SALE",
+        "stock": 438,
+        "name": "【快速出貨】【TLH】黃金墜手鍊 純金999 多選 山茶花雙鑽 約重0.03錢±0.01(生日禮 情人節 )",
+        "url": "https://giftshop-tw.line.me/products/322027006"
+      },
+      {
+        "id": "322029008",
+        "buyable": true,
+        "saleStatus": "SALE",
+        "stock": 102,
+        "name": "【金喜飛來】黃金手鍊招財貔貅水晶串珠多選(0.07錢±0.02)10月/生日禮物/天秤座/ 天蠍座/ 萬聖節/ 感謝禮/紀念日/金飾/小資首選/朋友家人長輩送禮/開運/發財/好運【快速出貨】",
+        "url": "https://giftshop-tw.line.me/products/322029008"
+      },
+      {
+        "id": "322186441",
+        "buyable": true,
+        "saleStatus": "SALE",
+        "stock": 244,
+        "name": "享禮盒包裝【Jo Malone London】隨身糅香潤膚組| 收禮者自選香調 |送女友 | 送男友 | LINE禮物獨家",
+        "url": "https://giftshop-tw.line.me/products/322186441"
+      },
+      {
+        "id": "322336124",
+        "buyable": true,
+        "saleStatus": "SALE",
+        "stock": 66,
+        "name": "超人氣韓星推薦✨【Jo Malone London】英倫田園系列香水 30ml 單入組贈萊姆布貼 | 快速出貨 |  緋紅甜菜根 | 收禮者自選香調",
+        "url": "https://giftshop-tw.line.me/products/322336124"
+      },
+      {
+        "id": "322360046",
+        "buyable": true,
+        "saleStatus": "SALE",
+        "stock": 87,
+        "name": "［預購］收禮者自選款式【Prisme Gold】黃金墜項鍊 純金999墜 加贈提袋 (約0.02錢±0.01)｜情人節 生日送禮 閨蜜禮物 交換禮物",
+        "url": "https://giftshop-tw.line.me/products/322360046"
+      },
+      {
+        "id": "322375972",
+        "buyable": true,
+        "saleStatus": "SALE",
+        "stock": 25,
+        "name": "[快速出貨]【Kuder Jewelry】天然和田羊脂白玉 國王狗/飄蟲/路路通墜飾附珠寶鑑定書任買1件送天然珍珠耳環一對",
+        "url": "https://giftshop-tw.line.me/products/322375972"
+      },
+      {
+        "id": "322387190",
+        "buyable": true,
+        "saleStatus": "SALE",
+        "stock": 10,
+        "name": "【J'code真愛密碼金飾】台灣特色金豆-晶片金豆",
+        "url": "https://giftshop-tw.line.me/products/322387190"
+      },
+      {
+        "id": "322398123",
+        "buyable": true,
+        "saleStatus": "SALE",
+        "stock": 300,
+        "name": "【Jo Malone London】蘇格蘭格紋_季節限定聖誕香氛奶油掛飾/銀色掛飾   | 生日禮物 | 送女生| 送男生 秋冬限定｜送禮推薦",
+        "url": "https://giftshop-tw.line.me/products/322398123"
+      },
+      {
+        "id": "322558265",
+        "buyable": true,
+        "saleStatus": "SALE",
+        "stock": 179,
+        "name": "享獨家禮盒包裝【Jo Malone London】經典髮香噴霧 30ml  | 快速出貨 | 送女友 生日禮物 | 收禮者自選香調 ｜LINE禮物獨家",
+        "url": "https://giftshop-tw.line.me/products/322558265"
+      },
+      {
+        "id": "322572424",
+        "buyable": true,
+        "saleStatus": "SALE",
+        "stock": 611,
+        "name": "【Jo Malone London】蘇格蘭格紋_蘇格蘭高地限定系列 節慶限量糅香禮盒組 | 生日禮物 |收禮者自選香調 | 送女友 | 送男友",
+        "url": "https://giftshop-tw.line.me/products/322572424"
+      },
+      {
+        "id": "322578072",
+        "buyable": true,
+        "saleStatus": "SALE",
+        "stock": 235,
+        "name": "【Jo Malone London】蘇格蘭格紋_季節限定香氛拉炮禮盒｜ 生日禮物| 送女生| 送男生 ｜ 秋冬限定｜送禮推薦",
+        "url": "https://giftshop-tw.line.me/products/322578072"
+      },
+      {
+        "id": "322595904",
+        "buyable": true,
+        "saleStatus": "SALE",
+        "stock": 1998,
+        "name": "【BRAVOMART HOME】日式貓咪富士山酒杯 客製化刻字 生日禮物 交換禮物 送禮推薦",
+        "url": "https://giftshop-tw.line.me/products/322595904"
+      },
       {
         "id": "322596146",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 164,
+        "stock": 150,
         "name": "[新客限定1元體驗品]【麥當勞】 麥當勞豬肉滿福堡加蛋好禮即享券",
         "url": "https://giftshop-tw.line.me/products/322596146"
       }
     ]
   },
-  "updatedAt": "2026-11-13T19:08:18.984956+08:00"
+  "updatedAt": "2026-11-13T19:57:30.053813+08:00"
 }
