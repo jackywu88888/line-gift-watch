@@ -15,8 +15,8 @@
       },
       "2568707": {
         "status": "ISSUING",
-        "remaining": 16895,
-        "claimed": 3105,
+        "remaining": 16827,
+        "claimed": 3173,
         "title": "新客專享：$80元限量優惠券"
       }
     },
@@ -57,7 +57,7 @@
             "id": "322591122",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 134192,
+            "stock": 134067,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌1,111點！",
             "url": "https://giftshop-tw.line.me/products/322591122"
           }
@@ -97,7 +97,7 @@
         "id": "322247376",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 267,
+        "stock": 263,
         "name": "【DIOR】癮誘粉漾潤唇膏 l 收禮者自選色號 [快速出貨]",
         "url": "https://giftshop-tw.line.me/products/322247376"
       },
@@ -113,7 +113,7 @@
         "id": "322375040",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 285,
+        "stock": 284,
         "name": "【DIOR】迪奧巨星持色唇膏-極光 l 收禮者自選色號 [快速出貨]",
         "url": "https://giftshop-tw.line.me/products/322375040"
       },
@@ -121,7 +121,7 @@
         "id": "322504000",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 617,
+        "stock": 616,
         "name": "【DIOR】MISS DIOR 花漾迪奧護手霜 [快速出貨]",
         "url": "https://giftshop-tw.line.me/products/322504000"
       },
@@ -137,7 +137,7 @@
         "id": "322558691",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 36,
+        "stock": 35,
         "name": "【DIOR】J'adore金緻髮香噴霧 35ML",
         "url": "https://giftshop-tw.line.me/products/322558691"
       },
@@ -169,11 +169,11 @@
         "id": "322591122",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 134200,
+        "stock": 134083,
         "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌1,111點！",
         "url": "https://giftshop-tw.line.me/products/322591122"
       }
     ]
   },
-  "updatedAt": "2026-11-14T21:09:49.998567+08:00"
+  "updatedAt": "2026-11-14T22:10:20.835507+08:00"
 }
