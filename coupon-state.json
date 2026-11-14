@@ -15,8 +15,8 @@
       },
       "2568707": {
         "status": "ISSUING",
-        "remaining": 16984,
-        "claimed": 3016,
+        "remaining": 16895,
+        "claimed": 3105,
         "title": "新客專享：$80元限量優惠券"
       }
     },
@@ -57,7 +57,7 @@
             "id": "322591122",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 134249,
+            "stock": 134192,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌1,111點！",
             "url": "https://giftshop-tw.line.me/products/322591122"
           }
@@ -94,18 +94,10 @@
         "url": "https://giftshop-tw.line.me/products/322086078"
       },
       {
-        "id": "322102294",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 50541,
-        "name": "天蠍座生日禮🎁快速出貨【KP記憶香氛】時光香水嫩白沐浴露/沐浴乳480ml｜東海代言推薦｜交換禮物/生日禮物/送女生/送男生/女生禮物/男生禮物/女友禮物/男友禮物/閨蜜禮",
-        "url": "https://giftshop-tw.line.me/products/322102294"
-      },
-      {
         "id": "322247376",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 273,
+        "stock": 267,
         "name": "【DIOR】癮誘粉漾潤唇膏 l 收禮者自選色號 [快速出貨]",
         "url": "https://giftshop-tw.line.me/products/322247376"
       },
@@ -118,14 +110,6 @@
         "url": "https://giftshop-tw.line.me/products/322349094"
       },
       {
-        "id": "322371962",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 23,
-        "name": "生日快樂🩷【19again】梳理心事組：雙氣孔柔順舒壓氣墊梳(兩款可選)＋有問必答撲克牌＿贈：雙層緞面束口收納袋（大）- LINE禮物限定",
-        "url": "https://giftshop-tw.line.me/products/322371962"
-      },
-      {
         "id": "322375040",
         "buyable": true,
         "saleStatus": "SALE",
@@ -134,18 +118,10 @@
         "url": "https://giftshop-tw.line.me/products/322375040"
       },
       {
-        "id": "322500109",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 38,
-        "name": "『快速出貨』【Bussi】氛圍感隨身香氛組 (髮香噴霧+可自選護手霜香氣）",
-        "url": "https://giftshop-tw.line.me/products/322500109"
-      },
-      {
         "id": "322504000",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 618,
+        "stock": 617,
         "name": "【DIOR】MISS DIOR 花漾迪奧護手霜 [快速出貨]",
         "url": "https://giftshop-tw.line.me/products/322504000"
       },
@@ -158,34 +134,18 @@
         "url": "https://giftshop-tw.line.me/products/322513682"
       },
       {
-        "id": "322514174",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 380,
-        "name": "🚚快速出貨【hince】生日快樂！冰透蜜糖唇頰膏+清透鏡面水感唇釉+客製串珠吊飾+Dewy ball化妝包+獨家禮盒(快速出貨/生日禮物/超值好禮)",
-        "url": "https://giftshop-tw.line.me/products/322514174"
-      },
-      {
         "id": "322558691",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 37,
+        "stock": 36,
         "name": "【DIOR】J'adore金緻髮香噴霧 35ML",
         "url": "https://giftshop-tw.line.me/products/322558691"
-      },
-      {
-        "id": "322560177",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 112,
-        "name": "快速出貨【OHIR】宋江御用！生日快樂🎁白山茶花光透白精華水+花束小卡+品牌提袋+客製品牌小花吊飾 (天蠍座生日禮物/朋友送禮/韓國明星同款)",
-        "url": "https://giftshop-tw.line.me/products/322560177"
       },
       {
         "id": "322562989",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 170,
+        "stock": 169,
         "name": "【DIOR】迪奧潤唇修護雙件組 限量禮盒版 [快速出貨]",
         "url": "https://giftshop-tw.line.me/products/322562989"
       },
@@ -196,14 +156,6 @@
         "stock": 28,
         "name": "【DIOR】迪奧曠野之心淡香水100ml 限量禮盒版 [快速出貨]",
         "url": "https://giftshop-tw.line.me/products/322578046"
-      },
-      {
-        "id": "322583109",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 468,
-        "name": "生日快樂🎉【fwee】玫瑰唇露🌹+奶昔唇釉🍦贈品牌限定提袋🛍️+ 粉色耳機🎧",
-        "url": "https://giftshop-tw.line.me/products/322583109"
       },
       {
         "id": "322590078",
@@ -217,11 +169,11 @@
         "id": "322591122",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 134265,
+        "stock": 134200,
         "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌1,111點！",
         "url": "https://giftshop-tw.line.me/products/322591122"
       }
     ]
   },
-  "updatedAt": "2026-11-14T20:10:53.930931+08:00"
+  "updatedAt": "2026-11-14T21:09:49.998567+08:00"
 }
