@@ -15,8 +15,8 @@
       },
       "2568707": {
         "status": "ISSUING",
-        "remaining": 17954,
-        "claimed": 2046,
+        "remaining": 17864,
+        "claimed": 2136,
         "title": "新客專享：$80元限量優惠券"
       }
     },
@@ -57,7 +57,7 @@
             "id": "322591122",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 136789,
+            "stock": 136416,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌1,111點！",
             "url": "https://giftshop-tw.line.me/products/322591122"
           }
@@ -89,7 +89,7 @@
         "id": "321657627",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 170,
+        "stock": 172,
         "name": "【農純鄉】 滴雞精8入/盒 （常溫）1+1組合 【有你真好】【送禮推薦】",
         "url": "https://giftshop-tw.line.me/products/321657627"
       },
@@ -105,7 +105,7 @@
         "id": "322247376",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 280,
+        "stock": 308,
         "name": "【DIOR】癮誘粉漾潤唇膏 l 收禮者自選色號 [快速出貨]",
         "url": "https://giftshop-tw.line.me/products/322247376"
       },
@@ -113,7 +113,7 @@
         "id": "322349094",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 58,
+        "stock": 64,
         "name": "【DIOR】豐漾俏唇蜜 l 收禮者自選色號 [快速出貨]",
         "url": "https://giftshop-tw.line.me/products/322349094"
       },
@@ -121,7 +121,7 @@
         "id": "322375040",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 286,
+        "stock": 290,
         "name": "【DIOR】迪奧巨星持色唇膏-極光 l 收禮者自選色號 [快速出貨]",
         "url": "https://giftshop-tw.line.me/products/322375040"
       },
@@ -129,7 +129,7 @@
         "id": "322504000",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 622,
+        "stock": 630,
         "name": "【DIOR】MISS DIOR 花漾迪奧護手霜 [快速出貨]",
         "url": "https://giftshop-tw.line.me/products/322504000"
       },
@@ -145,7 +145,7 @@
         "id": "322558691",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 36,
+        "stock": 41,
         "name": "【DIOR】J'adore金緻髮香噴霧 35ML",
         "url": "https://giftshop-tw.line.me/products/322558691"
       },
@@ -153,7 +153,7 @@
         "id": "322562989",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 175,
+        "stock": 180,
         "name": "【DIOR】迪奧潤唇修護雙件組 限量禮盒版 [快速出貨]",
         "url": "https://giftshop-tw.line.me/products/322562989"
       },
@@ -177,11 +177,11 @@
         "id": "322591122",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 136835,
+        "stock": 136452,
         "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌1,111點！",
         "url": "https://giftshop-tw.line.me/products/322591122"
       }
     ]
   },
-  "updatedAt": "2026-11-14T10:09:34.609255+08:00"
+  "updatedAt": "2026-11-14T11:09:45.276155+08:00"
 }
