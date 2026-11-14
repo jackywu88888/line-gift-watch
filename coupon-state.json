@@ -9,8 +9,8 @@
       },
       "2568707": {
         "status": "ISSUING",
-        "remaining": 16577,
-        "claimed": 3423,
+        "remaining": 16547,
+        "claimed": 3453,
         "title": "新客專享：$80元限量優惠券"
       }
     },
@@ -51,7 +51,7 @@
             "id": "322591122",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 133245,
+            "stock": 133181,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌1,111點！",
             "url": "https://giftshop-tw.line.me/products/322591122"
           }
@@ -99,7 +99,7 @@
         "id": "321951491",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 48,
+        "stock": 47,
         "name": "張員瑛御用👑Medicube｜AGE-R Booster Pro多功能美容儀 155g（粉/黑）★附祝福卡片、禮品袋、針織提袋✧生日禮物/情人節禮物-平輸版",
         "url": "https://giftshop-tw.line.me/products/321951491"
       },
@@ -147,7 +147,7 @@
         "id": "322490521",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 9654,
+        "stock": 9653,
         "name": "隔日出貨｜生日快樂【起士公爵】輕乳酪生日蛋糕(6吋)(生日禮物、甜點、起司蛋糕)",
         "url": "https://giftshop-tw.line.me/products/322490521"
       },
@@ -193,5 +193,5 @@
       }
     ]
   },
-  "updatedAt": "2026-11-15T02:10:36.480913+08:00"
+  "updatedAt": "2026-11-15T03:08:49.558145+08:00"
 }
