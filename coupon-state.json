@@ -15,8 +15,8 @@
       },
       "2568707": {
         "status": "ISSUING",
-        "remaining": 16827,
-        "claimed": 3173,
+        "remaining": 16758,
+        "claimed": 3242,
         "title": "新客專享：$80元限量優惠券"
       }
     },
@@ -57,7 +57,7 @@
             "id": "322591122",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 134067,
+            "stock": 133943,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌1,111點！",
             "url": "https://giftshop-tw.line.me/products/322591122"
           }
@@ -86,6 +86,14 @@
     ],
     "homeProducts": [
       {
+        "id": "321657627",
+        "buyable": true,
+        "saleStatus": "SALE",
+        "stock": 170,
+        "name": "【農純鄉】 滴雞精8入/盒 （常溫）1+1組合 【有你真好】【送禮推薦】",
+        "url": "https://giftshop-tw.line.me/products/321657627"
+      },
+      {
         "id": "322086078",
         "buyable": true,
         "saleStatus": "SALE",
@@ -97,7 +105,7 @@
         "id": "322247376",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 263,
+        "stock": 260,
         "name": "【DIOR】癮誘粉漾潤唇膏 l 收禮者自選色號 [快速出貨]",
         "url": "https://giftshop-tw.line.me/products/322247376"
       },
@@ -113,7 +121,7 @@
         "id": "322375040",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 284,
+        "stock": 283,
         "name": "【DIOR】迪奧巨星持色唇膏-極光 l 收禮者自選色號 [快速出貨]",
         "url": "https://giftshop-tw.line.me/products/322375040"
       },
@@ -169,11 +177,11 @@
         "id": "322591122",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 134083,
+        "stock": 133973,
         "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌1,111點！",
         "url": "https://giftshop-tw.line.me/products/322591122"
       }
     ]
   },
-  "updatedAt": "2026-11-14T22:10:20.835507+08:00"
+  "updatedAt": "2026-11-14T23:10:15.073319+08:00"
 }
