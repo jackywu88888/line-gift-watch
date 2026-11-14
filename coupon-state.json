@@ -9,8 +9,8 @@
       },
       "2568707": {
         "status": "ISSUING",
-        "remaining": 16492,
-        "claimed": 3508,
+        "remaining": 16481,
+        "claimed": 3519,
         "title": "新客專享：$80元限量優惠券"
       }
     },
@@ -51,7 +51,7 @@
             "id": "322591122",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 133144,
+            "stock": 133131,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌1,111點！",
             "url": "https://giftshop-tw.line.me/products/322591122"
           }
@@ -80,14 +80,6 @@
     ],
     "homeProducts": [
       {
-        "id": "321752903",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 153,
-        "name": "【小獅王辛巴】蘊蜜質金玻璃寬口奶瓶新生入門禮盒｜新生禮、彌月禮｜ ♡贈心意提袋♡",
-        "url": "https://giftshop-tw.line.me/products/321752903"
-      },
-      {
         "id": "321753821",
         "buyable": true,
         "saleStatus": "SALE",
@@ -96,20 +88,12 @@
         "url": "https://giftshop-tw.line.me/products/321753821"
       },
       {
-        "id": "321969256",
+        "id": "322102294",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 104,
-        "name": "Fees 法緻｜🧸1心1意只為禮🧸幸福新生彌月禮盒 ( 粉 / 藍 )",
-        "url": "https://giftshop-tw.line.me/products/321969256"
-      },
-      {
-        "id": "322063696",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 352,
-        "name": "媽咪莉娜 孕期撫紋保養2+1 (無痕美體霜150ml+彈力潤膚油100ml+乳尖修護膏) 妊娠霜/撫紋霜/妊娠油/身體油/羊脂膏｜懷孕禮/媽媽禮/按摩油霜送禮首選/女性保養",
-        "url": "https://giftshop-tw.line.me/products/322063696"
+        "stock": 50541,
+        "name": "天蠍座生日禮🎁快速出貨【KP記憶香氛】時光香水嫩白沐浴露/沐浴乳480ml｜東海代言推薦｜交換禮物/生日禮物/送女生/送男生/女生禮物/男生禮物/女友禮物/男友禮物/閨蜜禮",
+        "url": "https://giftshop-tw.line.me/products/322102294"
       },
       {
         "id": "322186441",
@@ -128,6 +112,14 @@
         "url": "https://giftshop-tw.line.me/products/322336124"
       },
       {
+        "id": "322371962",
+        "buyable": true,
+        "saleStatus": "SALE",
+        "stock": 23,
+        "name": "生日快樂🩷【19again】梳理心事組：雙氣孔柔順舒壓氣墊梳(兩款可選)＋有問必答撲克牌＿贈：雙層緞面束口收納袋（大）- LINE禮物限定",
+        "url": "https://giftshop-tw.line.me/products/322371962"
+      },
+      {
         "id": "322398123",
         "buyable": true,
         "saleStatus": "SALE",
@@ -144,12 +136,20 @@
         "url": "https://giftshop-tw.line.me/products/322490521"
       },
       {
-        "id": "322550349",
+        "id": "322500109",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 8,
-        "name": "【bimbidreams】兔兔安撫巾+二入紗布巾新生禮盒｜寶寶新生兒禮、滿月禮、彌月禮、嬰兒禮盒",
-        "url": "https://giftshop-tw.line.me/products/322550349"
+        "stock": 38,
+        "name": "『快速出貨』【Bussi】氛圍感隨身香氛組 (髮香噴霧+可自選護手霜香氣）",
+        "url": "https://giftshop-tw.line.me/products/322500109"
+      },
+      {
+        "id": "322514174",
+        "buyable": true,
+        "saleStatus": "SALE",
+        "stock": 372,
+        "name": "🚚快速出貨【hince】生日快樂！冰透蜜糖唇頰膏+清透鏡面水感唇釉+客製串珠吊飾+Dewy ball化妝包+獨家禮盒(快速出貨/生日禮物/超值好禮)",
+        "url": "https://giftshop-tw.line.me/products/322514174"
       },
       {
         "id": "322558265",
@@ -160,12 +160,12 @@
         "url": "https://giftshop-tw.line.me/products/322558265"
       },
       {
-        "id": "322567100",
+        "id": "322560177",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 285,
-        "name": "獨家加購贈好禮【麗嬰房les enphants】Kori Deer可莉鹿嬰兒童安撫魔豆毯+寶寶襪3雙彌月禮盒組 5選1 ｜彌月禮盒｜新生兒禮物｜寶寶毯｜安撫毯｜嬰兒生日禮｜好禮成雙，1+1 更有禮",
-        "url": "https://giftshop-tw.line.me/products/322567100"
+        "stock": 112,
+        "name": "快速出貨【OHIR】宋江御用！生日快樂🎁白山茶花光透白精華水+花束小卡+品牌提袋+客製品牌小花吊飾 (天蠍座生日禮物/朋友送禮/韓國明星同款)",
+        "url": "https://giftshop-tw.line.me/products/322560177"
       },
       {
         "id": "322572424",
@@ -182,6 +182,14 @@
         "stock": 234,
         "name": "【Jo Malone London】蘇格蘭格紋_季節限定香氛拉炮禮盒｜ 生日禮物| 送女生| 送男生 ｜ 秋冬限定｜送禮推薦",
         "url": "https://giftshop-tw.line.me/products/322578072"
+      },
+      {
+        "id": "322583109",
+        "buyable": true,
+        "saleStatus": "SALE",
+        "stock": 467,
+        "name": "生日快樂🎉【fwee】玫瑰唇露🌹+奶昔唇釉🍦贈品牌限定提袋🛍️+ 粉色耳機🎧",
+        "url": "https://giftshop-tw.line.me/products/322583109"
       },
       {
         "id": "322595904",
@@ -201,5 +209,5 @@
       }
     ]
   },
-  "updatedAt": "2026-11-15T05:08:59.849035+08:00"
+  "updatedAt": "2026-11-15T06:08:57.006488+08:00"
 }
