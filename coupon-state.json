@@ -15,8 +15,8 @@
       },
       "2568707": {
         "status": "ISSUING",
-        "remaining": 17216,
-        "claimed": 2784,
+        "remaining": 17119,
+        "claimed": 2881,
         "title": "新客專享：$80元限量優惠券"
       }
     },
@@ -57,7 +57,7 @@
             "id": "322591122",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 134596,
+            "stock": 134525,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌1,111點！",
             "url": "https://giftshop-tw.line.me/products/322591122"
           }
@@ -86,14 +86,6 @@
     ],
     "homeProducts": [
       {
-        "id": "321657627",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 171,
-        "name": "【農純鄉】 滴雞精8入/盒 （常溫）1+1組合 【有你真好】【送禮推薦】",
-        "url": "https://giftshop-tw.line.me/products/321657627"
-      },
-      {
         "id": "322086078",
         "buyable": true,
         "saleStatus": "SALE",
@@ -102,10 +94,18 @@
         "url": "https://giftshop-tw.line.me/products/322086078"
       },
       {
+        "id": "322102294",
+        "buyable": true,
+        "saleStatus": "SALE",
+        "stock": 50542,
+        "name": "天蠍座生日禮🎁快速出貨【KP記憶香氛】時光香水嫩白沐浴露/沐浴乳480ml｜東海代言推薦｜交換禮物/生日禮物/送女生/送男生/女生禮物/男生禮物/女友禮物/男友禮物/閨蜜禮",
+        "url": "https://giftshop-tw.line.me/products/322102294"
+      },
+      {
         "id": "322247376",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 283,
+        "stock": 280,
         "name": "【DIOR】癮誘粉漾潤唇膏 l 收禮者自選色號 [快速出貨]",
         "url": "https://giftshop-tw.line.me/products/322247376"
       },
@@ -113,9 +113,17 @@
         "id": "322349094",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 57,
+        "stock": 56,
         "name": "【DIOR】豐漾俏唇蜜 l 收禮者自選色號 [快速出貨]",
         "url": "https://giftshop-tw.line.me/products/322349094"
+      },
+      {
+        "id": "322371962",
+        "buyable": true,
+        "saleStatus": "SALE",
+        "stock": 23,
+        "name": "生日快樂🩷【19again】梳理心事組：雙氣孔柔順舒壓氣墊梳(兩款可選)＋有問必答撲克牌＿贈：雙層緞面束口收納袋（大）- LINE禮物限定",
+        "url": "https://giftshop-tw.line.me/products/322371962"
       },
       {
         "id": "322375040",
@@ -124,6 +132,14 @@
         "stock": 285,
         "name": "【DIOR】迪奧巨星持色唇膏-極光 l 收禮者自選色號 [快速出貨]",
         "url": "https://giftshop-tw.line.me/products/322375040"
+      },
+      {
+        "id": "322500109",
+        "buyable": true,
+        "saleStatus": "SALE",
+        "stock": 38,
+        "name": "『快速出貨』【Bussi】氛圍感隨身香氛組 (髮香噴霧+可自選護手霜香氣）",
+        "url": "https://giftshop-tw.line.me/products/322500109"
       },
       {
         "id": "322504000",
@@ -142,18 +158,34 @@
         "url": "https://giftshop-tw.line.me/products/322513682"
       },
       {
+        "id": "322514174",
+        "buyable": true,
+        "saleStatus": "SALE",
+        "stock": 384,
+        "name": "🚚快速出貨【hince】生日快樂！冰透蜜糖唇頰膏+清透鏡面水感唇釉+客製串珠吊飾+Dewy ball化妝包+獨家禮盒(快速出貨/生日禮物/超值好禮)",
+        "url": "https://giftshop-tw.line.me/products/322514174"
+      },
+      {
         "id": "322558691",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 39,
+        "stock": 38,
         "name": "【DIOR】J'adore金緻髮香噴霧 35ML",
         "url": "https://giftshop-tw.line.me/products/322558691"
+      },
+      {
+        "id": "322560177",
+        "buyable": true,
+        "saleStatus": "SALE",
+        "stock": 112,
+        "name": "快速出貨【OHIR】宋江御用！生日快樂🎁白山茶花光透白精華水+花束小卡+品牌提袋+客製品牌小花吊飾 (天蠍座生日禮物/朋友送禮/韓國明星同款)",
+        "url": "https://giftshop-tw.line.me/products/322560177"
       },
       {
         "id": "322562989",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 171,
+        "stock": 170,
         "name": "【DIOR】迪奧潤唇修護雙件組 限量禮盒版 [快速出貨]",
         "url": "https://giftshop-tw.line.me/products/322562989"
       },
@@ -164,6 +196,14 @@
         "stock": 28,
         "name": "【DIOR】迪奧曠野之心淡香水100ml 限量禮盒版 [快速出貨]",
         "url": "https://giftshop-tw.line.me/products/322578046"
+      },
+      {
+        "id": "322583109",
+        "buyable": true,
+        "saleStatus": "SALE",
+        "stock": 468,
+        "name": "生日快樂🎉【fwee】玫瑰唇露🌹+奶昔唇釉🍦贈品牌限定提袋🛍️+ 粉色耳機🎧",
+        "url": "https://giftshop-tw.line.me/products/322583109"
       },
       {
         "id": "322590078",
@@ -177,11 +217,11 @@
         "id": "322591122",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 134597,
+        "stock": 134544,
         "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌1,111點！",
         "url": "https://giftshop-tw.line.me/products/322591122"
       }
     ]
   },
-  "updatedAt": "2026-11-14T17:08:27.185678+08:00"
+  "updatedAt": "2026-11-14T18:08:25.605371+08:00"
 }
