@@ -9,8 +9,8 @@
       },
       "2568707": {
         "status": "ISSUING",
-        "remaining": 15702,
-        "claimed": 4298,
+        "remaining": 15614,
+        "claimed": 4386,
         "title": "新客專享：$80元限量優惠券"
       }
     },
@@ -51,7 +51,7 @@
             "id": "322591122",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 131596,
+            "stock": 131477,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌1,111點！",
             "url": "https://giftshop-tw.line.me/products/322591122"
           }
@@ -131,7 +131,7 @@
         "id": "322374809",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 22,
+        "stock": 21,
         "name": "⚡快速出貨｜代印卡片｜【CLARINS 克蘭詩】好孕綿綿貼心禮-(護理油/撫紋霜+禮袋)-平輸版",
         "url": "https://giftshop-tw.line.me/products/322374809"
       },
@@ -139,7 +139,7 @@
         "id": "322398123",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 297,
+        "stock": 295,
         "name": "【Jo Malone London】蘇格蘭格紋_季節限定聖誕香氛奶油掛飾/銀色掛飾   | 生日禮物 | 送女生| 送男生 秋冬限定｜送禮推薦",
         "url": "https://giftshop-tw.line.me/products/322398123"
       },
@@ -147,7 +147,7 @@
         "id": "322490521",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 9647,
+        "stock": 9645,
         "name": "隔日出貨｜生日快樂【起士公爵】輕乳酪生日蛋糕(6吋)(生日禮物、甜點、起司蛋糕)",
         "url": "https://giftshop-tw.line.me/products/322490521"
       },
@@ -179,7 +179,7 @@
         "id": "322591122",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 131621,
+        "stock": 131490,
         "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌1,111點！",
         "url": "https://giftshop-tw.line.me/products/322591122"
       },
@@ -201,5 +201,5 @@
       }
     ]
   },
-  "updatedAt": "2026-11-15T16:10:29.631343+08:00"
+  "updatedAt": "2026-11-15T17:08:37.039407+08:00"
 }
