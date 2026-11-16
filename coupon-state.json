@@ -9,8 +9,8 @@
       },
       "2568707": {
         "status": "ISSUING",
-        "remaining": 11563,
-        "claimed": 8437,
+        "remaining": 11309,
+        "claimed": 8691,
         "title": "新客專享：$80元限量優惠券"
       }
     },
@@ -37,7 +37,7 @@
             "id": "322596152",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 9056,
+            "stock": 8991,
             "name": "[新客限定1元體驗品]【7-ELEVEN】 7-ELEVEN 超值組合45元超值餐購物金(一次抵用型)",
             "url": "https://giftshop-tw.line.me/products/322596152"
           }
@@ -51,7 +51,7 @@
             "id": "322591122",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 125711,
+            "stock": 125628,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌1,111點！",
             "url": "https://giftshop-tw.line.me/products/322591122"
           }
@@ -115,9 +115,17 @@
         "id": "322409019",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 1984,
+        "stock": 2098,
         "name": "限時預購11/30止｜生日快樂[指定區間出貨]【法布甜】(預購)草莓珠寶盒｜生日限定｜天蠍座限定｜你是閃耀的光芒｜下單贈玫瑰塔兌換券",
         "url": "https://giftshop-tw.line.me/products/322409019"
+      },
+      {
+        "id": "322523925",
+        "buyable": true,
+        "saleStatus": "SALE",
+        "stock": 28,
+        "name": "「買就送限量IP貼紙」【52TOYS 官方直營】 蠟筆小新系列任選1+1『LINE禮物獨家組合』搪膠毛絨掛件 大尾巴 春日部之家 春日部最強CP 春日部派對 長高高",
+        "url": "https://giftshop-tw.line.me/products/322523925"
       },
       {
         "id": "322558265",
@@ -131,9 +139,17 @@
         "id": "322572424",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 599,
+        "stock": 598,
         "name": "【Jo Malone London】蘇格蘭格紋_蘇格蘭高地限定系列 節慶限量糅香禮盒組 | 生日禮物 |收禮者自選香調 | 送女友 | 送男友",
         "url": "https://giftshop-tw.line.me/products/322572424"
+      },
+      {
+        "id": "322573137",
+        "buyable": true,
+        "saleStatus": "SALE",
+        "stock": 15,
+        "name": "【楽玩多WAYTOFUN】Vision Toys SKATER JOHN 絨毛吊飾 盲盒 「潮流不只穿身上，送你 SKATER JOHN 才完整！」",
+        "url": "https://giftshop-tw.line.me/products/322573137"
       },
       {
         "id": "322578072",
@@ -144,10 +160,26 @@
         "url": "https://giftshop-tw.line.me/products/322578072"
       },
       {
+        "id": "322592394",
+        "buyable": true,
+        "saleStatus": "SALE",
+        "stock": 9,
+        "name": "【楽玩多WAYTOFUN】Vision Toys 楓之谷 玩具城系列 絨毛 吊飾 盲盒 VOL.1",
+        "url": "https://giftshop-tw.line.me/products/322592394"
+      },
+      {
+        "id": "322592965",
+        "buyable": true,
+        "saleStatus": "SALE",
+        "stock": 114,
+        "name": "任選1件送貼紙  【52TOYS 官方直營】蠟筆小新人氣集合 6款任選｜自己的禮物自己挑｜公仔・盲盒・毛絨掛件｜小新公仔 毛絨掛件 收藏擺件 生日禮物",
+        "url": "https://giftshop-tw.line.me/products/322592965"
+      },
+      {
         "id": "322596152",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 9066,
+        "stock": 8995,
         "name": "[新客限定1元體驗品]【7-ELEVEN】 7-ELEVEN 超值組合45元超值餐購物金(一次抵用型)",
         "url": "https://giftshop-tw.line.me/products/322596152"
       },
@@ -161,5 +193,5 @@
       }
     ]
   },
-  "updatedAt": "2026-11-16T09:07:40.908484+08:00"
+  "updatedAt": "2026-11-16T10:10:03.314849+08:00"
 }
