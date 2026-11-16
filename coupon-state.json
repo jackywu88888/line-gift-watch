@@ -9,8 +9,8 @@
       },
       "2568707": {
         "status": "ISSUING",
-        "remaining": 10816,
-        "claimed": 9184,
+        "remaining": 10624,
+        "claimed": 9376,
         "title": "新客專享：$80元限量優惠券"
       }
     },
@@ -37,7 +37,7 @@
             "id": "322596152",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 8825,
+            "stock": 8726,
             "name": "[新客限定1元體驗品]【7-ELEVEN】 7-ELEVEN 超值組合45元超值餐購物金(一次抵用型)",
             "url": "https://giftshop-tw.line.me/products/322596152"
           }
@@ -51,7 +51,7 @@
             "id": "322591122",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 125191,
+            "stock": 125056,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌1,111點！",
             "url": "https://giftshop-tw.line.me/products/322591122"
           }
@@ -88,6 +88,14 @@
         "url": "https://giftshop-tw.line.me/products/321753821"
       },
       {
+        "id": "321754157",
+        "buyable": true,
+        "saleStatus": "SALE",
+        "stock": 2125,
+        "name": "3個工作天出貨🚚【承繼】-18°c 焦糖起司蛋糕",
+        "url": "https://giftshop-tw.line.me/products/321754157"
+      },
+      {
         "id": "322186441",
         "buyable": true,
         "saleStatus": "SALE",
@@ -107,7 +115,7 @@
         "id": "322398123",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 290,
+        "stock": 288,
         "name": "【Jo Malone London】蘇格蘭格紋_季節限定聖誕香氛奶油掛飾/銀色掛飾   | 生日禮物 | 送女生| 送男生 秋冬限定｜送禮推薦",
         "url": "https://giftshop-tw.line.me/products/322398123"
       },
@@ -120,12 +128,12 @@
         "url": "https://giftshop-tw.line.me/products/322409019"
       },
       {
-        "id": "322523925",
+        "id": "322432934",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 28,
-        "name": "「買就送限量IP貼紙」【52TOYS 官方直營】 蠟筆小新系列任選1+1『LINE禮物獨家組合』搪膠毛絨掛件 大尾巴 春日部之家 春日部最強CP 春日部派對 長高高",
-        "url": "https://giftshop-tw.line.me/products/322523925"
+        "stock": 460,
+        "name": "3日內出貨！！有點秋【送禮首選】四寸焦糖脆餅巴斯克",
+        "url": "https://giftshop-tw.line.me/products/322432934"
       },
       {
         "id": "322558265",
@@ -136,20 +144,20 @@
         "url": "https://giftshop-tw.line.me/products/322558265"
       },
       {
+        "id": "322567768",
+        "buyable": true,
+        "saleStatus": "SALE",
+        "stock": 11,
+        "name": "🔜 [3日內出貨]【禾月堂】北海道無限乳酪 4 吋",
+        "url": "https://giftshop-tw.line.me/products/322567768"
+      },
+      {
         "id": "322572424",
         "buyable": true,
         "saleStatus": "SALE",
         "stock": 597,
         "name": "【Jo Malone London】蘇格蘭格紋_蘇格蘭高地限定系列 節慶限量糅香禮盒組 | 生日禮物 |收禮者自選香調 | 送女友 | 送男友",
         "url": "https://giftshop-tw.line.me/products/322572424"
-      },
-      {
-        "id": "322573137",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 15,
-        "name": "【楽玩多WAYTOFUN】Vision Toys SKATER JOHN 絨毛吊飾 盲盒 「潮流不只穿身上，送你 SKATER JOHN 才完整！」",
-        "url": "https://giftshop-tw.line.me/products/322573137"
       },
       {
         "id": "322578072",
@@ -160,26 +168,26 @@
         "url": "https://giftshop-tw.line.me/products/322578072"
       },
       {
-        "id": "322592394",
+        "id": "322586319",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 9,
-        "name": "【楽玩多WAYTOFUN】Vision Toys 楓之谷 玩具城系列 絨毛 吊飾 盲盒 VOL.1",
-        "url": "https://giftshop-tw.line.me/products/322592394"
+        "stock": 73,
+        "name": "甜蜜雙享1+1組合〖水母吃乳酪〗原味乳酪蛋糕（4吋）生日蛋糕|感謝禮物｜送禮推薦 情人 商務 職場同事 好友",
+        "url": "https://giftshop-tw.line.me/products/322586319"
       },
       {
-        "id": "322592965",
+        "id": "322593210",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 114,
-        "name": "任選1件送貼紙  【52TOYS 官方直營】蠟筆小新人氣集合 6款任選｜自己的禮物自己挑｜公仔・盲盒・毛絨掛件｜小新公仔 毛絨掛件 收藏擺件 生日禮物",
-        "url": "https://giftshop-tw.line.me/products/322592965"
+        "stock": 918,
+        "name": "🚐快速出貨【ChizUP!】十一週年限定乳酪蛋糕盲盒｜驚喜拆開才知道！ 有機會抽中$730人氣口味",
+        "url": "https://giftshop-tw.line.me/products/322593210"
       },
       {
         "id": "322596152",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 8838,
+        "stock": 8729,
         "name": "[新客限定1元體驗品]【7-ELEVEN】 7-ELEVEN 超值組合45元超值餐購物金(一次抵用型)",
         "url": "https://giftshop-tw.line.me/products/322596152"
       },
@@ -190,8 +198,16 @@
         "stock": 28,
         "name": "【CHARLES & KEITH】Delfina 大型鏈條包｜新品上架｜快速出貨｜收禮者可自選顏色｜小CK｜官方直營",
         "url": "https://giftshop-tw.line.me/products/322599753"
+      },
+      {
+        "id": "322601640",
+        "buyable": true,
+        "saleStatus": "SALE",
+        "stock": 2316,
+        "name": "【3日出貨】韓國爆紅甜點✨【望思甜點】Q彈麻糬起司蛋糕 3片裝：可可/莓果/開心果（冷凍配送）",
+        "url": "https://giftshop-tw.line.me/products/322601640"
       }
     ]
   },
-  "updatedAt": "2026-11-16T13:08:43.827364+08:00"
+  "updatedAt": "2026-11-16T14:09:48.046910+08:00"
 }
