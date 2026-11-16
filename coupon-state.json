@@ -9,8 +9,8 @@
       },
       "2568707": {
         "status": "ISSUING",
-        "remaining": 10924,
-        "claimed": 9076,
+        "remaining": 10816,
+        "claimed": 9184,
         "title": "新客專享：$80元限量優惠券"
       }
     },
@@ -37,7 +37,7 @@
             "id": "322596152",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 8894,
+            "stock": 8825,
             "name": "[新客限定1元體驗品]【7-ELEVEN】 7-ELEVEN 超值組合45元超值餐購物金(一次抵用型)",
             "url": "https://giftshop-tw.line.me/products/322596152"
           }
@@ -51,7 +51,7 @@
             "id": "322591122",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 125421,
+            "stock": 125191,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌1,111點！",
             "url": "https://giftshop-tw.line.me/products/322591122"
           }
@@ -99,7 +99,7 @@
         "id": "322336124",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 64,
+        "stock": 63,
         "name": "超人氣韓星推薦✨【Jo Malone London】英倫田園系列香水 30ml 單入組贈萊姆布貼 | 快速出貨 |  緋紅甜菜根 | 收禮者自選香調",
         "url": "https://giftshop-tw.line.me/products/322336124"
       },
@@ -107,7 +107,7 @@
         "id": "322398123",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 291,
+        "stock": 290,
         "name": "【Jo Malone London】蘇格蘭格紋_季節限定聖誕香氛奶油掛飾/銀色掛飾   | 生日禮物 | 送女生| 送男生 秋冬限定｜送禮推薦",
         "url": "https://giftshop-tw.line.me/products/322398123"
       },
@@ -115,33 +115,17 @@
         "id": "322409019",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 2095,
+        "stock": 2094,
         "name": "限時預購11/30止｜生日快樂[指定區間出貨]【法布甜】(預購)草莓珠寶盒｜生日限定｜天蠍座限定｜你是閃耀的光芒｜下單贈玫瑰塔兌換券",
         "url": "https://giftshop-tw.line.me/products/322409019"
       },
       {
-        "id": "322495247",
+        "id": "322523925",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 29,
-        "name": "快速出貨🚛【日系涼感】Beauwell 織品衣物專用涼感噴霧-柑橘薄荷/薰衣草薄荷-300mL 任選2入組|居家放鬆/寢具噴霧/室外衣物涼感",
-        "url": "https://giftshop-tw.line.me/products/322495247"
-      },
-      {
-        "id": "322511177",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 467,
-        "name": "［快速出貨］【susurro】甜蜜隨行禮｜枕頭噴霧  5+5mL｜收禮者自選香氣｜香氛噴霧｜放鬆噴霧｜紓壓",
-        "url": "https://giftshop-tw.line.me/products/322511177"
-      },
-      {
-        "id": "322554950",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 1,
-        "name": "收禮人自選！買杯送杯【義大利BLACK HAMMER 】SNOOPY史努比磁吸保溫杯1+1組｜990ml＋450ml (兩款任選)",
-        "url": "https://giftshop-tw.line.me/products/322554950"
+        "stock": 28,
+        "name": "「買就送限量IP貼紙」【52TOYS 官方直營】 蠟筆小新系列任選1+1『LINE禮物獨家組合』搪膠毛絨掛件 大尾巴 春日部之家 春日部最強CP 春日部派對 長高高",
+        "url": "https://giftshop-tw.line.me/products/322523925"
       },
       {
         "id": "322558265",
@@ -152,20 +136,20 @@
         "url": "https://giftshop-tw.line.me/products/322558265"
       },
       {
-        "id": "322559067",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 148,
-        "name": "收禮人自選香🤎【Rofancy 洛帆晞】Goodnight 好眠噴霧｜3款睡前香氣．無酒精配方",
-        "url": "https://giftshop-tw.line.me/products/322559067"
-      },
-      {
         "id": "322572424",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 598,
+        "stock": 597,
         "name": "【Jo Malone London】蘇格蘭格紋_蘇格蘭高地限定系列 節慶限量糅香禮盒組 | 生日禮物 |收禮者自選香調 | 送女友 | 送男友",
         "url": "https://giftshop-tw.line.me/products/322572424"
+      },
+      {
+        "id": "322573137",
+        "buyable": true,
+        "saleStatus": "SALE",
+        "stock": 15,
+        "name": "【楽玩多WAYTOFUN】Vision Toys SKATER JOHN 絨毛吊飾 盲盒 「潮流不只穿身上，送你 SKATER JOHN 才完整！」",
+        "url": "https://giftshop-tw.line.me/products/322573137"
       },
       {
         "id": "322578072",
@@ -176,26 +160,26 @@
         "url": "https://giftshop-tw.line.me/products/322578072"
       },
       {
-        "id": "322580606",
+        "id": "322592394",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 82,
-        "name": "雙倍自在1+1 🎁收禮人自選【DON HOME】睡姿不被限制💤 ｜多角度支撐記憶枕｜3款任選｜快速出貨",
-        "url": "https://giftshop-tw.line.me/products/322580606"
+        "stock": 9,
+        "name": "【楽玩多WAYTOFUN】Vision Toys 楓之谷 玩具城系列 絨毛 吊飾 盲盒 VOL.1",
+        "url": "https://giftshop-tw.line.me/products/322592394"
       },
       {
-        "id": "322584167",
+        "id": "322592965",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 27,
-        "name": "⛵ 收禮人自選香【 SANTA HAM 】🧸小熊香氛禮盒｜Fair Winds・經典藍｜ 6 種香氣｜環境香氛噴霧  (5ml)｜洋甘菊  雪松  白茶 茉莉 麝香 玫瑰 佛手柑",
-        "url": "https://giftshop-tw.line.me/products/322584167"
+        "stock": 114,
+        "name": "任選1件送貼紙  【52TOYS 官方直營】蠟筆小新人氣集合 6款任選｜自己的禮物自己挑｜公仔・盲盒・毛絨掛件｜小新公仔 毛絨掛件 收藏擺件 生日禮物",
+        "url": "https://giftshop-tw.line.me/products/322592965"
       },
       {
         "id": "322596152",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 8896,
+        "stock": 8838,
         "name": "[新客限定1元體驗品]【7-ELEVEN】 7-ELEVEN 超值組合45元超值餐購物金(一次抵用型)",
         "url": "https://giftshop-tw.line.me/products/322596152"
       },
@@ -209,5 +193,5 @@
       }
     ]
   },
-  "updatedAt": "2026-11-16T12:08:20.340580+08:00"
+  "updatedAt": "2026-11-16T13:08:43.827364+08:00"
 }
