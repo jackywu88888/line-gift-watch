@@ -15,8 +15,8 @@
       },
       "2568708": {
         "status": "ISSUING",
-        "remaining": 4804,
-        "claimed": 196,
+        "remaining": 4729,
+        "claimed": 271,
         "title": "新客驚喜：$80元限量優惠券"
       }
     },
@@ -43,7 +43,7 @@
             "id": "322596152",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 8012,
+            "stock": 7977,
             "name": "[新客限定1元體驗品]【7-ELEVEN】 7-ELEVEN 超值組合45元超值餐購物金(一次抵用型)",
             "url": "https://giftshop-tw.line.me/products/322596152"
           }
@@ -57,7 +57,7 @@
             "id": "322591122",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 123245,
+            "stock": 123205,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌1,111點！",
             "url": "https://giftshop-tw.line.me/products/322591122"
           }
@@ -91,18 +91,18 @@
     ],
     "homeProducts": [
       {
-        "id": "321754157",
+        "id": "322165423",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 3068,
-        "name": "3個工作天出貨🚚【承繼】-18°c 焦糖起司蛋糕",
-        "url": "https://giftshop-tw.line.me/products/321754157"
+        "stock": 115,
+        "name": "加購升級 心意加倍🔜快速出貨[生日快樂]【Concern 康生】摩力寶貝U型按摩頸枕 (多色任選)",
+        "url": "https://giftshop-tw.line.me/products/322165423"
       },
       {
         "id": "322247376",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 311,
+        "stock": 306,
         "name": "【DIOR】癮誘粉漾潤唇膏 l 收禮者自選色號 [快速出貨]",
         "url": "https://giftshop-tw.line.me/products/322247376"
       },
@@ -123,20 +123,28 @@
         "url": "https://giftshop-tw.line.me/products/322375040"
       },
       {
-        "id": "322432934",
+        "id": "322503353",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 460,
-        "name": "3日內出貨！！有點秋【送禮首選】四寸焦糖脆餅巴斯克",
-        "url": "https://giftshop-tw.line.me/products/322432934"
+        "stock": 97,
+        "name": "繼續當你溫柔的依靠💖[快速出貨]【TAKASHIMA 高島】愛舒服抱抱枕 按摩枕M-6520(聖誕節交換禮物/孝親禮/感謝/情侶送禮/寵愛自己/放鬆)",
+        "url": "https://giftshop-tw.line.me/products/322503353"
       },
       {
         "id": "322504000",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 593,
+        "stock": 592,
         "name": "【DIOR】MISS DIOR 花漾迪奧護手霜 [快速出貨]",
         "url": "https://giftshop-tw.line.me/products/322504000"
+      },
+      {
+        "id": "322543124",
+        "buyable": true,
+        "saleStatus": "SALE",
+        "stock": 72,
+        "name": "🔜快速出貨【Concern 康生】摩力寶貝U型按摩頸枕+小豬舒眠眼罩(插電款)",
+        "url": "https://giftshop-tw.line.me/products/322543124"
       },
       {
         "id": "322558691",
@@ -150,17 +158,9 @@
         "id": "322562989",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 144,
+        "stock": 143,
         "name": "【DIOR】迪奧潤唇修護雙件組 限量禮盒版 [快速出貨]",
         "url": "https://giftshop-tw.line.me/products/322562989"
-      },
-      {
-        "id": "322567768",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 9,
-        "name": "🔜 [3日內出貨]【禾月堂】北海道無限乳酪 4 吋",
-        "url": "https://giftshop-tw.line.me/products/322567768"
       },
       {
         "id": "322578046",
@@ -171,12 +171,12 @@
         "url": "https://giftshop-tw.line.me/products/322578046"
       },
       {
-        "id": "322586319",
+        "id": "322586700",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 73,
-        "name": "甜蜜雙享1+1組合〖水母吃乳酪〗原味乳酪蛋糕（4吋）生日蛋糕|感謝禮物｜送禮推薦 情人 商務 職場同事 好友",
-        "url": "https://giftshop-tw.line.me/products/322586319"
+        "stock": 70,
+        "name": "1+1寵愛組✨[快速出貨]【TAKASHIMA 高島】愛舒服揉睡枕/頸枕 M-6199+頭部按摩器M-1230(天蠍座生日快樂/生日禮物/聖誕禮物/交換禮物/送禮排行/雙11)",
+        "url": "https://giftshop-tw.line.me/products/322586700"
       },
       {
         "id": "322590078",
@@ -190,27 +190,11 @@
         "id": "322591122",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 123247,
+        "stock": 123210,
         "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌1,111點！",
         "url": "https://giftshop-tw.line.me/products/322591122"
-      },
-      {
-        "id": "322593210",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 916,
-        "name": "🚐快速出貨【ChizUP!】十一週年限定乳酪蛋糕盲盒｜驚喜拆開才知道！ 有機會抽中$730人氣口味",
-        "url": "https://giftshop-tw.line.me/products/322593210"
-      },
-      {
-        "id": "322601640",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 2296,
-        "name": "【3日出貨】韓國爆紅甜點✨【望思甜點】Q彈麻糬起司蛋糕 3片裝：可可/莓果/開心果（冷凍配送）",
-        "url": "https://giftshop-tw.line.me/products/322601640"
       }
     ]
   },
-  "updatedAt": "2026-11-17T01:09:36.219806+08:00"
+  "updatedAt": "2026-11-17T02:09:51.669492+08:00"
 }
