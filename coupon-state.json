@@ -9,8 +9,8 @@
       },
       "2568707": {
         "status": "ISSUING",
-        "remaining": 11072,
-        "claimed": 8928,
+        "remaining": 10924,
+        "claimed": 9076,
         "title": "新客專享：$80元限量優惠券"
       }
     },
@@ -37,7 +37,7 @@
             "id": "322596152",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 8938,
+            "stock": 8894,
             "name": "[新客限定1元體驗品]【7-ELEVEN】 7-ELEVEN 超值組合45元超值餐購物金(一次抵用型)",
             "url": "https://giftshop-tw.line.me/products/322596152"
           }
@@ -51,7 +51,7 @@
             "id": "322591122",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 125555,
+            "stock": 125421,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌1,111點！",
             "url": "https://giftshop-tw.line.me/products/322591122"
           }
@@ -88,14 +88,6 @@
         "url": "https://giftshop-tw.line.me/products/321753821"
       },
       {
-        "id": "321754157",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 2144,
-        "name": "3個工作天出貨🚚【承繼】-18°c 焦糖起司蛋糕",
-        "url": "https://giftshop-tw.line.me/products/321754157"
-      },
-      {
         "id": "322186441",
         "buyable": true,
         "saleStatus": "SALE",
@@ -123,17 +115,33 @@
         "id": "322409019",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 2096,
+        "stock": 2095,
         "name": "限時預購11/30止｜生日快樂[指定區間出貨]【法布甜】(預購)草莓珠寶盒｜生日限定｜天蠍座限定｜你是閃耀的光芒｜下單贈玫瑰塔兌換券",
         "url": "https://giftshop-tw.line.me/products/322409019"
       },
       {
-        "id": "322432934",
+        "id": "322495247",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 461,
-        "name": "3日內出貨！！有點秋【送禮首選】四寸焦糖脆餅巴斯克",
-        "url": "https://giftshop-tw.line.me/products/322432934"
+        "stock": 29,
+        "name": "快速出貨🚛【日系涼感】Beauwell 織品衣物專用涼感噴霧-柑橘薄荷/薰衣草薄荷-300mL 任選2入組|居家放鬆/寢具噴霧/室外衣物涼感",
+        "url": "https://giftshop-tw.line.me/products/322495247"
+      },
+      {
+        "id": "322511177",
+        "buyable": true,
+        "saleStatus": "SALE",
+        "stock": 467,
+        "name": "［快速出貨］【susurro】甜蜜隨行禮｜枕頭噴霧  5+5mL｜收禮者自選香氣｜香氛噴霧｜放鬆噴霧｜紓壓",
+        "url": "https://giftshop-tw.line.me/products/322511177"
+      },
+      {
+        "id": "322554950",
+        "buyable": true,
+        "saleStatus": "SALE",
+        "stock": 1,
+        "name": "收禮人自選！買杯送杯【義大利BLACK HAMMER 】SNOOPY史努比磁吸保溫杯1+1組｜990ml＋450ml (兩款任選)",
+        "url": "https://giftshop-tw.line.me/products/322554950"
       },
       {
         "id": "322558265",
@@ -144,12 +152,12 @@
         "url": "https://giftshop-tw.line.me/products/322558265"
       },
       {
-        "id": "322567768",
+        "id": "322559067",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 11,
-        "name": "🔜 [3日內出貨]【禾月堂】北海道無限乳酪 4 吋",
-        "url": "https://giftshop-tw.line.me/products/322567768"
+        "stock": 148,
+        "name": "收禮人自選香🤎【Rofancy 洛帆晞】Goodnight 好眠噴霧｜3款睡前香氣．無酒精配方",
+        "url": "https://giftshop-tw.line.me/products/322559067"
       },
       {
         "id": "322572424",
@@ -168,26 +176,26 @@
         "url": "https://giftshop-tw.line.me/products/322578072"
       },
       {
-        "id": "322586319",
+        "id": "322580606",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 74,
-        "name": "甜蜜雙享1+1組合〖水母吃乳酪〗原味乳酪蛋糕（4吋）生日蛋糕|感謝禮物｜送禮推薦 情人 商務 職場同事 好友",
-        "url": "https://giftshop-tw.line.me/products/322586319"
+        "stock": 82,
+        "name": "雙倍自在1+1 🎁收禮人自選【DON HOME】睡姿不被限制💤 ｜多角度支撐記憶枕｜3款任選｜快速出貨",
+        "url": "https://giftshop-tw.line.me/products/322580606"
       },
       {
-        "id": "322593210",
+        "id": "322584167",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 921,
-        "name": "🚐快速出貨【ChizUP!】十一週年限定乳酪蛋糕盲盒｜驚喜拆開才知道！ 有機會抽中$730人氣口味",
-        "url": "https://giftshop-tw.line.me/products/322593210"
+        "stock": 27,
+        "name": "⛵ 收禮人自選香【 SANTA HAM 】🧸小熊香氛禮盒｜Fair Winds・經典藍｜ 6 種香氣｜環境香氛噴霧  (5ml)｜洋甘菊  雪松  白茶 茉莉 麝香 玫瑰 佛手柑",
+        "url": "https://giftshop-tw.line.me/products/322584167"
       },
       {
         "id": "322596152",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 8944,
+        "stock": 8896,
         "name": "[新客限定1元體驗品]【7-ELEVEN】 7-ELEVEN 超值組合45元超值餐購物金(一次抵用型)",
         "url": "https://giftshop-tw.line.me/products/322596152"
       },
@@ -198,16 +206,8 @@
         "stock": 28,
         "name": "【CHARLES & KEITH】Delfina 大型鏈條包｜新品上架｜快速出貨｜收禮者可自選顏色｜小CK｜官方直營",
         "url": "https://giftshop-tw.line.me/products/322599753"
-      },
-      {
-        "id": "322601640",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 2320,
-        "name": "【3日出貨】韓國爆紅甜點✨【望思甜點】Q彈麻糬起司蛋糕 3片裝：可可/莓果/開心果（冷凍配送）",
-        "url": "https://giftshop-tw.line.me/products/322601640"
       }
     ]
   },
-  "updatedAt": "2026-11-16T11:09:59.090875+08:00"
+  "updatedAt": "2026-11-16T12:08:20.340580+08:00"
 }
