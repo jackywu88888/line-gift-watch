@@ -53,3 +53,6 @@
 # home/manual 新客$80 滿89折80（2026-11-13～11-16）
 # https://giftshop-tw.line.me/collections/coupon/2568707
 2568707
+
+# auto-discovered-80 2026-11-17T00:06:29.096788+08:00
+2568708
