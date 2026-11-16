@@ -9,8 +9,8 @@
       },
       "2568707": {
         "status": "ISSUING",
-        "remaining": 10218,
-        "claimed": 9782,
+        "remaining": 10106,
+        "claimed": 9894,
         "title": "新客專享：$80元限量優惠券"
       }
     },
@@ -37,7 +37,7 @@
             "id": "322596152",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 8542,
+            "stock": 8481,
             "name": "[新客限定1元體驗品]【7-ELEVEN】 7-ELEVEN 超值組合45元超值餐購物金(一次抵用型)",
             "url": "https://giftshop-tw.line.me/products/322596152"
           }
@@ -51,7 +51,7 @@
             "id": "322591122",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 124654,
+            "stock": 124533,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌1,111點！",
             "url": "https://giftshop-tw.line.me/products/322591122"
           }
@@ -93,12 +93,36 @@
         "url": "https://giftshop-tw.line.me/products/321753821"
       },
       {
-        "id": "322102294",
+        "id": "321770298",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 50539,
-        "name": "天蠍座生日禮🎁快速出貨【KP記憶香氛】時光香水嫩白沐浴露/沐浴乳480ml｜東海代言推薦｜交換禮物/生日禮物/送女生/送男生/女生禮物/男生禮物/女友禮物/男友禮物/閨蜜禮",
-        "url": "https://giftshop-tw.line.me/products/322102294"
+        "stock": 11906,
+        "name": "[快速出貨]🤎生日快樂【Joyce Chocolate】生巧克力禮盒(25顆入)",
+        "url": "https://giftshop-tw.line.me/products/321770298"
+      },
+      {
+        "id": "321955506",
+        "buyable": true,
+        "saleStatus": "SALE",
+        "stock": 3602034,
+        "name": "《🚚快速出貨》【傳遞幸福】排行榜NO.1–四種口味玫瑰塔禮盒「杜拜巧克力」「生日禮盒」「情人節玫瑰塔」「草莓杜拜」「加購價」",
+        "url": "https://giftshop-tw.line.me/products/321955506"
+      },
+      {
+        "id": "321957518",
+        "buyable": true,
+        "saleStatus": "SALE",
+        "stock": 20994220,
+        "name": "【紅磚布丁】 生日快樂｜磚享禮盒6入（傳統焦糖/觀音拿鐵/茉莉拿鐵）收禮者可自選口味",
+        "url": "https://giftshop-tw.line.me/products/321957518"
+      },
+      {
+        "id": "322176417",
+        "buyable": true,
+        "saleStatus": "SALE",
+        "stock": 14236,
+        "name": "隔日出貨｜附星星蠟燭【起士公爵】〔星座〕輕乳酪生日蛋糕(6吋)(天蠍座蛋糕、蛋糕、星座蛋糕)",
+        "url": "https://giftshop-tw.line.me/products/322176417"
       },
       {
         "id": "322186441",
@@ -117,14 +141,6 @@
         "url": "https://giftshop-tw.line.me/products/322336124"
       },
       {
-        "id": "322371962",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 23,
-        "name": "生日快樂🩷【19again】梳理心事組：雙氣孔柔順舒壓氣墊梳(兩款可選)＋有問必答撲克牌＿贈：雙層緞面束口收納袋（大）- LINE禮物限定",
-        "url": "https://giftshop-tw.line.me/products/322371962"
-      },
-      {
         "id": "322398123",
         "buyable": true,
         "saleStatus": "SALE",
@@ -136,25 +152,25 @@
         "id": "322409019",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 2093,
+        "stock": 2092,
         "name": "限時預購11/30止｜生日快樂[指定區間出貨]【法布甜】(預購)草莓珠寶盒｜生日限定｜天蠍座限定｜你是閃耀的光芒｜下單贈玫瑰塔兌換券",
         "url": "https://giftshop-tw.line.me/products/322409019"
       },
       {
-        "id": "322500109",
+        "id": "322481138",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 38,
-        "name": "『快速出貨』【Bussi】氛圍感隨身香氛組 (髮香噴霧+可自選護手霜香氣）",
-        "url": "https://giftshop-tw.line.me/products/322500109"
+        "stock": 1485,
+        "name": "[快速出貨]🤎生日快樂【Joyce Chocolate】法式馬卡龍4入禮盒",
+        "url": "https://giftshop-tw.line.me/products/322481138"
       },
       {
-        "id": "322514174",
+        "id": "322488096",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 534,
-        "name": "🚚快速出貨【hince】生日快樂！冰透蜜糖唇頰膏+清透鏡面水感唇釉+客製串珠吊飾+Dewy ball化妝包+獨家禮盒(快速出貨/生日禮物/超值好禮)",
-        "url": "https://giftshop-tw.line.me/products/322514174"
+        "stock": 5768,
+        "name": "3日內出貨🎂送出高級濃郁幸福【奧瑪烘焙】杜拜巧克力巴斯克蛋糕(4吋) 多口味任選 天蠍座生日快樂 情人節快樂 畢業禮物",
+        "url": "https://giftshop-tw.line.me/products/322488096"
       },
       {
         "id": "322558265",
@@ -165,18 +181,10 @@
         "url": "https://giftshop-tw.line.me/products/322558265"
       },
       {
-        "id": "322560177",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 112,
-        "name": "快速出貨【OHIR】宋江御用！生日快樂🎁白山茶花光透白精華水+花束小卡+品牌提袋+客製品牌小花吊飾 (天蠍座生日禮物/朋友送禮/韓國明星同款)",
-        "url": "https://giftshop-tw.line.me/products/322560177"
-      },
-      {
         "id": "322572424",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 597,
+        "stock": 596,
         "name": "【Jo Malone London】蘇格蘭格紋_蘇格蘭高地限定系列 節慶限量糅香禮盒組 | 生日禮物 |收禮者自選香調 | 送女友 | 送男友",
         "url": "https://giftshop-tw.line.me/products/322572424"
       },
@@ -189,18 +197,10 @@
         "url": "https://giftshop-tw.line.me/products/322578072"
       },
       {
-        "id": "322583109",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 467,
-        "name": "生日快樂🎉【fwee】玫瑰唇露🌹+奶昔唇釉🍦贈品牌限定提袋🛍️+ 粉色耳機🎧",
-        "url": "https://giftshop-tw.line.me/products/322583109"
-      },
-      {
         "id": "322596152",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 8554,
+        "stock": 8482,
         "name": "[新客限定1元體驗品]【7-ELEVEN】 7-ELEVEN 超值組合45元超值餐購物金(一次抵用型)",
         "url": "https://giftshop-tw.line.me/products/322596152"
       },
@@ -214,5 +214,5 @@
       }
     ]
   },
-  "updatedAt": "2026-11-16T16:09:41.894319+08:00"
+  "updatedAt": "2026-11-16T17:07:48.498648+08:00"
 }
