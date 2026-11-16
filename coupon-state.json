@@ -9,8 +9,8 @@
       },
       "2568707": {
         "status": "ISSUING",
-        "remaining": 11905,
-        "claimed": 8095,
+        "remaining": 11563,
+        "claimed": 8437,
         "title": "新客專享：$80元限量優惠券"
       }
     },
@@ -37,7 +37,7 @@
             "id": "322596152",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 9110,
+            "stock": 9056,
             "name": "[新客限定1元體驗品]【7-ELEVEN】 7-ELEVEN 超值組合45元超值餐購物金(一次抵用型)",
             "url": "https://giftshop-tw.line.me/products/322596152"
           }
@@ -51,7 +51,7 @@
             "id": "322591122",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 125837,
+            "stock": 125711,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌1,111點！",
             "url": "https://giftshop-tw.line.me/products/322591122"
           }
@@ -88,22 +88,6 @@
         "url": "https://giftshop-tw.line.me/products/321753821"
       },
       {
-        "id": "321868093",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 7,
-        "name": "【PAUL & JOE】🎁小仙女生日快樂🎁貓咪保濕修護潤唇膏組『LINE禮物獨家組合』",
-        "url": "https://giftshop-tw.line.me/products/321868093"
-      },
-      {
-        "id": "321951491",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 47,
-        "name": "張員瑛御用👑Medicube｜AGE-R Booster Pro多功能美容儀 155g（粉/黑）★附祝福卡片、禮品袋、針織提袋✧生日禮物/情人節禮物-平輸版",
-        "url": "https://giftshop-tw.line.me/products/321951491"
-      },
-      {
         "id": "322186441",
         "buyable": true,
         "saleStatus": "SALE",
@@ -120,26 +104,10 @@
         "url": "https://giftshop-tw.line.me/products/322336124"
       },
       {
-        "id": "322366772",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 655,
-        "name": "❤️ OHANA MAHAALO 十時香隨限定香水吊飾 (14款任選) | 收禮者自選款式 (快速出貨)",
-        "url": "https://giftshop-tw.line.me/products/322366772"
-      },
-      {
-        "id": "322374809",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 20,
-        "name": "⚡快速出貨｜代印卡片｜【CLARINS 克蘭詩】好孕綿綿貼心禮-(護理油/撫紋霜+禮袋)-平輸版",
-        "url": "https://giftshop-tw.line.me/products/322374809"
-      },
-      {
         "id": "322398123",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 293,
+        "stock": 291,
         "name": "【Jo Malone London】蘇格蘭格紋_季節限定聖誕香氛奶油掛飾/銀色掛飾   | 生日禮物 | 送女生| 送男生 秋冬限定｜送禮推薦",
         "url": "https://giftshop-tw.line.me/products/322398123"
       },
@@ -147,7 +115,7 @@
         "id": "322409019",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 1985,
+        "stock": 1984,
         "name": "限時預購11/30止｜生日快樂[指定區間出貨]【法布甜】(預購)草莓珠寶盒｜生日限定｜天蠍座限定｜你是閃耀的光芒｜下單贈玫瑰塔兌換券",
         "url": "https://giftshop-tw.line.me/products/322409019"
       },
@@ -179,7 +147,7 @@
         "id": "322596152",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 9115,
+        "stock": 9066,
         "name": "[新客限定1元體驗品]【7-ELEVEN】 7-ELEVEN 超值組合45元超值餐購物金(一次抵用型)",
         "url": "https://giftshop-tw.line.me/products/322596152"
       },
@@ -193,5 +161,5 @@
       }
     ]
   },
-  "updatedAt": "2026-11-16T08:10:57.027173+08:00"
+  "updatedAt": "2026-11-16T09:07:40.908484+08:00"
 }
