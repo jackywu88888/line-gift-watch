@@ -15,8 +15,8 @@
       },
       "2568708": {
         "status": "ISSUING",
-        "remaining": 2855,
-        "claimed": 2145,
+        "remaining": 2732,
+        "claimed": 2268,
         "title": "新客驚喜：$80元限量優惠券"
       }
     },
@@ -43,7 +43,7 @@
             "id": "322596152",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 7448,
+            "stock": 7417,
             "name": "[新客限定1元體驗品]【7-ELEVEN】 7-ELEVEN 超值組合45元超值餐購物金(一次抵用型)",
             "url": "https://giftshop-tw.line.me/products/322596152"
           }
@@ -57,7 +57,7 @@
             "id": "322591122",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 122396,
+            "stock": 122331,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌1,111點！",
             "url": "https://giftshop-tw.line.me/products/322591122"
           }
@@ -91,10 +91,18 @@
     ],
     "homeProducts": [
       {
+        "id": "321754157",
+        "buyable": true,
+        "saleStatus": "SALE",
+        "stock": 3022,
+        "name": "3個工作天出貨🚚【承繼】-18°c 焦糖起司蛋糕",
+        "url": "https://giftshop-tw.line.me/products/321754157"
+      },
+      {
         "id": "322247376",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 338,
+        "stock": 333,
         "name": "【DIOR】癮誘粉漾潤唇膏 l 收禮者自選色號 [快速出貨]",
         "url": "https://giftshop-tw.line.me/products/322247376"
       },
@@ -115,10 +123,18 @@
         "url": "https://giftshop-tw.line.me/products/322375040"
       },
       {
+        "id": "322432934",
+        "buyable": true,
+        "saleStatus": "SALE",
+        "stock": 460,
+        "name": "3日內出貨！！有點秋【送禮首選】四寸焦糖脆餅巴斯克",
+        "url": "https://giftshop-tw.line.me/products/322432934"
+      },
+      {
         "id": "322504000",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 589,
+        "stock": 587,
         "name": "【DIOR】MISS DIOR 花漾迪奧護手霜 [快速出貨]",
         "url": "https://giftshop-tw.line.me/products/322504000"
       },
@@ -129,6 +145,14 @@
         "stock": 31,
         "name": "【DIOR】J'adore金緻髮香噴霧 35ML",
         "url": "https://giftshop-tw.line.me/products/322558691"
+      },
+      {
+        "id": "322567768",
+        "buyable": true,
+        "saleStatus": "SALE",
+        "stock": 6,
+        "name": "🔜 [3日內出貨]【禾月堂】北海道無限乳酪 4 吋",
+        "url": "https://giftshop-tw.line.me/products/322567768"
       },
       {
         "id": "322578044",
@@ -147,14 +171,38 @@
         "url": "https://giftshop-tw.line.me/products/322578046"
       },
       {
+        "id": "322586319",
+        "buyable": true,
+        "saleStatus": "SALE",
+        "stock": 73,
+        "name": "甜蜜雙享1+1組合〖水母吃乳酪〗原味乳酪蛋糕（4吋）生日蛋糕|感謝禮物｜送禮推薦 情人 商務 職場同事 好友",
+        "url": "https://giftshop-tw.line.me/products/322586319"
+      },
+      {
         "id": "322590078",
         "buyable": true,
         "saleStatus": "SALE",
         "stock": 16,
         "name": "【DIOR】花漾迪奧粉漾潤唇組 限量禮盒版 [快速出貨]",
         "url": "https://giftshop-tw.line.me/products/322590078"
+      },
+      {
+        "id": "322593210",
+        "buyable": true,
+        "saleStatus": "SALE",
+        "stock": 914,
+        "name": "🚐快速出貨【ChizUP!】十一週年限定乳酪蛋糕盲盒｜驚喜拆開才知道！ 有機會抽中$730人氣口味",
+        "url": "https://giftshop-tw.line.me/products/322593210"
+      },
+      {
+        "id": "322601640",
+        "buyable": true,
+        "saleStatus": "SALE",
+        "stock": 2271,
+        "name": "【3日出貨】韓國爆紅甜點✨【望思甜點】Q彈麻糬起司蛋糕 3片裝：可可/莓果/開心果（冷凍配送）",
+        "url": "https://giftshop-tw.line.me/products/322601640"
       }
     ]
   },
-  "updatedAt": "2026-11-17T17:08:24.012830+08:00"
+  "updatedAt": "2026-11-17T18:09:42.623143+08:00"
 }
