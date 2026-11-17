@@ -15,8 +15,8 @@
       },
       "2568708": {
         "status": "ISSUING",
-        "remaining": 3321,
-        "claimed": 1679,
+        "remaining": 3181,
+        "claimed": 1819,
         "title": "新客驚喜：$80元限量優惠券"
       }
     },
@@ -43,7 +43,7 @@
             "id": "322596152",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 7617,
+            "stock": 7574,
             "name": "[新客限定1元體驗品]【7-ELEVEN】 7-ELEVEN 超值組合45元超值餐購物金(一次抵用型)",
             "url": "https://giftshop-tw.line.me/products/322596152"
           }
@@ -57,7 +57,7 @@
             "id": "322591122",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 122557,
+            "stock": 122504,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌1,111點！",
             "url": "https://giftshop-tw.line.me/products/322591122"
           }
@@ -91,42 +91,10 @@
     ],
     "homeProducts": [
       {
-        "id": "321770298",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 11882,
-        "name": "[快速出貨]🤎生日快樂【Joyce Chocolate】生巧克力禮盒(25顆入)",
-        "url": "https://giftshop-tw.line.me/products/321770298"
-      },
-      {
-        "id": "321955506",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 3601971,
-        "name": "《🚚快速出貨》【傳遞幸福】排行榜NO.1–四種口味玫瑰塔禮盒「杜拜巧克力」「生日禮盒」「情人節玫瑰塔」「草莓杜拜」「加購價」",
-        "url": "https://giftshop-tw.line.me/products/321955506"
-      },
-      {
-        "id": "321957518",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 20994195,
-        "name": "【紅磚布丁】 生日快樂｜磚享禮盒6入（傳統焦糖/觀音拿鐵/茉莉拿鐵）收禮者可自選口味",
-        "url": "https://giftshop-tw.line.me/products/321957518"
-      },
-      {
-        "id": "322176417",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 14620,
-        "name": "隔日出貨｜附星星蠟燭【起士公爵】〔星座〕輕乳酪生日蛋糕(6吋)(天蠍座蛋糕、蛋糕、星座蛋糕)",
-        "url": "https://giftshop-tw.line.me/products/322176417"
-      },
-      {
         "id": "322247376",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 317,
+        "stock": 334,
         "name": "【DIOR】癮誘粉漾潤唇膏 l 收禮者自選色號 [快速出貨]",
         "url": "https://giftshop-tw.line.me/products/322247376"
       },
@@ -134,7 +102,7 @@
         "id": "322349094",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 60,
+        "stock": 58,
         "name": "【DIOR】豐漾俏唇蜜 l 收禮者自選色號 [快速出貨]",
         "url": "https://giftshop-tw.line.me/products/322349094"
       },
@@ -142,31 +110,15 @@
         "id": "322375040",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 284,
+        "stock": 288,
         "name": "【DIOR】迪奧巨星持色唇膏-極光 l 收禮者自選色號 [快速出貨]",
         "url": "https://giftshop-tw.line.me/products/322375040"
-      },
-      {
-        "id": "322481138",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 1415,
-        "name": "[快速出貨]🤎生日快樂【Joyce Chocolate】法式馬卡龍4入禮盒",
-        "url": "https://giftshop-tw.line.me/products/322481138"
-      },
-      {
-        "id": "322488096",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 5729,
-        "name": "3日內出貨🎂送出高級濃郁幸福【奧瑪烘焙】杜拜巧克力巴斯克蛋糕(4吋) 多口味任選 天蠍座生日快樂 情人節快樂 畢業禮物",
-        "url": "https://giftshop-tw.line.me/products/322488096"
       },
       {
         "id": "322504000",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 585,
+        "stock": 586,
         "name": "【DIOR】MISS DIOR 花漾迪奧護手霜 [快速出貨]",
         "url": "https://giftshop-tw.line.me/products/322504000"
       },
@@ -174,7 +126,7 @@
         "id": "322558691",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 28,
+        "stock": 29,
         "name": "【DIOR】J'adore金緻髮香噴霧 35ML",
         "url": "https://giftshop-tw.line.me/products/322558691"
       },
@@ -182,7 +134,7 @@
         "id": "322562989",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 147,
+        "stock": 148,
         "name": "【DIOR】迪奧潤唇修護雙件組 限量禮盒版 [快速出貨]",
         "url": "https://giftshop-tw.line.me/products/322562989"
       },
@@ -204,5 +156,5 @@
       }
     ]
   },
-  "updatedAt": "2026-11-17T14:10:34.286078+08:00"
+  "updatedAt": "2026-11-17T15:10:21.726014+08:00"
 }
