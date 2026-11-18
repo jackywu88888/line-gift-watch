@@ -34,6 +34,10 @@ HOME_URL = "https://giftshop-tw.line.me/home"
 UA = "Mozilla/5.0 LineGiftCouponWatch/1.0 (+GitHubActions)"
 # landpress 活動頁標題用；首頁商品另用 is_one_dollar_deal（避免只便宜十几元的「新客」組合）
 CAMPAIGN_KEYWORDS = re.compile(r"新朋友|新客|1元|1點|體驗品|請客禮|飲料控|分眾")
+# 商品必須像「新客 1 元／1 點」；不含 1+1、自選色號、品牌館 $0
+_NEW_BUYER_PRODUCT = re.compile(
+    r"新客|新朋友|限定\s*1\s*元|1\s*元體驗|只要\s*1\s*元|只要\s*1\s*點|\b1\s*點|1\s*點試"
+)
 # coupons.txt／COUPON_IDS 手動列出的 ID（含分眾等）一律可推
 _EXPLICIT_COUPON_IDS: set[str] = set()
 # 自動發現：新客滿100折90 或 新客滿89折80（$80券）
@@ -579,10 +583,70 @@ def fetch_live_campaigns(delay: float = 1.0) -> list[CampaignInfo]:
     return results
 
 
+def listed_sale_price(p: ProductInfo) -> Optional[float]:
+    """實際標價：忽略自選規格商品常見的 $0 佔位。"""
+    vals = [
+        v for v in (p.discounted_price, p.price)
+        if isinstance(v, (int, float))
+    ]
+    positive = [v for v in vals if v > 0]
+    if positive:
+        return float(min(positive))
+    if vals:
+        return 0.0
+    return None
+
+
+def extract_home_newbuyer_product_ids(html: str) -> list[str]:
+    """只收新客／1元／1點相關商品，不掃首頁品牌館、自選色號輪播。"""
+    ids: list[str] = []
+
+    def add(pid: str) -> None:
+        if pid and str(pid).isdigit() and str(pid) not in ids:
+            ids.append(str(pid))
+
+    m = re.search(r'id="__NUXT_DATA__">(.*?)</script>', html, re.S)
+    if m:
+        try:
+            root = deref(json.loads(m.group(1)), 1)
+        except Exception:
+            root = None
+
+        def walk(obj: Any, trail: tuple[str, ...] = ()) -> None:
+            if isinstance(obj, dict):
+                trail_s = "/".join(trail).lower().replace("_", "")
+                in_newbuyer = "newbuyer" in trail_s
+                landing = obj.get("landingUrl") or obj.get("url") or obj.get("bannerLandingUrl")
+                title = obj.get("title") or obj.get("productName") or obj.get("name") or obj.get("main") or ""
+                title_s = title if isinstance(title, str) else ""
+                name_hit = bool(_NEW_BUYER_PRODUCT.search(title_s))
+                if isinstance(landing, str) and (in_newbuyer or name_hit or _NEW_BUYER_PRODUCT.search(landing)):
+                    for mid in re.finditer(r"/products/(\d+)", landing):
+                        add(mid.group(1))
+                pid = obj.get("productId") or obj.get("id")
+                looks_like_product = isinstance(obj.get("productName"), str) or "detailProduct" in obj
+                if looks_like_product and (in_newbuyer or name_hit) and isinstance(pid, int) and pid >= 300000000:
+                    add(str(pid))
+                for k, v in obj.items():
+                    walk(v, trail + (str(k),))
+            elif isinstance(obj, list):
+                for x in obj:
+                    walk(x, trail)
+
+        if isinstance(root, dict):
+            walk(root)
+
+    for mm in re.finditer(r"(.{0,100})/products/(\d+)(.{0,100})", html):
+        ctx = unescape(mm.group(1) + mm.group(3))
+        if _NEW_BUYER_PRODUCT.search(ctx):
+            add(mm.group(2))
+    return ids
+
+
 def scan_home(delay: float = 0.25) -> tuple[list[ProductInfo], list[str], list[str]]:
     """
     掃描 giftshop-tw /home：
-    - 回傳符合新客／1元關鍵字且應顯示的商品
+    - 只查新客／1元／1點相關商品（不抓品牌館 $0 自選色號）
     - 發現的優惠券 collection id
     - 發現的 landpress 活動路徑（若有）
     """
@@ -592,7 +656,7 @@ def scan_home(delay: float = 0.25) -> tuple[list[ProductInfo], list[str], list[s
         safe_print(f"[home] HTTP {code}")
         return [], [], []
 
-    product_ids = sorted(set(re.findall(r"/products/(\d+)", html)))
+    product_ids = extract_home_newbuyer_product_ids(html)
     coupon_ids = sorted(set(
         re.findall(r"/collections?/coupon/(\d+)", html)
         + re.findall(r"(?<![/\w])coupon/(\d+)", html)
@@ -607,7 +671,7 @@ def scan_home(delay: float = 0.25) -> tuple[list[ProductInfo], list[str], list[s
     landpress_paths = sorted(set(landpress_paths))
 
     safe_print(
-        f"[home] products={len(product_ids)} coupons={coupon_ids} landpress={landpress_paths}"
+        f"[home] newbuyer-products={len(product_ids)} coupons={coupon_ids} landpress={landpress_paths}"
     )
 
     matched_products: list[ProductInfo] = []
@@ -735,22 +799,32 @@ def is_auto_discoverable_coupon(info: CouponInfo) -> bool:
     return is_new_customer_90_coupon(info) or is_new_customer_80_coupon(info)
 
 
-def is_one_dollar_deal(p: ProductInfo) -> bool:
-    """真・1元／1點優惠；排除只便宜十几元的「新客組合」。"""
+def is_one_dollar_price(p: ProductInfo) -> bool:
+    """標價剛好 $1（不含 $0 自選色號／品牌館）。"""
     if not p.ok or not product_should_display(p):
         return False
     name = p.name or ""
-    if "1點" in name:
+    if re.search(r"自選色號|自選規格|收禮者自選", name):
+        return False
+    price = listed_sale_price(p)
+    return price is not None and price == 1
+
+
+def is_one_point_deal(p: ProductInfo) -> bool:
+    """標題為 1 點相關活動。"""
+    if not p.ok or not product_should_display(p):
+        return False
+    return "1點" in (p.name or "")
+
+
+def is_one_dollar_deal(p: ProductInfo) -> bool:
+    """首頁／推播用：剛好 $1，或標題為 1 點。其餘一律不收。"""
+    if is_one_point_deal(p):
         return True
-    price = p.discounted_price
-    if isinstance(price, (int, float)) and price <= 1:
-        return True
-    if re.search(r"1\s*元|只要\s*1|\$\s*1", name):
-        # 標題寫1元但售價明顯不是1 → 不收
-        if isinstance(price, (int, float)) and price > 5:
-            return False
-        return True
-    return False
+    if not is_one_dollar_price(p):
+        return False
+    # $1 還要標題像新客／1元體驗，避免誤收無關 $1 商品
+    return bool(_NEW_BUYER_PRODUCT.search(p.name or "") or re.search(r"1\s*元|只要\s*1", p.name or ""))
 
 
 def load_product_ids() -> list[str]:
@@ -968,9 +1042,9 @@ def format_message(
     lines.append("=== 1元／新客活動頁 ===")
     if live:
         for c in live:
-            shown = [p for p in (c.products or []) if product_should_display(p) and is_one_dollar_deal(p)]
+            shown = [p for p in (c.products or []) if is_one_dollar_deal(p)]
             if not shown:
-                # 活動頁在期間內但商品非1元 → 仍顯示頁面，不塞淺折扣商品
+                # 活動頁在期間內但商品非剛好$1／1點 → 仍顯示頁面，不塞無關商品
                 shown = []
             if shown:
                 lines.append(f"🎁 {shown[0].name}")
@@ -1004,13 +1078,13 @@ def format_message(
         p for p in home_products
         if is_one_dollar_deal(p) and p.product_id not in seen_ids
     ]
-    lines.append("=== 首頁發現（限1元／1點） ===")
+    lines.append("=== 首頁發現（限剛好$1／1點） ===")
     if home_extra:
         for p in home_extra[:10]:
             lines.extend(_format_product_lines(p))
             lines.append("")
     else:
-        lines.append("首頁目前沒有額外的 1 元／1 點商品（或已出現在上方）。")
+        lines.append("首頁目前沒有額外的剛好 $1／1 點商品（或已出現在上方）。")
         lines.append("")
 
     return "\n".join(lines).strip() + "\n"
