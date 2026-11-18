@@ -43,7 +43,7 @@
             "id": "322596152",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 6998,
+            "stock": 6984,
             "name": "[新客限定1元體驗品]【7-ELEVEN】 7-ELEVEN 超值組合45元超值餐購物金(一次抵用型)",
             "url": "https://giftshop-tw.line.me/products/322596152"
           }
@@ -57,7 +57,7 @@
             "id": "322591122",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 121511,
+            "stock": 121481,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌1,111點！",
             "url": "https://giftshop-tw.line.me/products/322591122"
           }
@@ -99,14 +99,6 @@
         "url": "https://giftshop-tw.line.me/products/321753821"
       },
       {
-        "id": "322102294",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 50535,
-        "name": "天蠍座生日禮🎁快速出貨【KP記憶香氛】時光香水嫩白沐浴露/沐浴乳480ml｜東海代言推薦｜交換禮物/生日禮物/送女生/送男生/女生禮物/男生禮物/女友禮物/男友禮物/閨蜜禮",
-        "url": "https://giftshop-tw.line.me/products/322102294"
-      },
-      {
         "id": "322186441",
         "buyable": true,
         "saleStatus": "SALE",
@@ -121,14 +113,6 @@
         "stock": 62,
         "name": "超人氣韓星推薦✨【Jo Malone London】英倫田園系列香水 30ml 單入組贈萊姆布貼 | 快速出貨 |  緋紅甜菜根 | 收禮者自選香調",
         "url": "https://giftshop-tw.line.me/products/322336124"
-      },
-      {
-        "id": "322371962",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 23,
-        "name": "生日快樂🩷【19again】梳理心事組：雙氣孔柔順舒壓氣墊梳(兩款可選)＋有問必答撲克牌＿贈：雙層緞面束口收納袋（大）- LINE禮物限定",
-        "url": "https://giftshop-tw.line.me/products/322371962"
       },
       {
         "id": "322398123",
@@ -147,36 +131,12 @@
         "url": "https://giftshop-tw.line.me/products/322409019"
       },
       {
-        "id": "322500109",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 38,
-        "name": "『快速出貨』【Bussi】氛圍感隨身香氛組 (髮香噴霧+可自選護手霜香氣）",
-        "url": "https://giftshop-tw.line.me/products/322500109"
-      },
-      {
-        "id": "322514174",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 511,
-        "name": "🚚快速出貨【hince】生日快樂！冰透蜜糖唇頰膏+清透鏡面水感唇釉+客製串珠吊飾+Dewy ball化妝包+獨家禮盒(快速出貨/生日禮物/超值好禮)",
-        "url": "https://giftshop-tw.line.me/products/322514174"
-      },
-      {
         "id": "322558265",
         "buyable": true,
         "saleStatus": "SALE",
         "stock": 177,
         "name": "享獨家禮盒包裝【Jo Malone London】經典髮香噴霧 30ml  | 快速出貨 | 送女友 生日禮物 | 收禮者自選香調 ｜LINE禮物獨家",
         "url": "https://giftshop-tw.line.me/products/322558265"
-      },
-      {
-        "id": "322560177",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 112,
-        "name": "快速出貨【OHIR】宋江御用！生日快樂🎁白山茶花光透白精華水+花束小卡+品牌提袋+客製品牌小花吊飾 (天蠍座生日禮物/朋友送禮/韓國明星同款)",
-        "url": "https://giftshop-tw.line.me/products/322560177"
       },
       {
         "id": "322572424",
@@ -195,22 +155,14 @@
         "url": "https://giftshop-tw.line.me/products/322578072"
       },
       {
-        "id": "322583109",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 241,
-        "name": "生日快樂🎉｜fwee｜玫瑰唇露🌹+奶昔唇釉🍦贈品牌限定提袋🛍️+ 粉色耳機🎧",
-        "url": "https://giftshop-tw.line.me/products/322583109"
-      },
-      {
         "id": "322596152",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 6999,
+        "stock": 6984,
         "name": "[新客限定1元體驗品]【7-ELEVEN】 7-ELEVEN 超值組合45元超值餐購物金(一次抵用型)",
         "url": "https://giftshop-tw.line.me/products/322596152"
       }
     ]
   },
-  "updatedAt": "2026-11-18T08:09:29.683575+08:00"
+  "updatedAt": "2026-11-18T09:08:50.309449+08:00"
 }
