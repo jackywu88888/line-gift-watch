@@ -43,7 +43,7 @@
             "id": "322596152",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 5181,
+            "stock": 5114,
             "name": "[新客限定1元體驗品]【7-ELEVEN】 7-ELEVEN 超值組合45元超值餐購物金(一次抵用型)",
             "url": "https://giftshop-tw.line.me/products/322596152"
           }
@@ -57,7 +57,7 @@
             "id": "322591122",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 109785,
+            "stock": 109438,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌1,111點！",
             "url": "https://giftshop-tw.line.me/products/322591122"
           }
@@ -94,7 +94,7 @@
         "id": "322596152",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 5189,
+        "stock": 5118,
         "name": "[新客限定1元體驗品]【7-ELEVEN】 7-ELEVEN 超值組合45元超值餐購物金(一次抵用型)",
         "url": "https://giftshop-tw.line.me/products/322596152"
       },
@@ -102,19 +102,11 @@
         "id": "322591122",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 109813,
+        "stock": 109458,
         "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌1,111點！",
         "url": "https://giftshop-tw.line.me/products/322591122"
-      },
-      {
-        "id": "322109539",
-        "buyable": true,
-        "saleStatus": "SALE",
-        "stock": 99976542,
-        "name": "[LINE POINTS 1點大於1元活動]【麥當勞】薯條(大)好禮即享券",
-        "url": "https://giftshop-tw.line.me/products/322109539"
       }
     ]
   },
-  "updatedAt": "2026-11-19T23:08:27.329249+08:00"
+  "updatedAt": "2026-11-20T00:10:17.502798+08:00"
 }
