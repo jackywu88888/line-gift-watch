@@ -81,7 +81,7 @@
             "id": "322591122",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 92852,
+            "stock": 92781,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌1,111點！",
             "url": "https://giftshop-tw.line.me/products/322591122"
           }
@@ -118,11 +118,19 @@
         "id": "322591122",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 92859,
+        "stock": 92785,
         "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌1,111點！",
         "url": "https://giftshop-tw.line.me/products/322591122"
+      },
+      {
+        "id": "322109539",
+        "buyable": true,
+        "saleStatus": "SALE",
+        "stock": 99976449,
+        "name": "[LINE POINTS 1點大於1元活動]【麥當勞】薯條(大)好禮即享券",
+        "url": "https://giftshop-tw.line.me/products/322109539"
       }
     ]
   },
-  "updatedAt": "2026-11-24T12:10:55.383114+08:00"
+  "updatedAt": "2026-11-24T13:09:23.371318+08:00"
 }
