@@ -51,8 +51,8 @@
       },
       "2570899": {
         "status": "ISSUING",
-        "remaining": 4312,
-        "claimed": 688,
+        "remaining": 4209,
+        "claimed": 791,
         "title": "新客快閃回饋:$90元限量優惠券"
       }
     },
@@ -79,7 +79,7 @@
             "id": "322596152",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 2399,
+            "stock": 2381,
             "name": "[新客限定1元體驗品]【7-ELEVEN】 7-ELEVEN 超值組合45元超值餐購物金(一次抵用型)",
             "url": "https://giftshop-tw.line.me/products/322596152"
           }
@@ -93,7 +93,7 @@
             "id": "322591122",
             "buyable": true,
             "saleStatus": "SALE",
-            "stock": 86303,
+            "stock": 86177,
             "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌1,111點！",
             "url": "https://giftshop-tw.line.me/products/322591122"
           }
@@ -112,7 +112,40 @@
       "https://gift-shop.landpress.line.me/202612_1point/": {
         "status": "LIVE",
         "title": "LINE禮物｜用1點把願望放進聖誕襪！",
-        "products": []
+        "products": [
+          {
+            "id": "322606846",
+            "buyable": false,
+            "saleStatus": "WAIT",
+            "stock": 100000,
+            "name": "【用1點把願望放進聖誕襪】 希望天天是聖誕節！送出願望最高拿1200點",
+            "url": "https://giftshop-tw.line.me/products/322606846"
+          },
+          {
+            "id": "322613935",
+            "buyable": false,
+            "saleStatus": "WAIT",
+            "stock": 100000,
+            "name": "【用1點把願望放進聖誕襪】 希望有吃不完的零食！送出願望最高拿1200點",
+            "url": "https://giftshop-tw.line.me/products/322613935"
+          },
+          {
+            "id": "322613939",
+            "buyable": false,
+            "saleStatus": "WAIT",
+            "stock": 100000,
+            "name": "【用1點把願望放進聖誕襪】 希望擁有一扇任務門！送出願望最高拿1200點",
+            "url": "https://giftshop-tw.line.me/products/322613939"
+          },
+          {
+            "id": "322613940",
+            "buyable": false,
+            "saleStatus": "WAIT",
+            "stock": 100000,
+            "name": "【用1點把願望放進聖誕襪】 希望禮物拆不完！送出願望最高拿1200點",
+            "url": "https://giftshop-tw.line.me/products/322613940"
+          }
+        ]
       }
     },
     "watchedProducts": [
@@ -130,11 +163,11 @@
         "id": "322591122",
         "buyable": true,
         "saleStatus": "SALE",
-        "stock": 86352,
+        "stock": 86190,
         "name": "【1點轉出好運氣】 用 LINE POINTS 1點最高兌1,111點！",
         "url": "https://giftshop-tw.line.me/products/322591122"
       }
     ]
   },
-  "updatedAt": "2026-11-26T10:11:53.691237+08:00"
+  "updatedAt": "2026-11-26T11:10:10.045483+08:00"
 }
